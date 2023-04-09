@@ -1,0 +1,7 @@
+../source/optic.c:37:6:MoveToNextState	0	static
+../source/optic.c:43:6:InitOpticMeasurement	0	static
+../source/optic.c:54:6:StartConversion	0	static
+../source/optic.c:22:6:OpticMeasure	8	static
+../source/optic.c:62:6:ADC0_SEQA_IRQHandler	16	static
+../source/optic.c:90:6:SET_IR_LED	0	static
+../source/optic.c:95:6:RESET_IR_LED	0	static

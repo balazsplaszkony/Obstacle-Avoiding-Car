@@ -1,0 +1,7 @@
+../source/motor.c:13:6:InitMotors	0	static
+../source/motor.c:27:6:SetPWM_right	8	static
+../source/motor.c:34:6:SetPWM_left	8	static
+../source/motor.c:40:6:SetRPM	0	static
+../source/motor.c:45:6:RotateForward	0	static
+../source/motor.c:51:6:RotateBackward	0	static
+../source/motor.c:57:6:StopMotors	0	static

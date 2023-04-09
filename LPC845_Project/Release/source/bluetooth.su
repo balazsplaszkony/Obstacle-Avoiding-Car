@@ -1,0 +1,6 @@
+../source/bluetooth.c:81:6:hasNewPrompt	0	static
+../source/bluetooth.c:87:6:CopyMessage	16	static
+../source/bluetooth.c:94:6:UsartBufferInit	0	static
+../source/bluetooth.c:103:6:ClearBuffer	0	static
+../source/bluetooth.c:112:6:USART1_sendByte	0	static
+../source/bluetooth.c:117:6:USART1_IRQHandler	0	static

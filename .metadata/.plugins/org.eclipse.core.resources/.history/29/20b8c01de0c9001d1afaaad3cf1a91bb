@@ -1,0 +1,37 @@
+/*
+ * bluetooth.h
+ *
+ *  Created on: 2023. márc. 9.
+ *      Author: plasz
+ */
+
+#ifndef BLUETOOTH_H_
+#define BLUETOOTH_H_
+#include "LPC845.h"
+#include <stdbool.h>
+#include "peripherals.h"
+#include "fsl_debug_console.h"
+
+#define BUFFER_SIZE     64
+#define USART_CLOCK_SRC kCLOCK_Fro32M
+
+extern volatile uint8_t uart_ring_buffer[BUFFER_SIZE];
+static usart_handle_t uart_handle;
+
+
+typedef enum VehicleControl{
+	FORWARD = 'F',
+	BACKWARD = 'B',
+	RIGHT = 'R',
+	LEFT = 'L',
+	STOP = 'S'
+}VehicleControl;
+void init_usart1_ring_buffer(void);
+void USART1_USART_IRQ_HANDLER(void);
+extern volatile bool bluetooth_flag;
+extern volatile VehicleControl bluetooth_data;
+
+void USART1_IRQHandler(void);
+
+
+#endif /* BLUETOOTH_H_ */

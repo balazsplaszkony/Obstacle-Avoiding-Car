@@ -1,0 +1,19 @@
+#include "direction.h"
+
+
+void CalculateDirection()
+{
+	//legelső közelítés
+	switch(bluetooth_prompts.buff[0])
+	{
+	case FORWARD: if(ultrasonic_measurement.distance_in_cm > 30)
+				  	  SetDirection(GOFORWARD);
+				  break;
+
+
+
+
+	case STOP: SetDirection(STOPCAR); break;
+	}
+	//TODO
+}

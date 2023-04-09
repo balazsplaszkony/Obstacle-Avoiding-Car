@@ -1,0 +1,34 @@
+/*
+ * speedcontrol.h
+ *
+ *  Created on: 2023. márc. 8.
+ *      Author: plasz
+ */
+
+#ifndef MOTOR_H_
+#define MOTOR_H_
+
+#include "ultrasonic.h"
+#include "optic.h"
+#include "bluetooth.h"
+
+typedef enum MotorDirection{
+	FORWARD_M,
+	BACKWARD_M
+}MotorDirection;
+
+typedef struct Motor{
+	volatile uint32_t rpm;
+	MotorDirection direction;
+	volatile int* pwm_pin;
+	volatile int* dir_pin;
+
+}Motor;
+
+void SetRPM(Motor* motor);
+void SetDirection(Motor* motor, Direction dir);
+
+void ControlMotors();
+
+
+#endif /* MOTOR_H_ */

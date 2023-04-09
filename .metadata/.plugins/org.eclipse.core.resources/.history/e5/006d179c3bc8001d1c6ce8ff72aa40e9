@@ -1,0 +1,64 @@
+/*
+ * optic.c
+ *
+ *  Created on: 2023. márc. 8.
+ *      Author: plasz
+ */
+
+
+#include "optic.h"
+
+volatile OpticMeasurement optic_measurement = {0, 0, 0, 0, false, StartConversion};
+
+void ReadOpticSensors()
+{
+	//TODO ADC
+	;
+}
+void OpticMeasure()
+{
+	switch(optic_measurement.status){
+		case StartConversion: StartADC(); break;
+		case WaitForConversion: break;
+	}
+}
+
+void StartADC()
+{
+	// Enable interrupt from ADC
+	ADC_EnableInterrupts(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptEnable);
+
+	// Enable interrupt ADC0_SEQA_IRQn request in the NVIC.
+	EnableIRQ(ADC0_ADC_SEQ_A_IRQN);
+
+	// Start the conversion sequence
+	ADC_DoSoftwareTriggerConvSeqA(ADC0_PERIPHERAL);
+
+	optic_measurement.status = WaitForConversion;
+	optic_measurement.is_valid = false;
+
+}
+
+
+/*void ADC0_SEQA_IRQHandler(void)
+{
+	PRINTF("itt vagyok 2");
+	//TODO
+	//EZ ITT MÉG NEM JÓ CSAK KIOLVASVA LETT AZ ADAT, FELDOGLOZVA NEM
+
+    // Read the converted values from the ADC data registers
+    optic_measurement.front_right_distance_in_cm = ADC_GetChannelConversionValue(ADC0_PERIPHERAL, 0U);
+    optic_measurement.front_left_distance_in_cm = ADC_GetChannelConversionValue(ADC0_PERIPHERAL, 1U);
+    optic_measurement.back_right_distance_in_cm = ADC_GetChannelConversionValue(ADC0_PERIPHERAL, 2U);
+    optic_measurement.back_left_distance_in_cm = ADC_GetChannelConversionValue(ADC0_PERIPHERAL, 3U);
+
+	optic_measurement.front_right_distance_in_cm = ADC0->DAT[0];
+	optic_measurement.front_left_distance_in_cm  = ADC0->DAT[1];
+	optic_measurement.back_right_distance_in_cm  = ADC0->DAT[2];
+	optic_measurement.back_left_distance_in_cm   = ADC0->DAT[3];
+
+	optic_measurement.status = StartConversion;
+	optic_measurement.is_valid = true;
+	// Clear the interrupt flag nem tudom kell-e , vagy elintézi magának
+    ADC_ClearStatusFlags(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptFlag);
+}*/

@@ -1,0 +1,29 @@
+#include "direction.h"
+
+
+void CalculateDirection()
+{
+	//legelső közelítés
+	for(int i = 0; bluetooth_prompts.received_bytes; i++, bluetooth_prompts.received_bytes--){
+		switch(bluetooth_prompts.buff[i])
+			{
+			case FORWARD: if(ultrasonic_measurement.distance_in_cm > 30)
+						  	  SetDirection(GOFORWARD);
+						  break;
+
+			case BACKWARD: if(optic_measurement.back_left < TRESHOLD &&
+							  optic_measurement.back_right < TRESHOLD)
+								SetDirection(GOBACKWARD);
+
+			case RIGHT: if(optic_measurement.front_right < TRESHOLD) SetDirection(TURNRIGHT);
+						break;
+
+			case LEFT: if(optic_measurement.front_left < TRESHOLD) SetDirection(TURNLEFT);
+							break;
+
+			case STOP: SetDirection(STOPCAR); break;
+			}
+	}
+
+	//TODO
+}

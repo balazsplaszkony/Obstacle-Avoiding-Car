@@ -1,0 +1,49 @@
+/*
+ * bluetooth.c
+ *
+ *  Created on: 2023. márc. 9.
+ *      Author: plasz
+ */
+
+
+#include "bluetooth.h"
+
+//volatile bool bluetooth_flag = false;
+//volatile VehicleControl bluetooth_data = 0;
+
+ring_buffer_t uart_ring_buffer;
+
+ void init_usart1_ring_buffer(void) {
+  /* Initialize the ring buffer */
+  uart_ring_buffer.head = 0;
+  uart_ring_buffer.tail = 0;
+
+  /* Create a USART handle for ring buffer transfer */
+  usart_transfer_t usart_transfer;
+  USART_TransferCreateHandleRingBuffer(USART1_PERIPHERAL, &usart_transfer, uart_ring_buffer.buffer, BUFFER_SIZE);
+
+  /* Enable USART RX ready interrupt */
+  USART_EnableInterrupts(USART1_PERIPHERAL, kUSART_RxReadyInterruptEnable);
+
+  /* Set USART interrupt priority */
+  NVIC_SetPriority(USART1_USART_IRQN, USART1_USART_IRQ_PRIORITY);
+
+  /* Enable USART interrupt request */
+  EnableIRQ(USART1_USART_IRQN);
+}
+//USART_TransferStartRingBuffer()
+/* Interrupt handler for USART1 */
+void USART1_IRQHandler(void) {
+  /* Handle RX ready interrupt */
+  if ((kUSART_RxReady & USART_GetStatusFlags(USART1_PERIPHERAL)) != 0U) {
+    USART_TransferStartRingBuffer(USART1_PERIPHERAL, &uart_transfer, 1);
+  }
+}
+/*void USART1_IRQHandler(void)
+{
+	bluetooth_flag = true;
+	bluetooth_data = USART1->RXDAT;
+    USART_ClearStatusFlags(USART1_PERIPHERAL, kUSART_RxReady);
+}
+
+*

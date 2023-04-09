@@ -1,0 +1,72 @@
+/*
+ * optic.c
+ *
+ *  Created on: 2023. márc. 8.
+ *      Author: plasz
+ */
+
+#include "optic.h"
+
+volatile OpticMeasurement optic_measurement; //= {0, 0, 0, 0,} ;//false, StartConversion};
+//volatile uint32_t potmeter = 0;
+void OpticMeasure()
+{
+	if(optic_measurement.optic_flag)
+	{
+		switch(optic_measurement.status){
+			case StartFirstConversion: StartADC(); break;
+			case WaitForFirstConversion: break;
+			case StartSecondConversion: StartADC(); break;
+			case WaitForSecondConversion: break;
+		}
+		if(optic_measurement.status == StartFirstConversion)
+			optic_measurement.status = StartSecondConversion;
+
+		if(optic_measurement.status == StartSecondConversion)
+			optic_measurement.status = StartFirstConversion;
+	}
+
+}
+
+void InitOpticMeasurement(OpticMeasurement* optic_measurement)
+{
+	optic_measurement->status = StartFirstConversion;
+	optic_measurement->is_valid = false;
+	optic_measurement->optic_flag = false;
+	optic_measurement->back_left_val = 0;
+	optic_measurement->back_right_val = 0;
+	optic_measurement->front_left_val = 0;
+	optic_measurement->front_right_val = 0;
+
+}
+
+void StartADC()
+{
+	ADC_EnableInterrupts(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptEnable);
+	EnableIRQ(ADC0_ADC_SEQ_A_IRQN);
+
+//	optic_measurement.status = WaitForConversion;
+//	optic_measurement.is_valid = false;
+	ADC_DoSoftwareTriggerConvSeqA(ADC0_PERIPHERAL);
+
+}
+
+
+void ADC0_SEQA_IRQHandler(void)
+{
+	//EZ ITT MÉG NEM JÓ CSAK KIOLVASVA LETT AZ ADAT, FELDOGLOZVA NEM
+
+	//ADC_GetChannelConversionValue(ADC0_PERIPHERAL, 0U);
+	//potmeter = ADC0->DAT[0] & ADC_RESULT_MASK;
+	if(optic_measurement.status == StartFirstConversion){
+		optic_measurement.front_right_val = ADC0->DAT[1] & ADC_RESULT_MASK;
+		optic_measurement.front_left_val  = ADC0->DAT[2] & ADC_RESULT_MASK;
+		optic_measurement.back_right_val  = ADC0->DAT[3] & ADC_RESULT_MASK;
+		optic_measurement.back_left_val   = ADC0->DAT[5] & ADC_RESULT_MASK;
+	}
+
+
+//	optic_measurement.status = StartConversion;
+//	optic_measurement.is_valid = true;
+    ADC_ClearStatusFlags(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptFlag);
+}

@@ -1,0 +1,7 @@
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+../source/ultrasonic.c:7:6:InitUltrasonicMeasurement	16	static
+../source/ultrasonic.c:14:6:UltrasonicMeasure	8	static
+../source/ultrasonic.c:24:6:TriggerUltrasonicSensor	8	static
+../source/ultrasonic.c:30:6:EndTriggerUltrasonicSensor	8	static
+../source/ultrasonic.c:38:6:InvalidateMeasurement	8	static
+../source/ultrasonic.c:43:6:Ultrasonic_Callback	16	static

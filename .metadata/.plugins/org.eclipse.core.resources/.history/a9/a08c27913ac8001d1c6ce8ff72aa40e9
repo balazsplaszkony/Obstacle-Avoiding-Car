@@ -1,0 +1,41 @@
+/*
+ * optic.h
+ *
+ *  Created on: 2023. márc. 8.
+ *      Author: plasz
+ */
+
+
+#ifndef OPTIC_H_
+#define OPTIC_H_
+
+#include <stdbool.h>
+#include "peripherals.h"
+
+#define TRESHOLD  //ki kell még méregetni
+
+
+typedef enum Status_Optic
+{
+	StartConversion,
+	WaitForConversion,
+} OpticStatus;
+
+typedef struct OpticMeasurement
+{
+	float front_right_distance_in_cm;
+	float front_left_distance_in_cm;
+	float back_right_distance_in_cm;
+	float back_left_distance_in_cm;
+	bool is_valid;
+	OpticStatus status;
+}OpticMeasurement;
+
+
+extern volatile OpticMeasurement optic_measurement;
+
+void OpticMeasure();
+void ReadOpticSensors();
+void StartADC();
+
+#endif /* OPTIC_H_ */

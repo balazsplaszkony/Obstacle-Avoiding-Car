@@ -1,0 +1,13 @@
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS/core_cm0plus.h:741:22:__NVIC_EnableIRQ	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common_arm.h:499:24:EnableIRQ	24	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h:478:20:ADC_DoSoftwareTriggerConvSeqA	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h:708:20:ADC_EnableInterrupts	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h:762:20:ADC_ClearStatusFlags	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+../source/optic.c:22:6:OpticMeasure	8	static
+../source/optic.c:37:6:MoveToNextState	8	static
+../source/optic.c:43:6:InitOpticMeasurement	16	static
+../source/optic.c:54:6:StartConversion	8	static
+../source/optic.c:62:6:ADC0_SEQA_IRQHandler	8	static
+../source/optic.c:90:6:SET_IR_LED	8	static
+../source/optic.c:95:6:RESET_IR_LED	8	static

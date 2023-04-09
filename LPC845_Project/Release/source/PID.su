@@ -1,0 +1,3 @@
+../source/PID.c:6:6:PIDInit	0	static
+../source/PID.c:10:6:PIDContollerUpdate	32	static
+../source/PID.c:24:6:isPIDUpdated	0	static

@@ -1,0 +1,8 @@
+../drivers/fsl_capt.c:71:6:CAPT_Init	16	static
+../drivers/fsl_capt.c:121:6:CAPT_Deinit	0	static
+../drivers/fsl_capt.c:155:6:CAPT_GetDefaultConfig	8	static
+../drivers/fsl_capt.c:180:6:CAPT_SetPollMode	0	static
+../drivers/fsl_capt.c:198:6:CAPT_EnableDMA	0	static
+../drivers/fsl_capt.c:212:6:CAPT_DisableDMA	0	static
+../drivers/fsl_capt.c:231:6:CAPT_GetTouchData	12	static
+../drivers/fsl_capt.c:285:6:CAPT_PollNow	0	static

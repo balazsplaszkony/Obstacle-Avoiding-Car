@@ -1,0 +1,17 @@
+/*
+ * bluetooth.c
+ *
+ *  Created on: 2023. márc. 9.
+ *      Author: plasz
+ */
+
+
+#include "bluetooth.h"
+
+volatile bool bluetooth_flag = false;
+
+void USART1_IRQHandler(void)
+{
+	bluetooth_flag = true;
+    USART_ClearStatusFlags(USART1_PERIPHERAL, kUSART_RxReady);
+}

@@ -1,0 +1,6 @@
+../source/ultrasonic.c:7:6:InitUltrasonicMeasurement	0	static
+../source/ultrasonic.c:24:6:TriggerUltrasonicSensor	8	static
+../source/ultrasonic.c:30:6:EndTriggerUltrasonicSensor	8	static
+../source/ultrasonic.c:38:6:InvalidateMeasurement	0	static
+../source/ultrasonic.c:14:6:UltrasonicMeasure	8	static
+../source/ultrasonic.c:43:6:Ultrasonic_Callback	16	static

@@ -1,0 +1,2 @@
+../source/encoder.c:24:6:EncoderRightCallback	8	static
+../source/encoder.c:41:6:EncoderLeftCallback	8	static

@@ -1,0 +1,10 @@
+../source/car.c:14:6:InitComponents	8	static
+../source/car.c:22:6:InitCar	0	static
+../source/car.c:35:6:ProcessPrompts	32	static
+../source/car.c:68:6:GoForward	8	static
+../source/car.c:72:6:GoBackward	8	static
+../source/car.c:77:6:TurnRight	8	static
+../source/car.c:82:6:TurnLeft	8	static
+../source/car.c:87:6:StopCar	8	static
+../source/car.c:92:6:isObstacleDetected	8	static
+../source/car.c:100:6:UpdateDirection	8	static

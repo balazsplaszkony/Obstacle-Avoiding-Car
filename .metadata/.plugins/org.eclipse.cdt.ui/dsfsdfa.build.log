@@ -1,0 +1,11 @@
+13:39:37 **** Incremental Build of configuration Debug for project dsfsdfa ****
+make -r -j4 all 
+make[1]: Nothing to be done for 'main-build'.
+Performing post-build steps
+arm-none-eabi-size "dsfsdfa.axf"; # arm-none-eabi-objcopy -v -O binary "dsfsdfa.axf" "dsfsdfa.bin" ; # checksum -p LPC845 -d "dsfsdfa.bin";
+   text	   data	    bss	    dec	    hex	filename
+  10604	      4	   2400	  13008	   32d0	dsfsdfa.axf
+ 
+
+13:39:37 Build Finished. 0 errors, 0 warnings. (took 308ms)
+

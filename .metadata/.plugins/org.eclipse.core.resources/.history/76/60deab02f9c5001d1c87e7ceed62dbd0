@@ -1,0 +1,26 @@
+/*
+ * speedcontrol.c
+ *
+ *  Created on: 2023. márc. 8.
+ *      Author: plasz
+ */
+
+#include "motor.h"
+
+void SetRPM(Motor* motor)
+{
+	//TODO
+}
+
+void SetDirection(Motor* motor, Direction dir)
+{
+	motor->direction = dir;
+	//GPIO_PinWrite(base, port, pin, output);
+	motor->dir_pin;
+}
+
+void ControlMotors()
+{
+	//TODO
+	;
+}

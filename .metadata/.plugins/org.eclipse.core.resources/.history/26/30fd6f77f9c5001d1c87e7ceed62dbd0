@@ -1,0 +1,117 @@
+/*
+ * Copyright 2016-2023 NXP
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification,
+ * are permitted provided that the following conditions are met:
+ *
+ * o Redistributions of source code must retain the above copyright notice, this list
+ *   of conditions and the following disclaimer.
+ *
+ * o Redistributions in binary form must reproduce the above copyright notice, this
+ *   list of conditions and the following disclaimer in the documentation and/or
+ *   other materials provided with the distribution.
+ *
+ * o Neither the name of NXP Semiconductor, Inc. nor the names of its
+ *   contributors may be used to endorse or promote products derived from this
+ *   software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/**
+ * @file    main.c
+ * @brief   Application entry point.
+ */
+#include <motor.h>
+#include <stdio.h>
+#include "board.h"
+#include "peripherals.h"
+#include "pin_mux.h"
+#include "clock_config.h"
+#include "LPC845.h"
+#include "fsl_debug_console.h"
+
+
+/* TODO: insert other include files here. */
+#include "stdbool.h"
+#include "distance.h"
+#include "ultrasonic.h"
+#include "bluetooth.h"
+
+
+/* TODO: insert other definitions and declarations here. */
+
+//extern bool UltrasonicFlag;
+//volatile UltraSonicMeasurement ultrasonic_measurement;
+
+extern bool BluetoothFlag;
+
+//int bluetooth_data;
+//extern bool TimerFlag;
+
+/*
+ * @brief   Application entry point.
+ */
+int main(void) {
+
+    /* Init board hardware. */
+    BOARD_InitBootPins();
+    BOARD_InitBootClocks();
+    BOARD_InitBootPeripherals();
+#ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
+    /* Init FSL debug console. */
+    BOARD_InitDebugConsole();
+#endif
+    //PRINTF("Hello World\n");
+    if (SysTick_Config(SystemCoreClock / 1000U))
+    {
+    while (1){} //hibás osztás érték esetén végtelen ciklus
+    }
+
+    while(true) {
+    	if(bluetooth_flag) //bluetooth
+    	{
+    		  //bluetooth_data = USART1->RXDAT;
+    		bluetooth_flag = false;
+    	}
+  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)
+  	  	{
+  	  		char str_uh[16];
+  	  		snprintf(str_uh, sizeof(str_uh), "%.4f", ultrasonic_measurement.distance_in_cm);
+  	  		PRINTF("%s cm\n", str_uh);
+  	  	}
+  	  	if(optic_measurement.status == StartConversion && optic_measurement.is_valid)
+  	  	{
+  	  		char str_bl[16];
+  	  		snprintf(str_bl, sizeof(str_bl), "%.4f", optic_measurement.back_left_distance_in_cm);
+  	   		PRINTF("BH: %s\n", str_bl);
+
+  	  		char str_rl[16];
+  	  		snprintf(str_rl, sizeof(str_rl), "%.4f", optic_measurement.back_right_distance_in_cm);
+  	   		PRINTF("JH: %s\n", str_rl);
+
+  	   		char str_bf[16];
+  	  		snprintf(str_bf, sizeof(str_bf), "%.4f", optic_measurement.front_left_distance_in_cm);
+  	   		PRINTF("BE: %s\n", str_bf);
+
+  	  		char str_je[16];
+  	  		snprintf(str_je, sizeof(str_je), "%.4f", optic_measurement.front_right_distance_in_cm);
+  	   		PRINTF("JE: %s\n", str_je);
+  	  	}
+      	SenseDistance();
+    	  // TODO adatok átadása
+    	 ControlMotors();
+
+    }
+    return 0;
+}

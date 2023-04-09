@@ -1,0 +1,18 @@
+/*
+ * bluetooth.h
+ *
+ *  Created on: 2023. márc. 9.
+ *      Author: plasz
+ */
+
+#ifndef BLUETOOTH_H_
+#define BLUETOOTH_H_
+#include "LPC845.h"
+#include <stdbool.h>
+#include "peripherals.h"
+
+extern volatile bool bluetooth_flag;
+void USART1_IRQHandler(void);
+
+
+#endif /* BLUETOOTH_H_ */

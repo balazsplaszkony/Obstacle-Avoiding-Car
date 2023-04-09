@@ -1,0 +1,9 @@
+../drivers/fsl_adc.c:48:6:ADC_Init	12	static
+../drivers/fsl_adc.c:149:6:ADC_GetDefaultConfig	8	static
+../drivers/fsl_adc.c:182:6:ADC_Deinit	0	static
+../drivers/fsl_adc.c:346:6:ADC_DoSelfCalibration	24	static
+../drivers/fsl_adc.c:388:6:ADC_SetConvSeqAConfig	0	static
+../drivers/fsl_adc.c:439:6:ADC_SetConvSeqBConfig	0	static
+../drivers/fsl_adc.c:492:6:ADC_GetConvSeqAGlobalConversionResult	8	static
+../drivers/fsl_adc.c:524:6:ADC_GetConvSeqBGlobalConversionResult	8	static
+../drivers/fsl_adc.c:557:6:ADC_GetChannelConversionResult	8	static

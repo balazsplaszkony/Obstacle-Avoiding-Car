@@ -1,0 +1,8 @@
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_clock.h:558:20:CLOCK_EnableClock	0	static
+../board/pin_mux.c:100:6:BOARD_InitPins	48	static
+../board/pin_mux.c:229:6:BOARD_InitLEDsPins	32	static
+../board/pin_mux.c:327:6:BOARD_InitDEBUG_UARTPins	8	static
+../board/pin_mux.c:397:6:BOARD_InitSWD_DEBUGPins	8	static
+../board/pin_mux.c:481:6:BOARD_InitBUTTONsPins	16	static
+../board/pin_mux.c:539:6:BOARD_InitCAPTPins	8	static
+../board/pin_mux.c:54:6:BOARD_InitBootPins	8	static
