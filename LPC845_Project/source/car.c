@@ -25,11 +25,14 @@ void InitCar()
 	car.obstacle_avoidance = true;
 	car.tempomat = false;
 	car.speed = MinimalSpeed;
+	car.is_obstacle_in_the_way = false;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = true;
 	car_prev.tempomat = false;
 	car_prev.speed = MinimalSpeed;
+	car_prev.is_obstacle_in_the_way = false;
+
 }
 
 void ProcessPrompts()
@@ -37,8 +40,7 @@ void ProcessPrompts()
 
 	Car car_new = car;
 
-
-	for(int i = 0; bluetooth_prompts.received_bytes; i++, bluetooth_prompts.received_bytes--){
+	for(int i = 0; bluetooth_prompts.received_bytes > 0; i++, bluetooth_prompts.received_bytes--){
 	switch(bluetooth_prompts.buff[i])
 		{
 		case FORWARD: car_new.direction = GOFORWARD; break;
@@ -99,44 +101,85 @@ bool isObstacleDetected(){
 }
 void UpdateDirection(){
 
-		if(car.direction == car_prev.direction && !isObstacleDetected())
+		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance))
 			return;
 		switch(car.direction)
 		{
-		case GOFORWARD: if(ultrasonic_measurement.distance_in_cm > UltrasonicTreshold)
+		case GOFORWARD: if((!car.obstacle_avoidance) || (ultrasonic_measurement.distance_in_cm > UltrasonicTreshold
+							 && ultrasonic_measurement.is_valid))
 							GoForward();
 						else{
-							car.direction = STOPCAR;
+							//car.direction = STOPCAR;
 							StopCar();
+							car.is_obstacle_in_the_way = true;
 						}
 			 	 	 	break;
 
-		case GOBACKWARD: if(optic_measurement.back_left < OpticTreshold &&
-				  	  	  	optic_measurement.back_right < OpticTreshold)
+		case GOBACKWARD: if((!car.obstacle_avoidance) || (optic_measurement.back_left < OpticTreshold &&
+				  	  	  	optic_measurement.back_right < OpticTreshold))
 						 GoBackward();
 						else{
-							car.direction = STOPCAR;
+							//car.direction = STOPCAR;
 							StopCar();
+							car.is_obstacle_in_the_way = true;
 						}
 						break;
 
-		case TURNRIGHT: if(optic_measurement.front_right < OpticTreshold)
+		case TURNRIGHT: if((!car.obstacle_avoidance) || optic_measurement.front_right < OpticTreshold)
 							TurnRight();
 						else{
-							car.direction = STOPCAR;
+							//car.direction = STOPCAR;
 							StopCar();
+							car.is_obstacle_in_the_way = true;
 						}
 						break;
-		case TURNLEFT: if(optic_measurement.front_left < OpticTreshold)
+		case TURNLEFT: if((!car.obstacle_avoidance) || optic_measurement.front_left < OpticTreshold)
 						    TurnLeft();
 					   else{
-						   	car.direction = STOPCAR;
+						   	//car.direction = STOPCAR;
 						   	StopCar();
+							car.is_obstacle_in_the_way = true;
 					   	   }
 					   break;
 		case STOPCAR: StopCar();break;
 		default: break;
 		}
+
+}
+void FindClearRoute(){
+
+	// Ez az egész még nem jó, ez csak egy vázlat
+	// Ez most blokkoló, ez így valszeg nem lesz jó
+	// Először jobbra néz aztán balra, és amelyik irányba messzebb vann akadály
+	// az UH mérés szerint, arra megy tovább
+
+	if(car.direction == GOFORWARD){
+			LookToTheRight();
+			while(!servo_turn_finished);
+			servo_turn_finished = false;
+			uint32_t distance_to_right = ultrasonic_measurement.distance_in_cm;
+
+			LookToTheLeft();
+			while(!servo_turn_finished);
+			servo_turn_finished = false;
+			uint32_t distance_to_left = ultrasonic_measurement.distance_in_cm;
+
+			LookStraight();
+
+			if(distance_to_right > distance_to_left)
+			{
+				car.direction = TURNRIGHT;
+				TurnRight();
+			}
+			else
+			{
+				car.direction = TURNLEFT;
+				TurnLeft();
+			}
+			car.is_obstacle_in_the_way = false;
+
+	}
+
 
 }
 

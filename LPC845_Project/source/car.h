@@ -17,6 +17,8 @@
 #include "ultrasonic.h"
 #include "optic.h"
 #include <stdbool.h>
+#include "servo.h"
+
 
 #define MinimalSpeed  1
 #define MaximumSpeed  9
@@ -35,6 +37,7 @@ typedef struct Car{
 	//ide belerakhatnám az összes érzékelőt?
 
 	Direction direction;
+	bool is_obstacle_in_the_way;
 	bool tempomat;
 	bool obstacle_avoidance;
 	uint32_t speed;
@@ -55,6 +58,7 @@ void GoBackward();
 void TurnRight();
 void TurnLeft();
 void StopCar();
+void FindClearRoute();
 
 
 #endif /* CAR_H_ */

@@ -15,7 +15,6 @@ board: LPC845BREAKOUT
 functionalGroups:
 - name: BOARD_InitPeripherals
   UUID: a1bf1abb-ba15-4a89-8c58-09436b4ba743
-  called_from_default_init: true
   selectedCore: core0
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 
@@ -525,14 +524,14 @@ instance:
         - channelNumber: 'kMRT_Channel_2'
         - timerMode: 'kMRT_RepeatMode'
         - timerValueStr: '50 ms'
-        - startTimer: 'true'
+        - startTimer: 'false'
         - enableInterruptRequest: 'true'
       - 3:
         - mrtChannelPrefixID: 'Channel_3'
         - channelNumber: 'kMRT_Channel_3'
         - timerMode: 'kMRT_RepeatMode'
         - timerValueStr: '1.5 ms'
-        - startTimer: 'true'
+        - startTimer: 'false'
         - enableInterruptRequest: 'true'
     - interruptVector:
       - enableInterrupt: 'true'
@@ -575,10 +574,6 @@ static void MRT0_init(void) {
   MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0, MRT0_CHANNEL_0_TICKS);
   /* MRT channel 1 start of MRT0 peripheral initialization */
   MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
-  /* MRT channel 2 start of MRT0 peripheral initialization */
-  MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_2, MRT0_CHANNEL_2_TICKS);
-  /* MRT channel 3 start of MRT0 peripheral initialization */
-  MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_3, MRT0_CHANNEL_3_TICKS);
 }
 
 /***********************************************************************************************************************
@@ -600,5 +595,4 @@ void BOARD_InitPeripherals(void)
  **********************************************************************************************************************/
 void BOARD_InitBootPeripherals(void)
 {
-  BOARD_InitPeripherals();
 }

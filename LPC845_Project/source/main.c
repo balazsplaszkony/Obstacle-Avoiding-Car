@@ -52,18 +52,8 @@
 #include "direction.h"
 #include "car.h"
 
-
 /* TODO: insert other definitions and declarations here. */
 
-//extern bool BluetoothFlag;
-//UsartBuffer bluetooth_prompts;
-
-/*
- * TODO
- * Initialize motor encoders
-   Set target speed for the car
- *
- */
 /*
  * @brief   Application entry point.
  */
@@ -118,7 +108,6 @@ int main(void) {
     		ProcessPrompts();
     	}
 
-    	//Calling the state machine of the optic and ultrasonic distance measurements
 
 // for debugging
 //  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)
@@ -127,7 +116,8 @@ int main(void) {
 //  	  		snprintf(str_uh, sizeof(str_uh), "%d", (int)ultrasonic_measurement.distance_in_cm);
 //  	  		PRINTF("%s cm\n", str_uh);
 //  	  	}
-      	SenseDistance();
+
+
 
 // for debugging
 //  	  	if(optic_measurement.status == StartConversion && optic_measurement.is_valid)
@@ -150,24 +140,31 @@ int main(void) {
 //  	   		//PRINTF("JE: %s\n", str_je);
 //  	  	}
 
+    	//Calling the state machine of the optic and ultrasonic distance measurements
+    		SenseDistance();
 
-      	UpdateDirection();
+    	//Update the direction based on commands and sensor data
+    		UpdateDirection();
 
+    	//If the car cannot go towards the selected direction, look for a clear path
+    		if(car.is_obstacle_in_the_way)
+    		{
+    			FindClearRoute();
+    		}
       	//ezt talán inkább timer interruptból kéne ütemezni az integráló tag miatt
 //      	float pwm_right = PIDContollerUpdate(&pid_right, RPM_right);
 //      	float pwm_left = PIDContollerUpdate(&pid_left, RPM_left);
 
 
       	//calculate duty
-      	//for test duty = 60, motor1: forward
-//      	uint8_t duty = 60;
-//
-//      	if(isPIDUpdated() || hasNewPrompt() )
-//      	{
-//      		SetPWM_right(duty);
-//          	SetPWM_left(duty);
-//      	}
+      	//for test duty cycle = 60%, motor1: forward
+      	uint16_t duty_scaled_up = 600;
 
+      	if(isPIDUpdated())
+      	{
+      		SetPWM(duty_scaled_up, motor_right);
+      		SetPWM(duty_scaled_up, motor_left);
+      	}
 
     }
     return 0;

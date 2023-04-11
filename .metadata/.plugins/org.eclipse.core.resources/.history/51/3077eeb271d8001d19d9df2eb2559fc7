@@ -1,0 +1,13 @@
+/*
+ * servo.c
+ *
+ *  Created on: 2023. ápr. 11.
+ *      Author: plasz
+ */
+
+#include "servo.h"
+
+void LookToTheRight();
+void LookToTheLeft();
+void LookStraight();
+

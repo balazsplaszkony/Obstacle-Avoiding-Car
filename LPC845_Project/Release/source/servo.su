@@ -1,0 +1,3 @@
+../source/servo.c:14:6:LookToTheRight	0	static
+../source/servo.c:24:6:LookToTheLeft	0	static
+../source/servo.c:33:6:LookStraight	0	static

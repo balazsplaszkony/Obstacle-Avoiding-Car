@@ -8,6 +8,7 @@
 #include "PID.h"
 #include "encoder.h"
 #include "fsl_debug_console.h"
+#include "car.h"
 
 /* MRT0_IRQn interrupt handler */
 void MRT0_IRQHANDLER(void) {
@@ -23,17 +24,25 @@ void MRT0_IRQHANDLER(void) {
 
          MRT_ClearStatusFlags(MRT0, kMRT_Channel_1, kMRT_TimerInterruptFlag);
          //mrtChannel0();
-         PIDContollerUpdate(&pid_right, RPM_right);
-         PIDContollerUpdate(&pid_left, RPM_left);
-         updated = true;
+         if(car.direction == GOFORWARD){
+             PIDContollerUpdate(&pid_right, RPM_right);
+             PIDContollerUpdate(&pid_left, RPM_left);
+             updated = true;
+         }
+
     }
     if (MRT_GetStatusFlags(MRT0, kMRT_Channel_2)) {
 
              MRT_ClearStatusFlags(MRT0, kMRT_Channel_2, kMRT_TimerInterruptFlag);
+             MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_2);
+             servo_turn_finished = true;
+
         }
     if (MRT_GetStatusFlags(MRT0, kMRT_Channel_3)) {
 
              MRT_ClearStatusFlags(MRT0, kMRT_Channel_3, kMRT_TimerInterruptFlag);
+          	 MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_3);
+          	 GPIO_PinWrite(GPIO, 0U, BOARD_INITPINS_Servo_PIN, 0);
 
         }
   /* Add for ARM errata 838869, affects Cortex-M4, Cortex-M4F

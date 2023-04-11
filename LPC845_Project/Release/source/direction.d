@@ -27,7 +27,7 @@ source/direction.o source/direction.d: ../source/direction.c \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
  ../source/car.h ../source/motor.h ../source/optic.h ../source/encoder.h \
- ../source/PID.h
+ ../source/PID.h ../source/servo.h
 ../source/direction.h:
 ../source/ultrasonic.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h:
@@ -62,3 +62,4 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/optic.h:
 ../source/encoder.h:
 ../source/PID.h:
+../source/servo.h:

@@ -17,6 +17,7 @@ C_SRCS += \
 ../source/mtb.c \
 ../source/optic.c \
 ../source/semihost_hardfault.c \
+../source/servo.c \
 ../source/state.c \
 ../source/sys.c \
 ../source/ultrasonic.c 
@@ -35,6 +36,7 @@ C_DEPS += \
 ./source/mtb.d \
 ./source/optic.d \
 ./source/semihost_hardfault.d \
+./source/servo.d \
 ./source/state.d \
 ./source/sys.d \
 ./source/ultrasonic.d 
@@ -53,6 +55,7 @@ OBJS += \
 ./source/mtb.o \
 ./source/optic.o \
 ./source/semihost_hardfault.o \
+./source/servo.o \
 ./source/state.o \
 ./source/sys.o \
 ./source/ultrasonic.o 
@@ -70,7 +73,7 @@ source/%.o: ../source/%.c source/subdir.mk
 clean: clean-source
 
 clean-source:
-	-$(RM) ./source/MRT.d ./source/MRT.o ./source/PID.d ./source/PID.o ./source/SysTimer.d ./source/SysTimer.o ./source/bluetooth.d ./source/bluetooth.o ./source/car.d ./source/car.o ./source/direction.d ./source/direction.o ./source/distance.d ./source/distance.o ./source/encoder.d ./source/encoder.o ./source/main.d ./source/main.o ./source/motor.d ./source/motor.o ./source/mtb.d ./source/mtb.o ./source/optic.d ./source/optic.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/state.d ./source/state.o ./source/sys.d ./source/sys.o ./source/ultrasonic.d ./source/ultrasonic.o
+	-$(RM) ./source/MRT.d ./source/MRT.o ./source/PID.d ./source/PID.o ./source/SysTimer.d ./source/SysTimer.o ./source/bluetooth.d ./source/bluetooth.o ./source/car.d ./source/car.o ./source/direction.d ./source/direction.o ./source/distance.d ./source/distance.o ./source/encoder.d ./source/encoder.o ./source/main.d ./source/main.o ./source/motor.d ./source/motor.o ./source/mtb.d ./source/mtb.o ./source/optic.d ./source/optic.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/servo.d ./source/servo.o ./source/state.d ./source/state.o ./source/sys.d ./source/sys.o ./source/ultrasonic.d ./source/ultrasonic.o
 
 .PHONY: clean-source
 

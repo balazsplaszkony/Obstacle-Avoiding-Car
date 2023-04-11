@@ -21,7 +21,12 @@ source/MRT.o source/MRT.d: ../source/MRT.c ../source/optic.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h \
- ../source/PID.h ../source/encoder.h
+ ../source/PID.h ../source/encoder.h ../source/car.h ../source/motor.h \
+ ../source/ultrasonic.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h \
+ ../source/sys.h ../source/SysTimer.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h \
+ ../source/direction.h ../source/bluetooth.h ../source/servo.h
 ../source/optic.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/peripherals.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h:
@@ -47,3 +52,13 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h:
 ../source/PID.h:
 ../source/encoder.h:
+../source/car.h:
+../source/motor.h:
+../source/ultrasonic.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h:
+../source/sys.h:
+../source/SysTimer.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h:
+../source/direction.h:
+../source/bluetooth.h:
+../source/servo.h:
