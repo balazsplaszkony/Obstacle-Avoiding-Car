@@ -449,11 +449,11 @@ instance:
       - 0:
         - output: 'kSCTIMER_Out_0'
         - level: 'kSCTIMER_HighTrue'
-        - dutyCyclePercent: '40'
+        - dutyCyclePercent: '50'
       - 1:
         - output: 'kSCTIMER_Out_1'
         - level: 'kSCTIMER_HighTrue'
-        - dutyCyclePercent: '40'
+        - dutyCyclePercent: '10'
     - pwmMode: 'kSCTIMER_EdgeAlignedPwm'
     - pwmFrequency: '300'
     - events: []
@@ -477,12 +477,12 @@ const sctimer_pwm_signal_param_t SCT0_pwmSignalsConfig[2] = {
   {
     .output = kSCTIMER_Out_0,
     .level = kSCTIMER_HighTrue,
-    .dutyCyclePercent = 40U
+    .dutyCyclePercent = 50U
   },
   {
     .output = kSCTIMER_Out_1,
     .level = kSCTIMER_HighTrue,
-    .dutyCyclePercent = 40U
+    .dutyCyclePercent = 10U
   }
 };
 uint32_t SCT0_pwmEvent[2];

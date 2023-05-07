@@ -74,7 +74,10 @@ int main(void) {
     POWER_DisablePD(kPDRUNCFG_PD_ADC0);
     BOARD_InitBootPeripherals();
     BOARD_InitPeripherals();
-		//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
+//	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
+//	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
+    SetPWM(405, motor_right);
+    SetPWM(210, motor_left);
 //		SetPWM(305, motor_right);
 //		SetPWM(605, motor_left);
 	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
@@ -97,6 +100,13 @@ int main(void) {
     	if(GetUSARTMessage()){
     		ProcessPrompts();
     	}
+    	// for debugging
+    	  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)
+    	  	  	{
+    	  	  		char str_uh[16];
+    	  	  		snprintf(str_uh, sizeof(str_uh), "%d", (int)ultrasonic_measurement.distance_in_cm);
+    	  	  		PRINTF("%s cm\n", str_uh);
+    	  	  	}
     	// Calls the state machine of the optic and ultrasonic distance measurements
     	SenseDistance();
 
@@ -109,7 +119,7 @@ int main(void) {
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
-    	SetSpeed();
+    	//SetSpeed();
     }
     return 0;
 }

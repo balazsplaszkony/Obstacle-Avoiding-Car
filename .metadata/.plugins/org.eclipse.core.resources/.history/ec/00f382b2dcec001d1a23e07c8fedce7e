@@ -1,0 +1,193 @@
+/*
+ * car.c
+ *
+ *  Created on: 2023. márc. 28.
+ *      Author: plasz
+ */
+
+
+#include "car.h"
+Car car;
+Car car_prev;
+
+void InitComponents()
+{
+	InitUltrasonicMeasurement(&ultrasonic_measurement);
+	InitOpticMeasurement(&optic_measurement);
+	InitMotors();
+	UsartBufferInit();
+	INIT_USART();
+
+}
+
+void InitCar()
+{
+	car.direction = STOPCAR;
+	car.obstacle_avoidance = false;
+	car.tempomat = false;
+	car.speed = MinimalSpeed;
+	car.is_obstacle_in_the_way = false;
+	car.is_car_blocked_completely = false;
+
+	car_prev.direction = STOPCAR;
+	car_prev.obstacle_avoidance = false;
+	car_prev.tempomat = false;
+	car_prev.speed = MinimalSpeed;
+	car_prev.is_obstacle_in_the_way = false;
+	car_prev.is_car_blocked_completely = false;
+}
+
+void ProcessPrompts()
+{
+	Car car_new = car;
+
+	for(int i = 0; buffer.received_prompts > 0; i++)
+	{
+        char* prompt = buffer.prompts[i];
+
+		if(strcmp(prompt, "FORWARD")==0){
+			car_new.direction = GOFORWARD;
+			PrintUSART1_NB("OK");
+		}
+
+		else if(strcmp(prompt, "BACKWARD")==0){
+			car_new.direction = GOBACKWARD;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "RIGHT")==0){
+			car_new.direction = TURNRIGHT;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "LEFT")==0){
+			car_new.direction = TURNLEFT;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "STOP")==0){
+			car_new.direction = STOPCAR;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "TOGGLE_TEMPOMAT")==0){
+			car_new.tempomat = (!car_new.tempomat);
+			if(car_new.tempomat)
+			{
+				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)
+					&& car.direction == car_new.direction)
+				{
+					float rpm_setpoint = ScaleUpSetpoint((Encoder_RPM_right + Encoder_RPM_left)/2.0);
+					pid_right.setpoint = rpm_setpoint;
+					pid_left.setpoint =  rpm_setpoint;
+				}
+				else
+				{
+					pid_right.setpoint = ScaleUpSetpoint(Encoder_RPM_right);
+					pid_left.setpoint = ScaleUpSetpoint(Encoder_RPM_left);
+				}
+				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+			}
+			else if(!car_new.tempomat)
+			{
+	          	 MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
+			}
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts[i], "SLOWDOWN")==0){
+			if(car_new.speed > MinimalSpeed) car_new.speed--;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "SPEEDUP")==0){
+			if(car_new.speed < MaximumSpeed) car_new.speed++;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "TOGGLE_OBSTACLE_AVOIDANCE")==0){
+			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
+			PrintUSART1_NB("OK");
+		}
+		else{
+			PrintUSART1_NB("invalid prompt");
+		}
+}
+	car_prev = car;
+	car = car_new;
+	//clear the buffer that contains the prompts
+	ClearBuffer();
+
+}
+void GoForward()
+{
+	RotateForward(&motor_right); RotateForward(&motor_left);
+}
+void GoBackward()
+{
+	RotateBackward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnRight()
+{
+	RotateForward(&motor_right); StopMotor(&motor_left);
+}
+
+void TurnLeft()
+{
+	RotateForward(&motor_left); StopMotor(&motor_right);
+}
+
+void TurnRightStationary()
+{
+	RotateForward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnLeftStationary()
+{
+	RotateForward(&motor_left); RotateBackward(&motor_right);
+}
+
+void StopCar()
+{
+	StopMotor(&motor_right); StopMotor(&motor_left);
+}
+
+bool isObstacleDetected(){
+	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			|| optic_measurement.back_left < OpticTreshold
+			|| optic_measurement.back_right < OpticTreshold
+			|| optic_measurement.front_left < OpticTreshold
+			|| optic_measurement.front_right < OpticTreshold
+			);
+}
+
+bool isRoadBlockedinEveryDirection()
+{
+	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			&& optic_measurement.back_left < OpticTreshold
+			&& optic_measurement.back_right < OpticTreshold
+			&& optic_measurement.front_left < OpticTreshold
+			&& optic_measurement.front_right < OpticTreshold
+			);
+}
+
+void SetSpeed(){
+	if(car.is_car_blocked_completely)
+		return;
+	if(car.tempomat)
+	{
+		 if(isPIDUpdated())
+		 {
+		 SetPWM(RoundPIDOutput(pid_right.output), motor_right);
+		 SetPWM(RoundPIDOutput(pid_left.output), motor_left);
+		 pid_updated = false;
+		 }
+	}
+	else if(!car.tempomat)
+	{
+		if(car.speed != car_prev.speed)
+		{
+			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0,
+			MinimalDuty + (car.speed-1) * deltaDuty, SCT0_pwmEvent[0]);
+			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1,
+			MinimalDuty + (car.speed-1) * deltaDuty, SCT0_pwmEvent[1]);
+		}
+	}
+
+}
+
+

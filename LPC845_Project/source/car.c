@@ -62,7 +62,7 @@ void ProcessPrompts()
 			car_new.direction = TURNLEFT;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "STOP")==0){
+		else if(strcmp(prompt, "STOP\0")==0){
 			car_new.direction = STOPCAR;
 			PrintUSART1_NB("OK");
 		}
@@ -108,7 +108,6 @@ void ProcessPrompts()
 }
 	car_prev = car;
 	car = car_new;
-	//clear the buffer that contains the prompts
 	ClearBuffer();
 
 }

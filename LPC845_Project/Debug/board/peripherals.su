@@ -15,5 +15,5 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../board/peripherals.c:384:13:ADC0_init	8	static
 ../board/peripherals.c:490:13:SCT0_init	16	static
 ../board/peripherals.c:560:13:MRT0_init	8	static
-../board/peripherals.c:592:6:BOARD_InitPeripherals	8	static
-../board/peripherals.c:606:6:BOARD_InitBootPeripherals	8	static
+../board/peripherals.c:590:6:BOARD_InitPeripherals	8	static
+../board/peripherals.c:604:6:BOARD_InitBootPeripherals	8	static

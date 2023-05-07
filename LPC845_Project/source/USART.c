@@ -110,6 +110,9 @@ bool GetUSARTMessage()
 	{
 		buffer.buff[buffer.received_bytes++] = data;
 	}
+//	buffer.received_bytes=10;
+//	char* s = "STOP,L,Rr,";
+//	strcpy(buffer.buff, s);
 	splitUSARTMessage();
 	return buffer.received_bytes > 0;
 }
