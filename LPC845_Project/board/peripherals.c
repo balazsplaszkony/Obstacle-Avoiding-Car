@@ -340,7 +340,7 @@ instance:
       - IRQn: 'ADC0_SEQA_IRQn'
       - enable_interrrupt: 'enabled'
       - enable_priority: 'true'
-      - priority: '1'
+      - priority: '2'
       - enable_custom_name: 'false'
     - enable_irq_seqB: 'false'
     - adc_interrupt_seqB:
@@ -527,7 +527,7 @@ instance:
         - channelNumber: 'kMRT_Channel_1'
         - timerMode: 'kMRT_RepeatMode'
         - timerValueStr: '100 ms'
-        - startTimer: 'true'
+        - startTimer: 'false'
         - enableInterruptRequest: 'true'
       - 2:
         - mrtChannelPrefixID: 'Channel_2'
@@ -549,7 +549,7 @@ instance:
         - IRQn: 'MRT0_IRQn'
         - enable_interrrupt: 'enabled'
         - enable_priority: 'true'
-        - priority: '0'
+        - priority: '1'
         - enable_custom_name: 'false'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
@@ -582,8 +582,6 @@ static void MRT0_init(void) {
   EnableIRQ(MRT0_IRQN);
   /* MRT channel 0 start of MRT0 peripheral initialization */
   MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0, MRT0_CHANNEL_0_TICKS);
-  /* MRT channel 1 start of MRT0 peripheral initialization */
-  MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
 }
 
 /***********************************************************************************************************************

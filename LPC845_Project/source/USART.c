@@ -68,8 +68,9 @@ void UsartBufferInit()
 	buffer.usartflag = false;
 	for(int i = 0; i < rx_buffer_size; i++)
 		buffer.buff[i] = 0;
-	for(int i = 0; i < max_prompts_size; i++)
-			buffer.prompts[i] = 0;
+	for(int i = 0; i < max_number_of_prompts; i++)
+		for(int j = 0; j < max_prompt_size; j++)
+			buffer.prompts[i][j] = 0;
 }
 
 void PrintUSART1_NB(char * str)
@@ -112,12 +113,29 @@ bool GetUSARTMessage()
 	splitUSARTMessage();
 	return buffer.received_bytes > 0;
 }
+//void splitUSARTMessage() {
+//    char* token = strtok(buffer.buff, ",");
+//    for(int i = 0; token != NULL; i++) {
+//        buffer.prompts[buffer.received_prompts++][i] = token;
+//        token = strtok(NULL, ",");
+//    }
+//}
 void splitUSARTMessage() {
-    char* token = strtok(buffer.buff, ",");
-    while (token != NULL) {
-        buffer.prompts[buffer.received_prompts++] = token;
-        token = strtok(NULL, ",");
-    }
+		int i = 0;
+	    int offset = 0;
+	    char* prompt = strtok(buffer.buff + offset, ",");
+	    while (prompt != NULL && i < max_number_of_prompts) {
+	        int promptLength = strlen(prompt);
+	        if (promptLength >= max_prompt_size) {
+	            promptLength = max_prompt_size - 1;
+	        }
+	        strncpy(buffer.prompts[i], prompt, promptLength);
+	        buffer.prompts[i][promptLength] = '\0';
+	        i++;
+	        offset += promptLength + 1;
+	        prompt = strtok(buffer.buff + offset, ",");
+	    }
+	    buffer.received_prompts = i;
 }
 void ClearBuffer()
 {

@@ -13,7 +13,8 @@
 #define LF  0x0a
 
 #define rx_buffer_size 64
-#define max_prompts_size 8
+#define max_prompt_size 30
+#define max_number_of_prompts 8
 
 
 typedef enum ControlPrompt{
@@ -31,7 +32,7 @@ typedef enum ControlPrompt{
 
 typedef struct UsartBuffer{
 	char buff[rx_buffer_size];
-	char prompts[max_prompts_size];
+	char prompts[max_number_of_prompts][max_prompt_size];
 	bool usartflag;
 	uint8_t received_bytes;
 	uint8_t received_prompts;

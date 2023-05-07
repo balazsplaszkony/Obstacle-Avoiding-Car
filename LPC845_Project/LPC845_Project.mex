@@ -1024,7 +1024,7 @@
                            <setting name="IRQn" value="ADC0_SEQA_IRQn"/>
                            <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="1"/>
+                           <setting name="priority" value="2"/>
                            <setting name="enable_custom_name" value="false"/>
                         </struct>
                         <setting name="enable_irq_seqB" value="false"/>
@@ -1131,7 +1131,7 @@
                               <setting name="channelNumber" value="kMRT_Channel_1"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
                               <setting name="timerValueStr" value="100 ms"/>
-                              <setting name="startTimer" value="true"/>
+                              <setting name="startTimer" value="false"/>
                               <setting name="enableInterruptRequest" value="true"/>
                            </struct>
                            <struct name="2">
@@ -1157,7 +1157,7 @@
                               <setting name="IRQn" value="MRT0_IRQn"/>
                               <setting name="enable_interrrupt" value="enabled"/>
                               <setting name="enable_priority" value="true"/>
-                              <setting name="priority" value="0"/>
+                              <setting name="priority" value="1"/>
                               <setting name="enable_custom_name" value="false"/>
                            </struct>
                         </struct>

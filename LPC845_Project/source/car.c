@@ -17,7 +17,7 @@ void InitComponents()
 	InitMotors();
 	UsartBufferInit();
 	INIT_USART();
-
+	PIDInit();
 }
 
 void InitCar()
@@ -41,43 +41,46 @@ void ProcessPrompts()
 {
 	Car car_new = car;
 
-	for(int i = 0; buffer.received_prompts > 0; i++)
+	for(int i = 0; i< buffer.received_prompts; i++)
 	{
-		if(strcmp(buffer.prompts, "FORWARD")==0){
+        char* prompt = buffer.prompts[i];
+
+		if(strcmp(prompt, "FORWARD")==0){
 			car_new.direction = GOFORWARD;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "BACKWARD")==0){
+
+		else if(strcmp(prompt, "BACKWARD")==0){
 			car_new.direction = GOBACKWARD;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "RIGHT")==0){
+		else if(strcmp(prompt, "RIGHT")==0){
 			car_new.direction = TURNRIGHT;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "LEFT")==0){
+		else if(strcmp(prompt, "LEFT")==0){
 			car_new.direction = TURNLEFT;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "STOP")==0){
+		else if(strcmp(prompt, "STOP")==0){
 			car_new.direction = STOPCAR;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "TOGGLE_TEMPOMAT")==0){
+		else if(strcmp(prompt, "TOGGLE_TEMPOMAT")==0){
 			car_new.tempomat = (!car_new.tempomat);
 			if(car_new.tempomat)
 			{
 				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)
 					&& car.direction == car_new.direction)
 				{
-					float rpm_setpoint = (Encoder_RPM_right + Encoder_RPM_left)/2.0;
+					float rpm_setpoint = ScaleUpSetpoint((Encoder_RPM_right + Encoder_RPM_left)/2.0);
 					pid_right.setpoint = rpm_setpoint;
 					pid_left.setpoint =  rpm_setpoint;
 				}
 				else
 				{
-					pid_right.setpoint = Encoder_RPM_right;
-					pid_left.setpoint = Encoder_RPM_left;
+					pid_right.setpoint = ScaleUpSetpoint(Encoder_RPM_right);
+					pid_left.setpoint = ScaleUpSetpoint(Encoder_RPM_left);
 				}
 				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
 			}
@@ -87,15 +90,15 @@ void ProcessPrompts()
 			}
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "SLOWDOWN")==0){
+		else if(strcmp(buffer.prompts[i], "SLOWDOWN")==0){
 			if(car_new.speed > MinimalSpeed) car_new.speed--;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "SPEEDUP")==0){
+		else if(strcmp(prompt, "SPEEDUP")==0){
 			if(car_new.speed < MaximumSpeed) car_new.speed++;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts, "TOGGLE_OBSTACLE_AVOIDANCE")==0){
+		else if(strcmp(prompt, "TOGGLE_OBSTACLE_AVOIDANCE")==0){
 			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
 			PrintUSART1_NB("OK");
 		}

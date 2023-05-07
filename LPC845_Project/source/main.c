@@ -79,12 +79,6 @@ int main(void) {
 //		SetPWM(605, motor_left);
 	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
 
-
-//    NVIC_EnableIRQ(USART1_IRQn);
-//    EnableIRQ(USART1_IRQn);
-//    /* Enable RX interrupt */
-    //USART_EnableInterrupts(USART1_PERIPHERAL, kUSART_RxReadyInterruptEnable );
-
     /* Start receiving data */
 #ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
     /* Init FSL debug console. */
@@ -111,9 +105,7 @@ int main(void) {
 
     	// Looks for a clear path, if the car cannot go towards the selected direction
     	if(car.is_obstacle_in_the_way)
-    	{
     		FindClearRoute();
-    	}
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
@@ -124,7 +116,7 @@ int main(void) {
 
 
 
-// ha nem tud semerre menni a kocsi, és utána arrébb teszik, hogy tudjon azt még le kell kezelni,
-// de egyelőrre egy végtelen ciklust teszek ide
-while(car.is_car_blocked_completely);
+//// ha nem tud semerre menni a kocsi, és utána arrébb teszik, hogy tudjon azt még le kell kezelni,
+//// de egyelőrre egy végtelen ciklust teszek ide
+//while(car.is_car_blocked_completely);
 
