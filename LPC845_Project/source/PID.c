@@ -3,12 +3,23 @@
 	PidController pid_right;
 	PidController pid_left;
 	volatile bool pid_updated = false;
-void PIDInit(){;
-//TODO;
+void PIDInit(){
 
-//pid->max_output =
-//
-//pid->min_output =
+	pid_right.Kd = 1.0;
+	pid_right.Ki = 1.0;
+	pid_right.Kp = 1.0;
+	pid_right.integral = 0.0;
+	pid_right.last_error = 0.0;
+	pid_right.output = 0.0;
+	pid_right.setpoint = 0.0;
+
+	pid_left.Kd = 1.0;
+	pid_left.Ki = 1.0;
+	pid_left.Kp = 1.0;
+	pid_left.integral = 0.0;
+	pid_left.last_error = 0.0;
+	pid_left.output = 0.0;
+	pid_left.setpoint = 0.0;
 }
 
 void PIDContollerUpdate(PidController* pid, float measurement){
@@ -20,28 +31,26 @@ void PIDContollerUpdate(PidController* pid, float measurement){
     pid->integral += pid->Ki * error;
 
     // Limit the integral term to prevent windup
-    if (pid->integral > pid->max_output) {
-            pid->integral = pid->max_output;
+    if (pid->integral > MAX_PID_OUTPUT) {
+            pid->integral = MAX_PID_OUTPUT;
         }
-    else if (pid->integral < pid->min_output) {
-            pid->integral = pid->min_output;
+    else if (pid->integral < MIN_PID_OUTPUT) {
+            pid->integral = MIN_PID_OUTPUT;
         }
 
     float derivative = pid->Kd * (error - pid->last_error);
 
-    pid->output = RoundPIDOutput(proportional + pid->integral + derivative);
+    pid->output = proportional + pid->integral + derivative;
 
     // Limit the output to within the allowable range
-    if (pid->output > pid->max_output) {
-    	pid->output = pid->max_output;
+    if (pid->output > MAX_PID_OUTPUT) {
+    	pid->output = MAX_PID_OUTPUT;
       }
-    else if (pid->output < pid->min_output) {
-    	pid->output = pid->min_output;
+    else if (pid->output < MIN_PID_OUTPUT) {
+    	pid->output = MIN_PID_OUTPUT;
       }
-
+    pid->output += PID_OUTPUT_OFFSET;
     pid->last_error = error;
-    double x = 1;
-    double y =pow(x, 5);
 
 }
 bool isPIDUpdated()
@@ -58,4 +67,7 @@ int RoundPIDOutput(float output)
 	else
 		decimal = (int) 0;
 	return decimal + (int) output;
+}
+float ScaleUpSetpoint(float rpm){
+	return (rpm/MAX_RPM)*MAX_PID_OUTPUT;
 }
