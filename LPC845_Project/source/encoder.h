@@ -19,8 +19,8 @@
 #define Resolution 20
 #define RPMCONST MicroSecondsInMinute * Resolution
 
-extern volatile double RPM_right;
-extern volatile double RPM_left;
+extern volatile float Encoder_RPM_right;
+extern volatile float Encoder_RPM_left;
 
 
 

@@ -25,9 +25,9 @@ void MRT0_IRQHANDLER(void) {
          MRT_ClearStatusFlags(MRT0, kMRT_Channel_1, kMRT_TimerInterruptFlag);
          //mrtChannel0();
          if(car.direction == GOFORWARD){
-             PIDContollerUpdate(&pid_right, RPM_right);
-             PIDContollerUpdate(&pid_left, RPM_left);
-             updated = true;
+             PIDContollerUpdate(&pid_right, Encoder_RPM_right);
+             PIDContollerUpdate(&pid_left, Encoder_RPM_left);
+             pid_updated = true;
          }
 
     }

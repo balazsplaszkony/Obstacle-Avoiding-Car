@@ -832,7 +832,7 @@
                   </dependency>
                </dependencies>
                <instances>
-                  <instance name="USART1" uuid="e29dec69-5a82-4f9e-a82e-9edba1308652" type="lpc_miniusart" type_id="lpc_miniusart_8dab9e8c7daef1c58d159a792e99242b" mode="interrupt" peripheral="USART1" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
+                  <instance name="USART1" uuid="e29dec69-5a82-4f9e-a82e-9edba1308652" type="lpc_miniusart" type_id="lpc_miniusart_8dab9e8c7daef1c58d159a792e99242b" mode="transfer" peripheral="USART1" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
                      <config_set name="fsl_usart">
                         <struct name="usartConfig">
                            <setting name="clockSource" value="FunctionClock"/>
@@ -850,21 +850,19 @@
                            <setting name="enableHardwareFlowControl" value="false"/>
                         </struct>
                      </config_set>
-                     <config_set name="Interrupt_cfg">
-                        <set name="interrupts">
-                           <selected>
-                              <id>kUSART_RxReadyInterruptEnable</id>
-                           </selected>
-                        </set>
-                        <struct name="interrupt_vectors">
-                           <setting name="enable_rx_tx_irq" value="true"/>
-                           <struct name="interrupt_rx_tx">
-                              <setting name="IRQn" value="USART1_IRQn"/>
-                              <setting name="enable_interrrupt" value="enabled"/>
-                              <setting name="enable_priority" value="false"/>
-                              <setting name="priority" value="0"/>
-                              <setting name="enable_custom_name" value="false"/>
+                     <config_set name="Transfer_cfg">
+                        <struct name="transfer">
+                           <setting name="init_rx_transfer" value="true"/>
+                           <struct name="rx_transfer">
+                              <setting name="data_size" value="64"/>
                            </struct>
+                           <setting name="init_tx_transfer" value="true"/>
+                           <struct name="tx_transfer">
+                              <setting name="data_size" value="64"/>
+                           </struct>
+                           <setting name="init_callback" value="false"/>
+                           <setting name="callback_fcn" value=""/>
+                           <setting name="user_data" value=""/>
                         </struct>
                      </config_set>
                   </instance>
@@ -1089,12 +1087,12 @@
                            <struct name="0">
                               <setting name="output" value="kSCTIMER_Out_0"/>
                               <setting name="level" value="kSCTIMER_HighTrue"/>
-                              <setting name="dutyCyclePercent" value="50"/>
+                              <setting name="dutyCyclePercent" value="40"/>
                            </struct>
                            <struct name="1">
                               <setting name="output" value="kSCTIMER_Out_1"/>
                               <setting name="level" value="kSCTIMER_HighTrue"/>
-                              <setting name="dutyCyclePercent" value="50"/>
+                              <setting name="dutyCyclePercent" value="40"/>
                            </struct>
                         </array>
                         <setting name="pwmMode" value="kSCTIMER_EdgeAlignedPwm"/>

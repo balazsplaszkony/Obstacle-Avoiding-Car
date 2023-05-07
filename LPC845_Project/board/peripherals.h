@@ -30,10 +30,10 @@ extern "C" {
 #define USART1_PERIPHERAL ((USART_Type *)USART1)
 /* Definition of the clock source frequency */
 #define USART1_CLOCK_SOURCE 15000000UL
-/* USART1 interrupt vector ID (number). */
-#define USART1_USART_IRQN USART1_IRQn
-/* USART1 interrupt handler identifier. */
-#define USART1_USART_IRQHANDLER USART1_IRQHandler
+/* Rx transfer buffer size. */
+#define USART1_RX_BUFFER_SIZE 64
+/* Tx transfer buffer size. */
+#define USART1_TX_BUFFER_SIZE 64
 /* Definition of peripheral ID */
 #define CTIMER0_PERIPHERAL CTIMER0
 /* Timer tick frequency in Hz (input frequency of the timer) */
@@ -113,6 +113,11 @@ extern "C" {
  * Global variables
  **********************************************************************************************************************/
 extern const usart_config_t USART1_config;
+extern usart_handle_t USART1_handle;
+extern uint8_t USART1_rxBuffer[USART1_RX_BUFFER_SIZE];
+extern usart_transfer_t USART1_rxTransfer;
+extern uint8_t USART1_txBuffer[USART1_TX_BUFFER_SIZE];
+extern usart_transfer_t USART1_txTransfer;
 extern const ctimer_config_t CTIMER0_config;
 extern const usart_config_t USART0_config;
 extern const adc_config_t ADC0configStruct;

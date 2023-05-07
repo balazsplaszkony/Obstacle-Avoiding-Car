@@ -20,7 +20,7 @@
 
 
 typedef struct Motor{
-	uint8_t pwm_channel;
+	sctimer_out_t pwm_channel;
 	uint8_t Input1;
 	uint8_t Input2;
 }Motor;
@@ -33,7 +33,7 @@ void SetPWM(uint16_t duty_scaled_up, Motor motor);
 void SetRPM(Motor* motor);
 void RotateForward(Motor* motor);
 void RotateBackward(Motor* motor);
-void StopMotors(Motor* motor);
+void StopMotor(Motor* motor);
 void ControlMotors();
 void UpdatePwmDutycycleScaledUp(SCT_Type *base, sctimer_out_t output, uint16_t scaledUpDutyCyclePercent, uint32_t event);
 

@@ -1,9 +1,0 @@
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:374:24:USART_GetStatusFlags	16	static
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:391:20:USART_ClearStatusFlags	16	static
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:589:20:USART_WriteByte	16	static
-../source/bluetooth.c:81:6:hasNewPrompt	8	static
-../source/bluetooth.c:87:6:CopyMessage	16	static
-../source/bluetooth.c:94:6:UsartBufferInit	16	static
-../source/bluetooth.c:103:6:ClearBuffer	8	static
-../source/bluetooth.c:112:6:USART1_sendByte	16	static
-../source/bluetooth.c:117:6:USART1_IRQHandler	8	static

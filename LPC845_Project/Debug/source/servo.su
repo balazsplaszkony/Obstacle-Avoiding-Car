@@ -1,0 +1,7 @@
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common_arm.h:717:24:DisableGlobalIRQ	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common_arm.h:743:20:EnableGlobalIRQ	24	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:290:20:MRT_StartTimer	24	static
+../source/servo.c:14:6:LookToTheRight	16	static
+../source/servo.c:24:6:LookToTheLeft	16	static
+../source/servo.c:33:6:LookStraight	16	static

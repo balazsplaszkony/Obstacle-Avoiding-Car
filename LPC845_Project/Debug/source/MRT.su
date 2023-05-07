@@ -1,3 +1,5 @@
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:209:24:MRT_GetStatusFlags	16	static
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:223:20:MRT_ClearStatusFlags	24	static
-../source/MRT.c:13:6:MRT0_IRQHandler	8	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:306:20:MRT_StopTimer	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+../source/MRT.c:14:6:MRT0_IRQHandler	8	static

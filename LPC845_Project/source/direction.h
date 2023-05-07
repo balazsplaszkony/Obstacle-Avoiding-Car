@@ -14,6 +14,7 @@
 
 //#define
 
-void CalculateDirection();
+void FindClearRoute();
+void UpdateDirection();
 
 #endif /* DIRECTION_H_ */

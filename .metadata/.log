@@ -6595,3 +6595,2064 @@ java.lang.IllegalArgumentException: Index out of bounds
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY com.nxp.swtools.mux.view 4 0 2023-04-12 19:34:11.141
+!MESSAGE waitUntilUpdated(): project.waitUntilValidated() failed
+
+!ENTRY com.nxp.swtools.utils 4 0 2023-04-12 19:34:11.152
+!MESSAGE saveConfiguration: waitUntilUpdated failed for tool: Pins
+!SESSION 2023-04-13 01:12:18.826 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2023-04-13 01:12:40.645
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-04-13 01:12:40.645
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c149539,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4a5c6b30,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-04-13 01:12:49.775
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:16:02.271
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-13 01:16:02.286
+!MESSAGE RedlinkServer telnet session connected on port 3025->52020 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:16:03.401
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52021, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:16:05.945
+!MESSAGE Telnet session connected on port 3330->52033 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:17:47.816
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-13 01:17:48.819
+!MESSAGE RedlinkServer telnet session connected on port 3025->52046 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:17:49.553
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52047, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:17:52.094
+!MESSAGE Telnet session connected on port 3330->52059 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:19:14.178
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-13 01:19:15.182
+!MESSAGE RedlinkServer telnet session connected on port 3025->52067 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:19:15.925
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52068, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:19:18.220
+!MESSAGE Telnet session connected on port 3330->52079 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.523
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@6fb2026f): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@6c0c3db6): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@33301b64): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@6c0c3db6): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-04-13 01:20:20.523
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@6c0c3db6): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.523
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@33301b64): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@6c0c3db6): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.523
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.524
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.524
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.525
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.525
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.526
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.527
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.527
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.528
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.528
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:20:20.529
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:20:24.166
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52083, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:20:26.431
+!MESSAGE Telnet session connected on port 3330->52094 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.740
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@4b8cc597): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@50c42d4c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@5ecadea3): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@50c42d4c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-04-13 01:23:23.740
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@50c42d4c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.740
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@5ecadea3): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@50c42d4c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.741
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.741
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.742
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.743
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.743
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.744
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.744
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.745
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.745
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.745
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:23:23.746
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:23:30.151
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52102, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:23:32.432
+!MESSAGE Telnet session connected on port 3330->52113 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.927
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@31f5e36): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@78c3ad05): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@7407e263): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@78c3ad05): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-04-13 01:24:05.927
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@78c3ad05): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.927
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@7407e263): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@78c3ad05): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.929
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.929
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.930
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.930
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.930
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.931
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.932
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.932
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.933
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.933
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-13 01:24:05.934
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:24:09.620
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52116, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:24:11.888
+!MESSAGE Telnet session connected on port 3330->52127 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-04-13 01:27:33.411
+!MESSAGE There is already a running debug session for the launch configuration 'LPC845_Project LinkServer Debug'.
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:27:47.982
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-13 01:27:48.988
+!MESSAGE RedlinkServer telnet session connected on port 3025->52136 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:27:49.737
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52137, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:27:52.199
+!MESSAGE Telnet session connected on port 3330->52149 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:29:29.068
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-13 01:29:30.072
+!MESSAGE RedlinkServer telnet session connected on port 3025->52153 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:29:30.808
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52154, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:29:33.326
+!MESSAGE Telnet session connected on port 3330->52166 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:33:13.677
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-13 01:33:14.682
+!MESSAGE RedlinkServer telnet session connected on port 3025->52175 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-13 01:33:15.428
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=52176, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-13 01:33:17.910
+!MESSAGE Telnet session connected on port 3330->52188 @ 127.0.0.1
+
+!ENTRY org.eclipse.core.resources 4 566 2023-04-13 01:42:35.296
+!MESSAGE Workspace was not properly initialized or has already shutdown.
+!STACK 0
+java.lang.Exception: Workspace was not properly initialized or has already shutdown.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Workspace.getWorkManager(Workspace.java:1817)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1481)
+	at org.eclipse.core.internal.events.AutoBuildJob$AutoBuildOffJob.run(AutoBuildJob.java:333)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2023-04-13 01:42:35.614
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
+!SESSION 2023-04-26 20:00:35.095 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2023-04-26 20:01:03.724
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-04-26 20:01:03.724
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@69efdfd9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c149539,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-04-26 20:01:17.708
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:10:39.615
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 20:10:39.620
+!MESSAGE RedlinkServer telnet session connected on port 3025->62887 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:10:40.586
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=62889, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:10:43.134
+!MESSAGE Telnet session connected on port 3330->62901 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:13:33.821
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 20:13:34.827
+!MESSAGE RedlinkServer telnet session connected on port 3025->63010 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:13:35.575
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=63014, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:13:38.420
+!MESSAGE Telnet session connected on port 3330->63028 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:15:29.852
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 20:15:30.857
+!MESSAGE RedlinkServer telnet session connected on port 3025->63063 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:15:31.602
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=63064, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:15:34.114
+!MESSAGE Telnet session connected on port 3330->63076 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.213
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@b1f4ea0): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@5bd8b3df): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@2695d612): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@5bd8b3df): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-04-26 20:17:53.213
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@5bd8b3df): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.213
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@2695d612): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@5bd8b3df): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.214
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.215
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.215
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.216
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.216
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.217
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.217
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.218
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.218
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.219
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.219
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.220
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:17:53.220
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:17:58.789
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=63115, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:18:01.246
+!MESSAGE Telnet session connected on port 3330->63127 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:19:04.765
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 20:19:05.770
+!MESSAGE RedlinkServer telnet session connected on port 3025->63154 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:19:06.529
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=63155, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:19:09.030
+!MESSAGE Telnet session connected on port 3330->63170 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:20:11.020
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 20:20:11.020
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 20:20:11.020
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@ccadcd2): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 20:20:11.021
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 20:20:11.021
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 20:20:11.021
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@274606e5): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:23:36.924
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 20:23:37.929
+!MESSAGE RedlinkServer telnet session connected on port 3025->63246 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:23:38.659
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=63247, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:23:41.128
+!MESSAGE Telnet session connected on port 3330->63259 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:30:34.936
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 20:30:35.941
+!MESSAGE RedlinkServer telnet session connected on port 3025->63410 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 20:30:36.700
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=63411, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 20:30:39.208
+!MESSAGE Telnet session connected on port 3330->63423 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:11.883
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@148b355a): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:13.923
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:13.923
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:13.923
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3cd6efe8): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:13.923
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:13.923
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:13.923
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2b92d48c): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.424
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@658aaad6): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@2cd1ebc5): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@4f7683d4): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@2cd1ebc5): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-04-26 21:10:42.424
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@2cd1ebc5): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.424
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@4f7683d4): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@2cd1ebc5): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.425
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.425
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.430
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.430
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.431
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.434
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.434
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.435
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.436
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.437
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.437
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.438
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 21:10:42.439
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-26 21:10:46.251
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=65149, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 21:10:48.778
+!MESSAGE Telnet session connected on port 3330->65161 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:21:03.065
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3a5120d4): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:21:03.068
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@75ec63b3): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:03.388
+!MESSAGE 15: Target error from Read Memory: Ee(AD). Probe disconnected - Check connection and power
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:03.388
+!MESSAGE 15: Target error from Read Memory: Ee(AD). Probe disconnected - Check connection and power
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:03.388
+!MESSAGE 15: Target error from Read Memory
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:03.388
+!MESSAGE Debug port inaccessible after access at location 0x000009A8
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:03.388
+!MESSAGE Debug port inaccessible after access at location 0x000009A4
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:03.388
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:21:06.180
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@f4bd92a): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-04-26 23:21:06.180
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:21:06.446
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 23:21:07.457
+!MESSAGE RedlinkServer telnet session connected on port 3025->56041 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:21:07.459
+!MESSAGE Unable to parse ProbeList output to get probe ref count: []
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:21:33.373
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 23:21:34.376
+!MESSAGE RedlinkServer telnet session connected on port 3025->56056 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:21:35.131
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56057, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 23:21:37.616
+!MESSAGE Telnet session connected on port 3330->56069 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:23:29.507
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@20fe9c61): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:23:29.507
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@12b44982): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:23:49.917
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@41bb0a0): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:23:49.918
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@71e4e487): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:24:18.949
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@45c7198): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:24:18.950
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@18f6693f): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:25:09.171
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6d96df9): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:25:09.172
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@10fa2802): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:26:24.361
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1450257b): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:26:24.362
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@36f53242): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:26.910
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:26.910
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:26.910
+!MESSAGE Unable to set an execution break - no resource available.
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:26.910
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:26:30.724
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@40b6afd7): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-04-26 23:26:30.724
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:26:30.990
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 23:26:31.995
+!MESSAGE RedlinkServer telnet session connected on port 3025->56095 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:31.996
+!MESSAGE Unable to parse ProbeList output to get probe ref count: []
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:26:38.034
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 23:26:39.038
+!MESSAGE RedlinkServer telnet session connected on port 3025->56097 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:26:39.774
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56098, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 23:26:42.254
+!MESSAGE Telnet session connected on port 3330->56113 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-04-26 23:26:45.099
+!MESSAGE An error occurred while getting register xpsr
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10002 2023-04-26 23:26:45.100
+!MESSAGE Execution context not found
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:45.592
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:45.592
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:45.592
+!MESSAGE Unable to set an execution break - no resource available.
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:26:45.592
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:26:48.823
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@5ca1e1da): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-04-26 23:26:48.823
+!MESSAGE Connection is shut down
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:26:58.141
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@5cf59b5a): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Suspend operation timeout.' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2023-04-26 23:26:58.141
+!MESSAGE Suspend operation timeout.
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:27:03.248
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 23:27:04.253
+!MESSAGE RedlinkServer telnet session connected on port 3025->56115 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:27:04.999
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56116, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 23:27:07.264
+!MESSAGE Telnet session connected on port 3330->56127 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-04-26 23:30:01.216
+!MESSAGE There is already a running debug session for the launch configuration 'LPC845_Project LinkServer Debug'.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.498
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@751cc4f6): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7b4bb7f1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@52ba1b39): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7b4bb7f1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-04-26 23:30:05.498
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7b4bb7f1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.498
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@52ba1b39): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7b4bb7f1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.499
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.499
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.499
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.500
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.500
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.500
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.501
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.501
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.501
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.502
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.502
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.503
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.503
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.504
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.504
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.504
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.505
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:05.505
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:56.993
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@46cce78): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:56.994
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1b90a762): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:30:56.995
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@71e8a756): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:31:22.754
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56177, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-04-26 23:31:25.236
+!MESSAGE Telnet session connected on port 3330->56189 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:32:42.895
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2a44a5a8): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:32:42.896
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1753e1c6): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:32:42.897
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@e9168da): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:44:24.295
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:44:24.295
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:44:24.295
+!MESSAGE Hardware Transfer Error
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:44:24.295
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:45:30.777
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@573ef1b6): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Failed to execute MI command:
+-exec-interrupt
+Error message from debugger back end:
+Stopping Thread 1 failed: T06thread:1; java.lang.Exception: Stopping Thread 1 failed: T06thread:1;' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2023-04-26 23:45:30.777
+!MESSAGE Failed to execute MI command:
+-exec-interrupt
+Error message from debugger back end:
+Stopping Thread 1 failed: T06thread:1;
+!STACK 0
+java.lang.Exception: Stopping Thread 1 failed: T06thread:1;
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-04-26 23:45:31.700
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@55216480): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-04-26 23:45:31.700
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-04-26 23:45:32.290
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-04-26 23:45:33.295
+!MESSAGE RedlinkServer telnet session connected on port 3025->56588 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-04-26 23:45:33.297
+!MESSAGE Unable to parse ProbeList output to get probe ref count: []
+!SESSION 2023-05-03 21:24:20.909 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab
+
+!ENTRY org.eclipse.jface 2 0 2023-05-03 21:24:27.347
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-05-03 21:24:27.348
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@14af57c3,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@795949fb,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-05-03 21:24:37.245
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:25:12.773
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:25:12.777
+!MESSAGE RedlinkServer telnet session connected on port 3025->56601 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 4 2023-05-03 21:25:17.943
+!MESSAGE NullPointerException while trying to calculated source lookup path. This can be ignored if it occurs while terminating a debug session. See Bug 500988.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:102)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.collectSubstitutionsPaths(GdbSourceLookupDirector.java:146)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupDirector.getSubstitutionsPaths(GdbSourceLookupDirector.java:72)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.getSubstitutionsPaths(GDBSourceLookup.java:124)
+	at org.eclipse.cdt.dsf.gdb.service.GDBSourceLookup.sourceContainersChanged(GDBSourceLookup.java:139)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant.sourceContainersChangedOnDispatchThread(GdbSourceLookupParticipant.java:120)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbSourceLookupParticipant$1.run(GdbSourceLookupParticipant.java:85)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:25:18.267
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56607, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:25:20.929
+!MESSAGE Telnet session connected on port 3330->56622 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:26:50.953
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@4c56e704): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@1affdf0d): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@5a4510e5): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@1affdf0d): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-05-03 21:26:50.953
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@1affdf0d): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-03 21:26:50.953
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@5a4510e5): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@1affdf0d): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:26:50.954
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:26:50.955
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:26:50.956
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:26:56.475
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56712, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:26:58.753
+!MESSAGE Telnet session connected on port 3330->56723 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:27:32.050
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:27:33.056
+!MESSAGE RedlinkServer telnet session connected on port 3025->56730 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:27:33.816
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56731, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:27:36.281
+!MESSAGE Telnet session connected on port 3330->56743 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-05-03 21:29:33.266
+!MESSAGE An error occurred while getting register xpsr
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10002 2023-05-03 21:29:33.267
+!MESSAGE Execution context not found
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 21:29:33.295
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 21:29:33.295
+!MESSAGE 15: Target error from Set break/watch
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 21:29:33.295
+!MESSAGE Unable to set an execution break - no resource available.
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 21:29:33.295
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.ui 4 0 2023-05-03 21:30:01.260
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Index out of bounds
+	at org.eclipse.swt.SWT.error(SWT.java:4899)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:450)
+	at org.eclipse.swt.widgets.ToolBar.getItem(ToolBar.java:544)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.fixToolItemSelection(TrimStack.java:338)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.lambda$1(TrimStack.java:317)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:388)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:356)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:727)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:680)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:675)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.showStack(TrimStack.java:1039)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.lambda$3(TrimStack.java:402)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:388)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:356)
+	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:626)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:787)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:758)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.setPart(PartServiceImpl.java:218)
+	at jdk.internal.reflect.GeneratedMethodAccessor202.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:95)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:103)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:356)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:372)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.activate(EclipseContext.java:659)
+	at org.eclipse.e4.ui.internal.workbench.PartActivationHistory.activate(PartActivationHistory.java:62)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:761)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.switchPerspective(PartServiceImpl.java:639)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:102)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.lambda$0(LazyStackRenderer.java:83)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:152)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:1)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$3.lambda$0(PerspectiveSwitcher.java:537)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$3.widgetSelected(PerspectiveSwitcher.java:535)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-05-03 21:30:01.262
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Index out of bounds
+	at org.eclipse.swt.SWT.error(SWT.java:4899)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:450)
+	at org.eclipse.swt.widgets.ToolBar.getItem(ToolBar.java:544)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.fixToolItemSelection(TrimStack.java:338)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.showStack(TrimStack.java:1049)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.lambda$3(TrimStack.java:402)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:388)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:356)
+	at org.eclipse.e4.ui.internal.workbench.ModelServiceImpl.bringToTop(ModelServiceImpl.java:626)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.delegateBringToTop(PartServiceImpl.java:787)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:758)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.setPart(PartServiceImpl.java:218)
+	at jdk.internal.reflect.GeneratedMethodAccessor202.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:95)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:103)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:356)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:372)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.activate(EclipseContext.java:659)
+	at org.eclipse.e4.ui.internal.workbench.PartActivationHistory.activate(PartActivationHistory.java:62)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:761)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.switchPerspective(PartServiceImpl.java:639)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:102)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.lambda$0(LazyStackRenderer.java:83)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:152)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:1)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$3.lambda$0(PerspectiveSwitcher.java:537)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$3.widgetSelected(PerspectiveSwitcher.java:535)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY org.eclipse.ui 4 0 2023-05-03 21:30:01.311
+!MESSAGE Unhandled event loop exception
+!STACK 0
+java.lang.IllegalArgumentException: Index out of bounds
+	at org.eclipse.swt.SWT.error(SWT.java:4899)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Widget.error(Widget.java:450)
+	at org.eclipse.swt.widgets.ToolBar.getItem(ToolBar.java:544)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.fixToolItemSelection(TrimStack.java:338)
+	at org.eclipse.e4.ui.workbench.addons.minmax.TrimStack.lambda$1(TrimStack.java:317)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:388)
+	at org.eclipse.e4.ui.workbench.UIEvents.publishEvent(UIEvents.java:356)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:772)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.setPart(PartServiceImpl.java:218)
+	at jdk.internal.reflect.GeneratedMethodAccessor202.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.contexts.ContextObjectSupplier$ContextInjectionListener.update(ContextObjectSupplier.java:95)
+	at org.eclipse.e4.core.internal.contexts.TrackableComputationExt.update(TrackableComputationExt.java:103)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.processScheduled(EclipseContext.java:356)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.set(EclipseContext.java:372)
+	at org.eclipse.e4.core.internal.contexts.EclipseContext.activate(EclipseContext.java:659)
+	at org.eclipse.e4.ui.internal.workbench.PartActivationHistory.activate(PartActivationHistory.java:62)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.activate(PartServiceImpl.java:761)
+	at org.eclipse.e4.ui.internal.workbench.PartServiceImpl.switchPerspective(PartServiceImpl.java:639)
+	at org.eclipse.e4.ui.workbench.renderers.swt.PerspectiveStackRenderer.showTab(PerspectiveStackRenderer.java:102)
+	at org.eclipse.e4.ui.workbench.renderers.swt.LazyStackRenderer.lambda$0(LazyStackRenderer.java:83)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.lambda$0(UIEventHandler.java:38)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:183)
+	at org.eclipse.ui.internal.UISynchronizer.syncExec(UISynchronizer.java:133)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4790)
+	at org.eclipse.e4.ui.workbench.swt.DisplayUISynchronize.syncExec(DisplayUISynchronize.java:34)
+	at org.eclipse.e4.ui.services.internal.events.UIEventHandler.handleEvent(UIEventHandler.java:38)
+	at org.eclipse.equinox.internal.event.EventHandlerWrapper.handleEvent(EventHandlerWrapper.java:205)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:203)
+	at org.eclipse.equinox.internal.event.EventHandlerTracker.dispatchEvent(EventHandlerTracker.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.ListenerQueue.dispatchEventSynchronous(ListenerQueue.java:151)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.dispatchEvent(EventAdminImpl.java:133)
+	at org.eclipse.equinox.internal.event.EventAdminImpl.sendEvent(EventAdminImpl.java:75)
+	at org.eclipse.equinox.internal.event.EventComponent.sendEvent(EventComponent.java:44)
+	at org.eclipse.e4.ui.services.internal.events.EventBroker.send(EventBroker.java:55)
+	at org.eclipse.e4.ui.internal.workbench.UIEventPublisher.notifyChanged(UIEventPublisher.java:63)
+	at org.eclipse.emf.common.notify.impl.BasicNotifierImpl.eNotify(BasicNotifierImpl.java:424)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:152)
+	at org.eclipse.e4.ui.model.application.ui.advanced.impl.PerspectiveStackImpl.setSelectedElement(PerspectiveStackImpl.java:1)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$3.lambda$0(PerspectiveSwitcher.java:537)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:74)
+	at org.eclipse.e4.ui.workbench.addons.perspectiveswitcher.PerspectiveSwitcher$3.widgetSelected(PerspectiveSwitcher.java:535)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4251)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4068)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3645)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1155)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1046)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:644)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:551)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:156)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:152)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:136)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:402)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:659)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:596)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1467)
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:30:50.659
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:30:51.670
+!MESSAGE RedlinkServer telnet session connected on port 3025->56788 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:30:52.413
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56789, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:30:54.876
+!MESSAGE Telnet session connected on port 3330->56801 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:34:18.353
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@bc84a6e): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:34:27.866
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:34:28.872
+!MESSAGE RedlinkServer telnet session connected on port 3025->56976 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:34:29.780
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=56977, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:34:32.011
+!MESSAGE Telnet session connected on port 3330->56994 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:35:23.112
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:35:24.116
+!MESSAGE RedlinkServer telnet session connected on port 3025->57020 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:35:24.902
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57021, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:35:27.150
+!MESSAGE Telnet session connected on port 3330->57057 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:37:57.307
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@6d2cb284): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7dcb0725): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@46689c6e): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7dcb0725): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-05-03 21:37:57.307
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7dcb0725): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-03 21:37:57.307
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@46689c6e): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7dcb0725): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:38:02.313
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57087, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:38:04.631
+!MESSAGE Telnet session connected on port 3330->57098 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:38:21.781
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@25b3476c): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:38:21.782
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@34cc3f16): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:38:58.138
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@723ac4fc): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:38:58.138
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@38a1d9ff): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:39:02.471
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@5f008be7): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@79b8b6c1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@6c6b6340): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@79b8b6c1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-05-03 21:39:02.471
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@79b8b6c1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-03 21:39:02.471
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@6c6b6340): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@79b8b6c1): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:39:06.377
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57108, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:39:08.859
+!MESSAGE Telnet session connected on port 3330->57120 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:40:27.310
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:40:28.316
+!MESSAGE RedlinkServer telnet session connected on port 3025->57139 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:40:29.063
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57140, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:40:31.359
+!MESSAGE Telnet session connected on port 3330->57151 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-05-03 21:41:34.029
+!MESSAGE Indexed 'LPC845_Project' (40 sources, 61 headers) in 1,51 sec: 5 083 declarations; 13 717 references; 0 unresolved inclusions; 7 syntax errors; 28 unresolved names (0,15%)
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:42:04.282
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:42:05.285
+!MESSAGE RedlinkServer telnet session connected on port 3025->57174 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:42:06.034
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57175, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:42:08.494
+!MESSAGE Telnet session connected on port 3330->57190 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:43:14.003
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@1ae33faa): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:43:14.003
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@10d2ff0b): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-03 21:43:14.004
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@8ead418): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:43:24.951
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:43:25.955
+!MESSAGE RedlinkServer telnet session connected on port 3025->57203 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:43:26.704
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57204, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:43:29.178
+!MESSAGE Telnet session connected on port 3330->57216 @ 127.0.0.1
+
+!ENTRY org.eclipse.core.jobs 4 2 2023-05-03 21:44:18.534
+!MESSAGE An internal error occurred during: "UI refresh".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1254)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2587)
+	at com.nxp.swtools.common.ui.utils.progress.UIJobHelper.runNowOrInJob(UIJobHelper.java:215)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.cancelPrevJob(ValidationService.java:230)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.runAction(ValidationService.java:205)
+	at com.nxp.swtools.common.utils.runtime.DelayedExecution$1.run(DelayedExecution.java:376)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.resources 4 566 2023-05-03 21:44:18.731
+!MESSAGE Workspace was not properly initialized or has already shutdown.
+!STACK 0
+java.lang.Exception: Workspace was not properly initialized or has already shutdown.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Workspace.getWorkManager(Workspace.java:1817)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1481)
+	at org.eclipse.core.internal.events.AutoBuildJob$AutoBuildOffJob.run(AutoBuildJob.java:333)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 2 2 2023-05-03 21:44:19.056
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.dsf.gdb.internal.ui.console.GdbBasicCliConsole$InputReadJob
+!SESSION 2023-05-03 21:44:19.312 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2023-05-03 21:46:23.169
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-05-03 21:46:23.169
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@2c7ac998,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7f6936cc,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-05-03 21:46:36.948
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:49:27.745
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-03 21:49:27.751
+!MESSAGE RedlinkServer telnet session connected on port 3025->57622 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-03 21:49:28.629
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=57623, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-03 21:49:31.139
+!MESSAGE Telnet session connected on port 3330->57635 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 22:02:30.270
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 22:02:30.270
+!MESSAGE 16: Target error from status-poll
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 22:02:30.270
+!MESSAGE Hardware Transfer Error
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-03 22:02:30.270
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-04 00:02:11.033
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@4ffa1a2d): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Failed to execute MI command:
+-exec-interrupt
+Error message from debugger back end:
+Stopping Thread 1 failed: T06thread:1; java.lang.Exception: Stopping Thread 1 failed: T06thread:1;' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2023-05-04 00:02:11.034
+!MESSAGE Failed to execute MI command:
+-exec-interrupt
+Error message from debugger back end:
+Stopping Thread 1 failed: T06thread:1;
+!STACK 0
+java.lang.Exception: Stopping Thread 1 failed: T06thread:1;
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-04 00:02:11.940
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@2dcd02b3): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-05-04 00:02:11.940
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-05-04 00:02:12.291
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-04 00:02:13.312
+!MESSAGE RedlinkServer telnet session connected on port 3025->61605 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-04 00:02:13.314
+!MESSAGE Unable to parse ProbeList output to get probe ref count: []
+
+!ENTRY org.eclipse.core.jobs 4 2 2023-05-04 01:49:51.676
+!MESSAGE An internal error occurred during: "UI refresh".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1254)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2587)
+	at com.nxp.swtools.common.ui.utils.progress.UIJobHelper.runNowOrInJob(UIJobHelper.java:215)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.cancelPrevJob(ValidationService.java:230)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.runAction(ValidationService.java:205)
+	at com.nxp.swtools.common.utils.runtime.DelayedExecution$1.run(DelayedExecution.java:376)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2023-05-04 01:51:03.559 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2023-05-04 01:51:13.162
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-05-04 01:51:13.162
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@410e043b,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@5d3a238,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-05-04 01:51:24.091
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.core.jobs 4 2 2023-05-04 01:58:48.638
+!MESSAGE An internal error occurred during: "UI refresh".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1254)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2587)
+	at com.nxp.swtools.common.ui.utils.progress.UIJobHelper.runNowOrInJob(UIJobHelper.java:215)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.cancelPrevJob(ValidationService.java:230)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.runAction(ValidationService.java:205)
+	at com.nxp.swtools.common.utils.runtime.DelayedExecution$1.run(DelayedExecution.java:376)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2023-05-05 20:57:35.706 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2023-05-05 20:58:03.284
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-05-05 20:58:03.284
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@60510791,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@15d68a50,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-05-05 20:58:13.173
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:01:45.492
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:01:45.496
+!MESSAGE RedlinkServer telnet session connected on port 3025->58362 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:01:46.455
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58363, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:01:49.021
+!MESSAGE Telnet session connected on port 3330->58375 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-05-05 21:03:01.764
+!MESSAGE There is already a running debug session for the launch configuration 'LPC845_Project LinkServer Debug'.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.454
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@5a74ca3): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@3f1dd4ce): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@62f96479): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@3f1dd4ce): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-05-05 21:03:06.454
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@3f1dd4ce): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.454
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@62f96479): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@3f1dd4ce): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.456
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.456
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.457
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.458
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.458
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-05 21:03:06.459
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:03:10.111
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58385, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:03:12.389
+!MESSAGE Telnet session connected on port 3330->58396 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:05:49.637
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:05:50.641
+!MESSAGE RedlinkServer telnet session connected on port 3025->58471 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:05:51.394
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58472, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:05:53.663
+!MESSAGE Telnet session connected on port 3330->58483 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:08:19.508
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:08:20.513
+!MESSAGE RedlinkServer telnet session connected on port 3025->58546 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:08:21.338
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58547, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:08:23.793
+!MESSAGE Telnet session connected on port 3330->58565 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:15:10.258
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:15:11.263
+!MESSAGE RedlinkServer telnet session connected on port 3025->58696 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:15:12.005
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58697, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:15:14.283
+!MESSAGE Telnet session connected on port 3330->58708 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:16:52.862
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:16:53.866
+!MESSAGE RedlinkServer telnet session connected on port 3025->58714 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:16:54.618
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58715, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:16:56.886
+!MESSAGE Telnet session connected on port 3330->58726 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:18:11.131
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:18:12.135
+!MESSAGE RedlinkServer telnet session connected on port 3025->58741 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:18:12.869
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58742, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:18:15.196
+!MESSAGE Telnet session connected on port 3330->58753 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:19:13.878
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:19:14.883
+!MESSAGE RedlinkServer telnet session connected on port 3025->58762 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:19:15.620
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58763, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:19:18.102
+!MESSAGE Telnet session connected on port 3330->58775 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:22:10.001
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-05 21:22:11.007
+!MESSAGE RedlinkServer telnet session connected on port 3025->58814 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-05 21:22:11.745
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=58815, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-05 21:22:14.233
+!MESSAGE Telnet session connected on port 3330->58827 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-06 00:46:19.333
+!MESSAGE 15: Target error from Read Memory
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-06 00:46:19.333
+!MESSAGE 15: Target error from Read Memory
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-06 00:46:19.333
+!MESSAGE Debug port inaccessible after access at location 0x00008768
+!SUBENTRY 1 com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-06 00:46:19.333
+!MESSAGE Debugging context: LPC845_Project LinkServer Debug
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-06 00:46:22.531
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@aaf55ac): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-05-06 00:46:22.531
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-05-06 00:46:22.799
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-06 00:46:23.806
+!MESSAGE RedlinkServer telnet session connected on port 3025->65475 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-06 00:46:23.808
+!MESSAGE Unable to parse ProbeList output to get probe ref count: []
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-06 00:46:23.812
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@4b84947d): Status ERROR: org.eclipse.cdt.dsf.gdb code=10003 Given context: (gdb[8].proc[42000].threadGroup[i1],gdb[8].proc[42000].OSthread[1]).thread[1], is already suspended.' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10003 2023-05-06 00:46:23.812
+!MESSAGE Given context: (gdb[8].proc[42000].threadGroup[i1],gdb[8].proc[42000].OSthread[1]).thread[1], is already suspended.
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:52:02.709
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-06 23:52:03.730
+!MESSAGE RedlinkServer telnet session connected on port 3025->53218 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:52:04.525
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53219, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-06 23:52:06.905
+!MESSAGE Telnet session connected on port 3330->53230 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-06 23:52:19.887
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-06 23:52:19.887
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-06 23:52:19.887
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@742e4154): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-06 23:52:19.889
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-06 23:52:19.889
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-06 23:52:19.889
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@551338c0): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:54:48.800
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-06 23:54:49.806
+!MESSAGE RedlinkServer telnet session connected on port 3025->53242 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:54:50.568
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53245, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-06 23:54:52.902
+!MESSAGE Telnet session connected on port 3330->53256 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:56:02.997
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-06 23:56:04.003
+!MESSAGE RedlinkServer telnet session connected on port 3025->53262 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:56:04.747
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53263, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-06 23:56:07.238
+!MESSAGE Telnet session connected on port 3330->53275 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:58:18.159
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-06 23:58:19.165
+!MESSAGE RedlinkServer telnet session connected on port 3025->53279 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:58:19.908
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53280, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-06 23:58:22.348
+!MESSAGE Telnet session connected on port 3330->53292 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:59:52.562
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-06 23:59:53.566
+!MESSAGE RedlinkServer telnet session connected on port 3025->53294 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-06 23:59:54.322
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53295, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-06 23:59:56.809
+!MESSAGE Telnet session connected on port 3330->53307 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:02:08.326
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:02:09.332
+!MESSAGE RedlinkServer telnet session connected on port 3025->53320 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:02:10.066
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53321, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:02:12.526
+!MESSAGE Telnet session connected on port 3330->53333 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:06:28.565
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:06:29.571
+!MESSAGE RedlinkServer telnet session connected on port 3025->53364 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:06:30.313
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53365, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:06:32.632
+!MESSAGE Telnet session connected on port 3330->53376 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 10004 2023-05-07 00:07:11.105
+!MESSAGE Failed to execute MI command:
+-data-list-register-values x 92
+Error message from debugger back end:
+Invalid thread id: 1
+!STACK 0
+java.lang.Exception: Invalid thread id: 1
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:1024)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:853)
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:07:20.142
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:07:21.146
+!MESSAGE RedlinkServer telnet session connected on port 3025->53380 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:07:22.107
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53381, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:07:24.464
+!MESSAGE Telnet session connected on port 3330->53392 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:08:09.805
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@2f88f89c): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@4af7322b): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@7c462b04): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@4af7322b): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-05-07 00:08:09.805
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@4af7322b): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:08:09.805
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@7c462b04): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@4af7322b): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:08:14.009
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53395, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:08:16.239
+!MESSAGE Telnet session connected on port 3330->53406 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:09:37.185
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:09:38.190
+!MESSAGE RedlinkServer telnet session connected on port 3025->53415 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:09:38.962
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53416, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:09:41.415
+!MESSAGE Telnet session connected on port 3330->53428 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:11:32.283
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:11:33.290
+!MESSAGE RedlinkServer telnet session connected on port 3025->53435 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:11:34.104
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53436, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:11:36.791
+!MESSAGE Telnet session connected on port 3330->53449 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:13:13.468
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@219c74e6): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:13:13.469
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@70c1ff3c): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-05-07 00:14:32.934
+!MESSAGE There is already a running debug session for the launch configuration 'LPC845_Project LinkServer Debug'.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:14:37.323
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.ImmediateRequestMonitor@1955f814): Status ERROR: org.eclipse.cdt.dsf code=10005 Composite status children=[Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7eba9b2c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3 Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@37045500): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7eba9b2c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.]' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 0 2023-05-07 00:14:37.323
+!MESSAGE Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7eba9b2c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:14:37.323
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.GdbLaunch$5@37045500): Status ERROR: org.eclipse.cdt.dsf code=0 Executor shut down while executing Sequence Sequence "", result for executing step #3 = Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.launching.ShutdownSequence$ServiceShutdownStep$1@7eba9b2c): Status OK: unknown code=0 OK' resulted in a rejected execution exception., step #3' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:14:37.324
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:14:40.878
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53459, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:14:43.334
+!MESSAGE Telnet session connected on port 3330->53471 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:37.616
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@56c58850): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:37.616
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@2a0b53e5): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:37.617
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@6d7ed07c): Status OK: unknown code=0 OK' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.553
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.553
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.553
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@29f83f7d): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.554
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.554
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.554
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@53bdab72): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.554
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.554
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.554
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@11a4bed7): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.555
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.555
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.555
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@14ec70d6): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.555
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.555
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.555
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@38f61b20): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.556
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.556
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.556
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@3c0cf59f): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.557
+!MESSAGE Composite status
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.557
+!MESSAGE Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.
+!SUBENTRY 1 org.eclipse.cdt.dsf 4 10005 2023-05-07 00:15:40.557
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@4d9dbef): Status ERROR: org.eclipse.cdt.dsf code=10005 Request for monitor: 'CountingRequestMonitor: Status OK: org.eclipse.cdt.dsf code=0  children=[]' resulted in a rejected execution exception.' resulted in a rejected execution exception.
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:18:23.399
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:18:24.417
+!MESSAGE RedlinkServer telnet session connected on port 3025->53504 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:18:25.192
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53505, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:18:27.470
+!MESSAGE Telnet session connected on port 3330->53516 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:20:49.631
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:20:50.647
+!MESSAGE RedlinkServer telnet session connected on port 3025->53521 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:20:51.388
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53522, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:20:53.866
+!MESSAGE Telnet session connected on port 3330->53534 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:26:19.491
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:26:20.495
+!MESSAGE RedlinkServer telnet session connected on port 3025->53546 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:26:21.252
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53547, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:26:23.720
+!MESSAGE Telnet session connected on port 3330->53559 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:27:22.282
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:27:23.289
+!MESSAGE RedlinkServer telnet session connected on port 3025->53562 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:27:24.038
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53563, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:27:26.278
+!MESSAGE Telnet session connected on port 3330->53574 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug 4 0 2023-05-07 00:28:43.439
+!MESSAGE There is already a running debug session for the launch configuration 'LPC845_Project LinkServer Debug'.
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:28:53.228
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:28:54.234
+!MESSAGE RedlinkServer telnet session connected on port 3025->53578 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:28:54.997
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53579, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:28:57.458
+!MESSAGE Telnet session connected on port 3330->53591 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:32:11.008
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-07 00:32:12.013
+!MESSAGE RedlinkServer telnet session connected on port 3025->53597 @ 127.0.0.1
+
+!ENTRY com.crt.log 1 0 2023-05-07 00:32:12.745
+!MESSAGE Starting GDB server [ C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries//crt_emu_cm_redlink, --server, :10990, -msg-port=53598, -g, -mi, -2, -pLPC845, -vendor=NXP, -vc, --reset=, -ProbeHandle=1, -CoreIndex=0, -cache=disable, --flash-hashing, --flash-driver=, -x, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support, --flash-dir, C:/nxp/MCUXpressoIDE_11.7.0_9198/ide/plugins/com.nxp.mcuxpresso.tools.bin.win32_11.7.0.202301121712/binaries/Flash, --flash-dir, C:/Users/plasz/Documents/MCUXpressoIDE_11.7.0_9198/workspace/onlab/.mcuxpressoide_packages_support/LPC845_support/Flash, --telnet, 3330 ]
+
+!ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-07 00:32:15.266
+!MESSAGE Telnet session connected on port 3330->53610 @ 127.0.0.1
+
+!ENTRY org.eclipse.core.jobs 4 2 2023-05-07 04:09:44.398
+!MESSAGE An internal error occurred during: "UI refresh".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4918)
+	at org.eclipse.swt.SWT.error(SWT.java:4833)
+	at org.eclipse.swt.SWT.error(SWT.java:4804)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1254)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2587)
+	at com.nxp.swtools.common.ui.utils.progress.UIJobHelper.runNowOrInJob(UIJobHelper.java:215)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.cancelPrevJob(ValidationService.java:230)
+	at com.nxp.swtools.validation.engine.internal.ValidationService$DelayedExecutor.runAction(ValidationService.java:205)
+	at com.nxp.swtools.common.utils.runtime.DelayedExecution$1.run(DelayedExecution.java:376)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2023-05-07 10:46:13.076 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=11.0.17
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=hu_HU
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY org.eclipse.jface 2 0 2023-05-07 10:46:38.330
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-05-07 10:46:38.330
+!MESSAGE A conflict occurred for ALT+CTRL+T:
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.search.ui.performTextSearchWorkspace,Find Text in Workspace,
+		Searches the files in the workspace for specific text.,
+		Category(org.eclipse.search.ui.category.search,Search,Search command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@69efdfd9,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,hu,,system)
+Binding(ALT+CTRL+T,
+	ParameterizedCommand(Command(org.eclipse.tm.terminal.connector.local.command.launch,Open Local Terminal on Selection,
+		,
+		Category(org.eclipse.tm.terminal.view.ui.commands.category,Terminal Commands,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c149539,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-05-07 10:46:55.290
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\plasz'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.

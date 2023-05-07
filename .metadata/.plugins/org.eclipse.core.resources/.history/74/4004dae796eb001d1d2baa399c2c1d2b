@@ -1,0 +1,124 @@
+/*
+ * car.c
+ *
+ *  Created on: 2023. márc. 28.
+ *      Author: plasz
+ */
+
+
+#include "car.h"
+volatile UsartBuffer bluetooth_prompts;
+Car car;
+Car car_prev;
+
+void InitComponents()
+{
+	InitUltrasonicMeasurement(&ultrasonic_measurement);
+	InitOpticMeasurement(&optic_measurement);
+	InitMotors();
+	UsartBufferInit();
+}
+
+void InitCar()
+{
+	car.direction = STOPCAR;
+	car.obstacle_avoidance = false;
+	car.tempomat = false;
+	car.speed = MinimalSpeed;
+	car.is_obstacle_in_the_way = false;
+	car.is_car_blocked_completely = false;
+
+	car_prev.direction = STOPCAR;
+	car_prev.obstacle_avoidance = false;
+	car_prev.tempomat = false;
+	car_prev.speed = MinimalSpeed;
+	car_prev.is_obstacle_in_the_way = false;
+	car_prev.is_car_blocked_completely = false;
+}
+
+void ProcessPrompts()
+{
+
+	Car car_new = car;
+
+	for(int i = 0; bluetooth_prompts.received_bytes > 0; i++, bluetooth_prompts.received_bytes--){
+	switch(bluetooth_prompts.buff[i])
+		{
+		case FORWARD: car_new.direction = GOFORWARD; break;
+
+		case BACKWARD: car_new.direction = GOBACKWARD; break;
+
+		case RIGHT:  car_new.direction = TURNRIGHT; break;
+
+		case LEFT:   car_new.direction = TURNLEFT; break;
+
+		case STOP: car_new.direction = STOPCAR; break;
+
+		case TOGGLE_TEMPOMAT: car_new.tempomat = (!car_new.tempomat); break;
+
+		case SLOWDOWN: if(car_new.speed > MinimalSpeed) car_new.speed--; break;
+
+		case SPEEDUP: if(car_new.speed < MaximumSpeed) car_new.speed++; break;
+
+		case TOGGLE_OBSTACLE_AVOIDANCE: car_new.obstacle_avoidance = (!car_new.obstacle_avoidance); break;
+		}
+}
+	car_prev = car;
+	car = car_new;
+
+
+}
+void GoForward()
+{
+	RotateForward(&motor_right); RotateForward(&motor_left);
+}
+void GoBackward()
+{
+	RotateBackward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnRight()
+{
+	RotateForward(&motor_right); StopMotor(&motor_left); //
+}
+
+void TurnLeft()
+{
+	RotateForward(&motor_left); StopMotor(&motor_right); //RotateBackward(&motor_right);
+}
+
+void TurnRightStationary()
+{
+	RotateForward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnLeftStationary()
+{
+	RotateForward(&motor_left); RotateBackward(&motor_right);
+}
+
+void StopCar()
+{
+	StopMotor(&motor_right); StopMotor(&motor_left);
+}
+
+bool isObstacleDetected(){
+	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			|| optic_measurement.back_left < OpticTreshold
+			|| optic_measurement.back_right < OpticTreshold
+			|| optic_measurement.front_left < OpticTreshold
+			|| optic_measurement.front_right < OpticTreshold
+			);
+}
+
+bool isRoadBlockedinEveryDirection()
+{
+	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			&& optic_measurement.back_left < OpticTreshold
+			&& optic_measurement.back_right < OpticTreshold
+			&& optic_measurement.front_left < OpticTreshold
+			&& optic_measurement.front_right < OpticTreshold
+			);
+}
+
+

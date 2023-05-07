@@ -60,7 +60,7 @@ component:
 instance:
 - name: 'USART1'
 - type: 'lpc_miniusart'
-- mode: 'interrupt'
+- mode: 'transfer'
 - custom_name_enabled: 'false'
 - type_id: 'lpc_miniusart_8dab9e8c7daef1c58d159a792e99242b'
 - functional_group: 'BOARD_InitPeripherals'
@@ -81,16 +81,17 @@ instance:
       - clockPolarity: 'kUSART_RxSampleOnFallingEdge'
       - enableContinuousSCLK: 'false'
       - enableHardwareFlowControl: 'false'
-  - Interrupt_cfg:
-    - interrupts: 'kUSART_RxReadyInterruptEnable'
-    - interrupt_vectors:
-      - enable_rx_tx_irq: 'true'
-      - interrupt_rx_tx:
-        - IRQn: 'USART1_IRQn'
-        - enable_interrrupt: 'enabled'
-        - enable_priority: 'false'
-        - priority: '0'
-        - enable_custom_name: 'false'
+  - Transfer_cfg:
+    - transfer:
+      - init_rx_transfer: 'true'
+      - rx_transfer:
+        - data_size: '64'
+      - init_tx_transfer: 'true'
+      - tx_transfer:
+        - data_size: '64'
+      - init_callback: 'false'
+      - callback_fcn: ''
+      - user_data: ''
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 const usart_config_t USART1_config = {
@@ -106,13 +107,22 @@ const usart_config_t USART1_config = {
   .enableContinuousSCLK = false,
   .enableHardwareFlowControl = false
 };
+usart_handle_t USART1_handle;
+uint8_t USART1_rxBuffer[USART1_RX_BUFFER_SIZE];
+usart_transfer_t USART1_rxTransfer = {
+  .rxData = USART1_rxBuffer,
+  .dataSize = USART1_RX_BUFFER_SIZE
+};
+uint8_t USART1_txBuffer[USART1_TX_BUFFER_SIZE];
+usart_transfer_t USART1_txTransfer = {
+  .data = USART1_txBuffer,
+  .dataSize = USART1_TX_BUFFER_SIZE
+};
 
 static void USART1_init(void) {
   /* USART1 peripheral initialization */
   USART_Init(USART1_PERIPHERAL, &USART1_config, USART1_CLOCK_SOURCE);
-  USART_EnableInterrupts(USART1_PERIPHERAL, kUSART_RxReadyInterruptEnable);
-  /* Enable interrupt USART1_IRQn request in the NVIC. */
-  EnableIRQ(USART1_USART_IRQN);
+  USART_TransferCreateHandle(USART1_PERIPHERAL, &USART1_handle, NULL, NULL);
 }
 
 /***********************************************************************************************************************
@@ -368,7 +378,7 @@ const adc_conv_seq_config_t ADC0ConvSeqAConfigStruct = {
   .triggerPolarity = kADC_TriggerPolarityPositiveEdge,
   .enableSyncBypass = false,
   .enableSingleStep = false,
-  .interruptMode = kADC_InterruptForEachSequence
+  .interruptMode = kADC_InterruptForEachSequence,
 };
 
 static void ADC0_init(void) {
@@ -439,11 +449,11 @@ instance:
       - 0:
         - output: 'kSCTIMER_Out_0'
         - level: 'kSCTIMER_HighTrue'
-        - dutyCyclePercent: '50'
+        - dutyCyclePercent: '40'
       - 1:
         - output: 'kSCTIMER_Out_1'
         - level: 'kSCTIMER_HighTrue'
-        - dutyCyclePercent: '50'
+        - dutyCyclePercent: '40'
     - pwmMode: 'kSCTIMER_EdgeAlignedPwm'
     - pwmFrequency: '300'
     - events: []
@@ -467,12 +477,12 @@ const sctimer_pwm_signal_param_t SCT0_pwmSignalsConfig[2] = {
   {
     .output = kSCTIMER_Out_0,
     .level = kSCTIMER_HighTrue,
-    .dutyCyclePercent = 50U
+    .dutyCyclePercent = 40U
   },
   {
     .output = kSCTIMER_Out_1,
     .level = kSCTIMER_HighTrue,
-    .dutyCyclePercent = 50U
+    .dutyCyclePercent = 40U
   }
 };
 uint32_t SCT0_pwmEvent[2];

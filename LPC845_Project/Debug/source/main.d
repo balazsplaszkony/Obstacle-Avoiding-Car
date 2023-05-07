@@ -33,8 +33,9 @@ source/main.o source/main.d: ../source/main.c \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/clock_config.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_power.h \
  ../source/distance.h ../source/ultrasonic.h ../source/optic.h \
- ../source/bluetooth.h ../source/encoder.h ../source/PID.h \
- ../source/direction.h ../source/car.h ../source/motor.h
+ ../source/encoder.h ../source/PID.h ../source/direction.h \
+ ../source/bluetooth.h ../source/car.h ../source/motor.h \
+ ../source/USART.h ../source/servo.h
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source/motor.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source/ultrasonic.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h:
@@ -71,9 +72,11 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/distance.h:
 ../source/ultrasonic.h:
 ../source/optic.h:
-../source/bluetooth.h:
 ../source/encoder.h:
 ../source/PID.h:
 ../source/direction.h:
+../source/bluetooth.h:
 ../source/car.h:
 ../source/motor.h:
+../source/USART.h:
+../source/servo.h:

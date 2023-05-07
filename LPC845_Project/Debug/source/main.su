@@ -1,7 +1,4 @@
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS/core_cm0plus.h:741:22:__NVIC_EnableIRQ	16	static
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS/core_cm0plus.h:850:22:__NVIC_SetPriority	24	static
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS/core_cm0plus.h:1058:26:SysTick_Config	16	static
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common_arm.h:499:24:EnableIRQ	24	static
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:415:20:USART_EnableInterrupts	16	static
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_power.h:153:20:POWER_DisablePD	16	static
-../source/main.c:71:5:main	16	static
+../source/main.c:63:5:main	24	static

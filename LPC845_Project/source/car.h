@@ -13,7 +13,7 @@
 #include "encoder.h"
 #include "direction.h"
 #include "PID.h"
-#include "bluetooth.h"
+#include "USART.h"
 #include "ultrasonic.h"
 #include "optic.h"
 #include <stdbool.h>
@@ -22,6 +22,11 @@
 
 #define MinimalSpeed  1
 #define MaximumSpeed  9
+#define MinimalDuty 40
+#define MaximumDuty 80
+#define DutyInterval MaximumDuty - MinimalDuty
+#define deltaDuty  DutyInterval/(MaximumSpeed - MinimalSpeed)
+
 
 extern volatile UsartBuffer bluetooth_prompts;
 
@@ -41,6 +46,7 @@ typedef struct Car{
 	bool tempomat;
 	bool obstacle_avoidance;
 	uint32_t speed;
+	bool is_car_blocked_completely;
 
 }Car;
 
@@ -51,14 +57,18 @@ extern Car car_prev;
 void InitComponents();
 void InitCar();
 bool isObstacleDetected();
+bool isRoadBlockedinEveryDirection();
 void ProcessPrompts();
 void UpdateDirection();
 void GoForward();
 void GoBackward();
 void TurnRight();
 void TurnLeft();
+void TurnRightStationary();
+void TurnLeftStationary();
 void StopCar();
-void FindClearRoute();
+void SetSpeed();
+
 
 
 #endif /* CAR_H_ */

@@ -1,1 +1,2 @@
-../source/direction.c:4:6:CalculateDirection	8	static
+../source/direction.c:4:6:UpdateDirection	8	static
+../source/direction.c:47:6:FindClearRoute	8	static

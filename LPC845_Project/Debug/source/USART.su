@@ -1,0 +1,11 @@
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:415:20:USART_EnableInterrupts	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:432:20:USART_DisableInterrupts	16	static
+../source/USART.c:60:6:INIT_USART	8	static
+../source/USART.c:64:6:UsartBufferInit	16	static
+../source/USART.c:75:6:PrintUSART1_NB	24	static
+../source/USART.c:88:9:GetUSART1	24	static
+../source/USART.c:105:6:GetUSARTMessage	16	static
+../source/USART.c:114:6:splitUSARTMessage	24	static
+../source/USART.c:121:6:ClearBuffer	8	static
+../source/USART.c:127:6:Acknowledge	16	static
+../source/USART.c:136:9:GetString_TillEndChar	24	static

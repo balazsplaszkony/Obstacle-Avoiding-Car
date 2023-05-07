@@ -8,4 +8,4 @@
 ../source/car.c:89:6:StopCar	8	static
 ../source/car.c:94:6:isObstacleDetected	8	static
 ../source/car.c:102:6:UpdateDirection	16	static
-../source/car.c:152:6:FindClearRoute	24	static
+../source/car.c:149:6:FindClearRoute	24	static

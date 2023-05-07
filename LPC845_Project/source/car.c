@@ -7,7 +7,6 @@
 
 
 #include "car.h"
-volatile UsartBuffer bluetooth_prompts;
 Car car;
 Car car_prev;
 
@@ -17,54 +16,97 @@ void InitComponents()
 	InitOpticMeasurement(&optic_measurement);
 	InitMotors();
 	UsartBufferInit();
+	INIT_USART();
+
 }
 
 void InitCar()
 {
 	car.direction = STOPCAR;
-	car.obstacle_avoidance = true;
+	car.obstacle_avoidance = false;
 	car.tempomat = false;
 	car.speed = MinimalSpeed;
 	car.is_obstacle_in_the_way = false;
+	car.is_car_blocked_completely = false;
 
 	car_prev.direction = STOPCAR;
-	car_prev.obstacle_avoidance = true;
+	car_prev.obstacle_avoidance = false;
 	car_prev.tempomat = false;
 	car_prev.speed = MinimalSpeed;
 	car_prev.is_obstacle_in_the_way = false;
-
+	car_prev.is_car_blocked_completely = false;
 }
 
 void ProcessPrompts()
 {
-
 	Car car_new = car;
 
-	for(int i = 0; bluetooth_prompts.received_bytes > 0; i++, bluetooth_prompts.received_bytes--){
-	switch(bluetooth_prompts.buff[i])
-		{
-		case FORWARD: car_new.direction = GOFORWARD; break;
-
-		case BACKWARD: car_new.direction = GOBACKWARD; break;
-
-		case RIGHT:  car_new.direction = TURNRIGHT; break;
-
-		case LEFT:   car_new.direction = TURNLEFT; break;
-
-		case STOP: car_new.direction = STOPCAR; break;
-
-		case TOGGLE_TEMPOMAT: car_new.tempomat = (!car_new.tempomat); break;
-
-		case SLOWDOWN: if(car_new.speed > MinimalSpeed) car_new.speed--; break;
-
-		case SPEEDUP: if(car_new.speed < MaximumSpeed) car_new.speed++; break;
-
-		case TOGGLE_OBSTACLE_AVOIDANCE: car_new.obstacle_avoidance = (!car_new.obstacle_avoidance); break;
+	for(int i = 0; buffer.received_prompts > 0; i++)
+	{
+		if(strcmp(buffer.prompts, "FORWARD")==0){
+			car_new.direction = GOFORWARD;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "BACKWARD")==0){
+			car_new.direction = GOBACKWARD;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "RIGHT")==0){
+			car_new.direction = TURNRIGHT;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "LEFT")==0){
+			car_new.direction = TURNLEFT;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "STOP")==0){
+			car_new.direction = STOPCAR;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "TOGGLE_TEMPOMAT")==0){
+			car_new.tempomat = (!car_new.tempomat);
+			if(car_new.tempomat)
+			{
+				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)
+					&& car.direction == car_new.direction)
+				{
+					float rpm_setpoint = (Encoder_RPM_right + Encoder_RPM_left)/2.0;
+					pid_right.setpoint = rpm_setpoint;
+					pid_left.setpoint =  rpm_setpoint;
+				}
+				else
+				{
+					pid_right.setpoint = Encoder_RPM_right;
+					pid_left.setpoint = Encoder_RPM_left;
+				}
+				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+			}
+			else if(!car_new.tempomat)
+			{
+	          	 MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
+			}
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "SLOWDOWN")==0){
+			if(car_new.speed > MinimalSpeed) car_new.speed--;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "SPEEDUP")==0){
+			if(car_new.speed < MaximumSpeed) car_new.speed++;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(buffer.prompts, "TOGGLE_OBSTACLE_AVOIDANCE")==0){
+			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
+			PrintUSART1_NB("OK");
+		}
+		else{
+			PrintUSART1_NB("invalid prompt");
 		}
 }
 	car_prev = car;
 	car = car_new;
-
+	//clear the buffer that contains the prompts
+	ClearBuffer();
 
 }
 void GoForward()
@@ -78,17 +120,27 @@ void GoBackward()
 
 void TurnRight()
 {
-	RotateForward(&motor_right); RotateBackward(&motor_left);
+	RotateForward(&motor_right); StopMotor(&motor_left);
 }
 
 void TurnLeft()
 {
-	RotateBackward(&motor_right); RotateForward(&motor_left);
+	RotateForward(&motor_left); StopMotor(&motor_right);
+}
+
+void TurnRightStationary()
+{
+	RotateForward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnLeftStationary()
+{
+	RotateForward(&motor_left); RotateBackward(&motor_right);
 }
 
 void StopCar()
 {
-	StopMotors(&motor_right); StopMotors(&motor_left);
+	StopMotor(&motor_right); StopMotor(&motor_left);
 }
 
 bool isObstacleDetected(){
@@ -99,87 +151,39 @@ bool isObstacleDetected(){
 			|| optic_measurement.front_right < OpticTreshold
 			);
 }
-void UpdateDirection(){
 
-		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance))
-			return;
-		switch(car.direction)
-		{
-		case GOFORWARD: if((!car.obstacle_avoidance) || (ultrasonic_measurement.distance_in_cm > UltrasonicTreshold
-							 && ultrasonic_measurement.is_valid))
-							GoForward();
-						else{
-							//car.direction = STOPCAR;
-							StopCar();
-							car.is_obstacle_in_the_way = true;
-						}
-			 	 	 	break;
-
-		case GOBACKWARD: if((!car.obstacle_avoidance) || (optic_measurement.back_left < OpticTreshold &&
-				  	  	  	optic_measurement.back_right < OpticTreshold))
-						 GoBackward();
-						else{
-							//car.direction = STOPCAR;
-							StopCar();
-							car.is_obstacle_in_the_way = true;
-						}
-						break;
-
-		case TURNRIGHT: if((!car.obstacle_avoidance) || optic_measurement.front_right < OpticTreshold)
-							TurnRight();
-						else{
-							//car.direction = STOPCAR;
-							StopCar();
-							car.is_obstacle_in_the_way = true;
-						}
-						break;
-		case TURNLEFT: if((!car.obstacle_avoidance) || optic_measurement.front_left < OpticTreshold)
-						    TurnLeft();
-					   else{
-						   	//car.direction = STOPCAR;
-						   	StopCar();
-							car.is_obstacle_in_the_way = true;
-					   	   }
-					   break;
-		case STOPCAR: StopCar();break;
-		default: break;
-		}
-
+bool isRoadBlockedinEveryDirection()
+{
+	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			&& optic_measurement.back_left < OpticTreshold
+			&& optic_measurement.back_right < OpticTreshold
+			&& optic_measurement.front_left < OpticTreshold
+			&& optic_measurement.front_right < OpticTreshold
+			);
 }
-void FindClearRoute(){
 
-	// Ez az egész még nem jó, ez csak egy vázlat
-	// Ez most blokkoló, ez így valszeg nem lesz jó
-	// Először jobbra néz aztán balra, és amelyik irányba messzebb vann akadály
-	// az UH mérés szerint, arra megy tovább
-
-	if(car.direction == GOFORWARD){
-			LookToTheRight();
-			while(!servo_turn_finished);
-			servo_turn_finished = false;
-			uint32_t distance_to_right = ultrasonic_measurement.distance_in_cm;
-
-			LookToTheLeft();
-			while(!servo_turn_finished);
-			servo_turn_finished = false;
-			uint32_t distance_to_left = ultrasonic_measurement.distance_in_cm;
-
-			LookStraight();
-
-			if(distance_to_right > distance_to_left)
-			{
-				car.direction = TURNRIGHT;
-				TurnRight();
-			}
-			else
-			{
-				car.direction = TURNLEFT;
-				TurnLeft();
-			}
-			car.is_obstacle_in_the_way = false;
-
+void SetSpeed(){
+	if(car.is_car_blocked_completely)
+		return;
+	if(car.tempomat)
+	{
+		 if(isPIDUpdated())
+		 {
+		 SetPWM(RoundPIDOutput(pid_right.output), motor_right);
+		 SetPWM(RoundPIDOutput(pid_left.output), motor_left);
+		 pid_updated = false;
+		 }
 	}
-
+	else if(!car.tempomat)
+	{
+		if(car.speed != car_prev.speed)
+		{
+			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0,
+			MinimalDuty + (car.speed-1) * deltaDuty, SCT0_pwmEvent[0]);
+			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1,
+			MinimalDuty + (car.speed-1) * deltaDuty, SCT0_pwmEvent[1]);
+		}
+	}
 
 }
 

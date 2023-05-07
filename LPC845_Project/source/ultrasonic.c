@@ -60,3 +60,10 @@ void Ultrasonic_Callback(uint32_t flags) {
         ultrasonic_measurement.status = START;
     }
 }
+// for debugging
+//  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)
+//  	  	{
+//  	  		char str_uh[16];
+//  	  		snprintf(str_uh, sizeof(str_uh), "%d", (int)ultrasonic_measurement.distance_in_cm);
+//  	  		PRINTF("%s cm\n", str_uh);
+//  	  	}

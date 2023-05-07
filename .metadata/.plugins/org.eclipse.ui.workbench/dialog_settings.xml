@@ -11,18 +11,26 @@
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.ui.internal.quickaccess.QuickAccessDialogDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 		<list key="orderedElements">
+			<item value="org.eclipse.ui.edit.findReplace"/>
+			<item value="org.eclipse.ui.window.quickAccess"/>
 			<item value="org.eclipse.debug.ui.actions.RemoveAllBreakpoints"/>
 			<item value="org.eclipse.debug.ui.BreakpointView"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.commands"/>
+			<item value="org.eclipse.ui.commands"/>
 			<item value="org.eclipse.ui.actions"/>
 			<item value="org.eclipse.e4.ui.parts"/>
 		</list>
 		<list key="textEntries">
 			<item value="1"/>
 			<item value="1"/>
+			<item value="1"/>
+			<item value="1"/>
 		</list>
 		<list key="textArray">
+			<item value="find a"/>
+			<item value="find"/>
 			<item value="bre"/>
 			<item value="brea"/>
 		</list>

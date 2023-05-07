@@ -1,8 +1,10 @@
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h:503:20:SCTIMER_StartTimer	16	static
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h:545:20:SCTIMER_StopTimer	16	static
 ../source/motor.c:13:6:InitMotors	8	static
-../source/motor.c:27:6:SetPWM_right	16	static
-../source/motor.c:34:6:SetPWM_left	16	static
-../source/motor.c:40:6:SetRPM	16	static
-../source/motor.c:45:6:RotateForward	16	static
-../source/motor.c:51:6:RotateBackward	16	static
-../source/motor.c:57:6:StopMotors	16	static
+../source/motor.c:27:6:SetPWM	24	static
+../source/motor.c:33:6:SetRPM	16	static
+../source/motor.c:38:6:RotateForward	16	static
+../source/motor.c:44:6:RotateBackward	16	static
+../source/motor.c:50:6:StopMotor	16	static
+../source/motor.c:59:6:UpdatePwmDutycycleScaledUp	72	static

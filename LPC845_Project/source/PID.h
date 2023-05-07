@@ -9,6 +9,8 @@
 #define PID_H_
 #include <stdbool.h>
 #include <math.h>
+#include <stdint.h>
+
 
 /* Allowable PWM duty cycle is between 40% and 80%
  * For higher resolution it's scaled up to between 400 and 800
@@ -16,7 +18,7 @@
 #define MAX_PID_OUTPUT 400
 #define MIN_PID_OUTPUT 800
 
-extern volatile bool updated;
+extern volatile bool pid_updated;
 typedef struct {
     float Kp;
     float Ki;

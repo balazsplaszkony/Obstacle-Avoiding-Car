@@ -96,3 +96,25 @@ void RESET_IR_LED()
 {
 	GPIO_PinWrite(GPIO, 0U, 0U, 0);
 }
+
+
+// for debugging
+//  	  	if(optic_measurement.status == StartConversion && optic_measurement.is_valid)
+//  	  	{
+//  	  	optic_measurement.status =WaitForConversion;
+//  	  		char str_bl[16];
+//  	  		snprintf(str_bl, sizeof(str_bl), "%d", optic_measurement.back_left_val);
+//  	   		PRINTF("BH: %s\n", str_bl);
+//
+//  	  		//char str_rl[16];
+//  	  		//snprintf(str_rl, sizeof(str_rl), "%d", optic_measurement.back_right_distance_in_cm);
+//  	   		//PRINTF("JH: %s\n", str_rl);
+//
+//  	   		//char str_bf[16];
+//  	  		//snprintf(str_bf, sizeof(str_bf), "%d", optic_measurement.front_left_val);
+//  	   		//PRINTF("BE: %s\n", str_bf);
+//
+//  	  		//char str_je[16];
+//  	  		//snprintf(str_je, sizeof(str_je), "%d", optic_measurement.front_right_distance_in_cm);
+//  	   		//PRINTF("JE: %s\n", str_je);
+//  	  	}

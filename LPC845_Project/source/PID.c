@@ -2,7 +2,7 @@
 
 	PidController pid_right;
 	PidController pid_left;
-	volatile bool updated = false;
+	volatile bool pid_updated = false;
 void PIDInit(){;
 //TODO;
 
@@ -46,7 +46,7 @@ void PIDContollerUpdate(PidController* pid, float measurement){
 }
 bool isPIDUpdated()
 {
-	return updated;
+	return pid_updated;
 }
 
 int RoundPIDOutput(float output)

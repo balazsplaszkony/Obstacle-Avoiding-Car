@@ -1,0 +1,89 @@
+#include "direction.h"
+
+/*determines where can the car go based on the sensor data and the bluetooth prompts*/
+void UpdateDirection(){
+
+		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance))
+			return;
+		switch(car.direction)
+		{
+		case GOFORWARD: if((!car.obstacle_avoidance) || (ultrasonic_measurement.distance_in_cm > UltrasonicTreshold
+							 && ultrasonic_measurement.is_valid))
+							GoForward();
+						else{
+							//car.direction = STOPCAR;
+							StopCar();
+							car.is_obstacle_in_the_way = true;
+						}
+			 	 	 	break;
+
+		case GOBACKWARD: if((!car.obstacle_avoidance) || (optic_measurement.back_left < OpticTreshold &&
+				  	  	  	optic_measurement.back_right < OpticTreshold))
+						 GoBackward();
+						else{
+							//car.direction = STOPCAR;
+							StopCar();
+							car.is_obstacle_in_the_way = true;
+						}
+						break;
+
+		case TURNRIGHT: if((!car.obstacle_avoidance) || optic_measurement.front_right < OpticTreshold)
+							TurnRight();
+						else{
+							//car.direction = STOPCAR;
+							StopCar();
+							car.is_obstacle_in_the_way = true;
+						}
+						break;
+		case TURNLEFT: if((!car.obstacle_avoidance) || optic_measurement.front_left < OpticTreshold)
+						    TurnLeft();
+					   else{
+						   	//car.direction = STOPCAR;
+						   	StopCar();
+							car.is_obstacle_in_the_way = true;
+					   	   }
+					   break;
+		case STOPCAR: StopCar();break;
+		default: break;
+		}
+
+}
+void FindClearRoute(){
+
+	// Ez az egész még nem jó, ez csak egy vázlat
+	// Ez most blokkoló, ez így valszeg nem lesz jó
+	// Először jobbra néz aztán balra, és amelyik irányba messzebb vann akadály
+	// az UH mérés szerint, arra megy tovább
+
+	if(car.direction == GOFORWARD){
+			LookToTheRight();
+			while(!servo_turn_finished);
+			servo_turn_finished = false;
+			uint32_t distance_to_right = ultrasonic_measurement.distance_in_cm;
+
+			LookToTheLeft();
+			while(!servo_turn_finished);
+			servo_turn_finished = false;
+			uint32_t distance_to_left = ultrasonic_measurement.distance_in_cm;
+
+			LookStraight();
+
+			if(distance_to_right > distance_to_left)
+			{
+				car.direction = TURNRIGHT;
+				TurnRight();
+			}
+			else
+			{
+				car.direction = TURNLEFT;
+				TurnLeft();
+			}
+			car.is_obstacle_in_the_way = false;
+	}
+	if(car.direction == TURNRIGHT){
+
+
+
+	}
+	}
+}

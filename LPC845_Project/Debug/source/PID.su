@@ -1,3 +1,4 @@
 ../source/PID.c:6:6:PIDInit	8	static
-../source/PID.c:10:6:PIDContollerUpdate	40	static
-../source/PID.c:24:6:isPIDUpdated	8	static
+../source/PID.c:14:6:PIDContollerUpdate	56	static
+../source/PID.c:47:6:isPIDUpdated	8	static
+../source/PID.c:52:5:RoundPIDOutput	32	static
