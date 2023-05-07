@@ -74,7 +74,6 @@ int main(void) {
     POWER_DisablePD(kPDRUNCFG_PD_ADC0);
     BOARD_InitBootPeripherals();
     BOARD_InitPeripherals();
-	INIT_USART();
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
     SetPWM(405, motor_right);

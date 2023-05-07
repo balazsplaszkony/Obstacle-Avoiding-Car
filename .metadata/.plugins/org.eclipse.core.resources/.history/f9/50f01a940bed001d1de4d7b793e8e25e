@@ -16,6 +16,7 @@ void InitComponents()
 	InitOpticMeasurement(&optic_measurement);
 	InitMotors();
 	UsartBufferInit();
+	INIT_USART();
 	PIDInit();
 }
 
