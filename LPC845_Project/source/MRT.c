@@ -16,20 +16,11 @@ void MRT0_IRQHANDLER(void) {
     if (MRT_GetStatusFlags(MRT0, kMRT_Channel_0)) {
 
          MRT_ClearStatusFlags(MRT0, kMRT_Channel_0, kMRT_TimerInterruptFlag);
-         //mrtChannel0();
-         optic_measurement.optic_flag = true;
-
+         ADCTIMERHandler();
     }
     if (MRT_GetStatusFlags(MRT0, kMRT_Channel_1)) {
-
-         MRT_ClearStatusFlags(MRT0, kMRT_Channel_1, kMRT_TimerInterruptFlag);
-         //mrtChannel0();
-         if(car.direction == GOFORWARD){
-             PIDContollerUpdate(&pid_right, Encoder_RPM_right);
-             PIDContollerUpdate(&pid_left, Encoder_RPM_left);
-             pid_updated = true;
-         }
-
+        MRT_ClearStatusFlags(MRT0, kMRT_Channel_1, kMRT_TimerInterruptFlag);
+    		PIDTIMERHandler();
     }
     if (MRT_GetStatusFlags(MRT0, kMRT_Channel_2)) {
 

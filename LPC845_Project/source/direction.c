@@ -56,7 +56,7 @@ void FindClearRoute(){
 
 	if(isRoadBlockedinEveryDirection())
 	{
-		car.is_car_blocked_completely = true;
+		car.is_car_blocked = true;
 		car.direction = STOPCAR;
 		StopCar();
 	}

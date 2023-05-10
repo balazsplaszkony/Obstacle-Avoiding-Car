@@ -93,7 +93,8 @@ int main(void) {
     {
     while (1){} //hibás osztás érték esetén végtelen ciklus
     }
-
+//	  GPIO_PinWrite(GPIO, 0, motor_right.Input1, 0);
+//	  GPIO_PinWrite(GPIO, 0, motor_right.Input2, 1);
     while(true)
 	{
     	// Gets UART message to the buffer if there is a new message,
@@ -101,13 +102,14 @@ int main(void) {
     	if(GetUSARTMessage()){
     		ProcessPrompts();
     	}
-    	// for debugging
-    	  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)
-    	  	  	{
-    	  	  		char str_uh[16];
-    	  	  		snprintf(str_uh, sizeof(str_uh), "%d", (int)ultrasonic_measurement.distance_in_cm);
-    	  	  		PRINTF("%s cm\n", str_uh);
-    	  	  	}
+//    	for(int i = 0; i < buffer.received_prompts; i++)
+//	  		PRINTF("%s ", buffer.prompts[i]);
+//
+//  			PRINTF("\n");
+  			ClearBuffer();
+
+
+
     	// Calls the state machine of the optic and ultrasonic distance measurements
     	SenseDistance();
 
@@ -120,7 +122,7 @@ int main(void) {
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
-    	//SetSpeed();
+    	SetSpeed();
     }
     return 0;
 }
@@ -129,5 +131,5 @@ int main(void) {
 
 //// ha nem tud semerre menni a kocsi, és utána arrébb teszik, hogy tudjon azt még le kell kezelni,
 //// de egyelőrre egy végtelen ciklust teszek ide
-//while(car.is_car_blocked_completely);
+//while(car.is_car_blocked);
 

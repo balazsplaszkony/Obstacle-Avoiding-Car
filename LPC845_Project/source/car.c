@@ -26,14 +26,14 @@ void InitCar()
 	car.tempomat = false;
 	car.speed = MinimalSpeed;
 	car.is_obstacle_in_the_way = false;
-	car.is_car_blocked_completely = false;
+	car.is_car_blocked = false;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = false;
 	car_prev.tempomat = false;
 	car_prev.speed = MinimalSpeed;
 	car_prev.is_obstacle_in_the_way = false;
-	car_prev.is_car_blocked_completely = false;
+	car_prev.is_car_blocked = false;
 }
 
 void ProcessPrompts()
@@ -44,28 +44,28 @@ void ProcessPrompts()
 	{
         char* prompt = buffer.prompts[i];
 
-		if(strcmp(prompt, "FORWARD")==0){
+		if(strcmp(prompt, "F\0")==0){ //FORWARD
 			car_new.direction = GOFORWARD;
 			PrintUSART1_NB("OK");
 		}
 
-		else if(strcmp(prompt, "BACKWARD")==0){
+		else if(strcmp(prompt, "B\0")==0){ //BACKWARD
 			car_new.direction = GOBACKWARD;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "RIGHT")==0){
+		else if(strcmp(prompt, "R\0")==0){  //RIGHT
 			car_new.direction = TURNRIGHT;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "LEFT")==0){
+		else if(strcmp(prompt, "L\0")==0){	//LEFT
 			car_new.direction = TURNLEFT;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "STOP\0")==0){
+		else if(strcmp(prompt, "S\0")==0){	//STOP
 			car_new.direction = STOPCAR;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "TOGGLE_TEMPOMAT")==0){
+		else if(strcmp(prompt, "T\0")==0){	//TOGGLE_TEMPOMAT
 			car_new.tempomat = (!car_new.tempomat);
 			if(car_new.tempomat)
 			{
@@ -89,15 +89,15 @@ void ProcessPrompts()
 			}
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts[i], "SLOWDOWN")==0){
+		else if(strcmp(buffer.prompts[i], "D\0")==0){	//SLOWDOWN
 			if(car_new.speed > MinimalSpeed) car_new.speed--;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "SPEEDUP")==0){
+		else if(strcmp(prompt, "U\0")==0){	//SPEEDUP
 			if(car_new.speed < MaximumSpeed) car_new.speed++;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "TOGGLE_OBSTACLE_AVOIDANCE")==0){
+		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
 			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
 			PrintUSART1_NB("OK");
 		}
@@ -107,7 +107,6 @@ void ProcessPrompts()
 }
 	car_prev = car;
 	car = car_new;
-	ClearBuffer();
 
 }
 void GoForward()
@@ -164,7 +163,7 @@ bool isRoadBlockedinEveryDirection()
 }
 
 void SetSpeed(){
-	if(car.is_car_blocked_completely)
+	if(car.is_car_blocked)
 		return;
 	if(car.tempomat)
 	{
@@ -187,5 +186,3 @@ void SetSpeed(){
 	}
 
 }
-
-

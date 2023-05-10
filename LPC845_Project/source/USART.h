@@ -12,9 +12,9 @@
 #define CR  0x0d
 #define LF  0x0a
 
-#define rx_buffer_size 64
-#define max_prompt_size 30
-#define max_number_of_prompts 8
+#define rx_buffer_size 32
+#define max_prompt_size 24
+#define max_number_of_prompts 16
 
 
 typedef enum ControlPrompt{

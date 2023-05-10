@@ -1,0 +1,55 @@
+/*
+ * USART.h
+ *
+ *  Created on: Apr 15, 2023
+ *      Author: benes
+ */
+
+#ifndef USART_H_
+#define USART_H_
+
+#define esc 0x1b
+#define CR  0x0d
+#define LF  0x0a
+
+#define rx_buffer_size 64
+#define max_prompt_size 64
+#define max_number_of_prompts 16
+
+
+typedef enum ControlPrompt{
+	FORWARD = '0',
+	BACKWARD = '1',
+	RIGHT = '2',
+	LEFT = '3',
+	STOP = '4',
+	SLOWDOWN = '5',
+	SPEEDUP = '6',
+	TOGGLE_OBSTACLE_AVOIDANCE= '7',
+	TOGGLE_TEMPOMAT = '8', //?
+
+}ControlPrompt;
+
+typedef struct UsartBuffer{
+	char buff[rx_buffer_size];
+	char prompts[max_number_of_prompts][max_prompt_size];
+	bool usartflag;
+	uint8_t received_bytes;
+	uint8_t received_prompts;
+
+}UsartBuffer;
+
+extern  UsartBuffer buffer;
+void INIT_USART(void);
+void UsartBufferInit();
+void PrintUSART1_NB(char * str);
+uint8_t GetUSART0(uint8_t *data);
+uint8_t GetString_TillEndChar(char *str, uint8_t End_Char, uint8_t LenMax, uint8_t reset);
+bool GetUSARTMessage();
+void splitUSARTMessage();
+void ClearBuffer();
+void Acknowledge();
+
+
+#endif /* USART_H_ */
+

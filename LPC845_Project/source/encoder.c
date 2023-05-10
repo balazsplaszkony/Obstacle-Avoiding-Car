@@ -28,13 +28,13 @@ void EncoderRightCallback(uint32_t flags) {
 	if(captured_time_right_prev)
 	{
 		microseconds_elapsed_right = captured_time_right - captured_time_right_prev;
-		//double a = microseconds_elapsed_right / RPMCONST;
-		//RPM_right = 1/a;
+//		double a = microseconds_elapsed_right / RPMCONST;
+//		RPM_right = 1/a;
 		Encoder_RPM_right = 1.0/(microseconds_elapsed_right / RPMCONST);
 	}
 
-	  	  		snprintf(str_right, sizeof(str_right), "%d", Encoder_RPM_right);
-	  	  		PRINTF("%s\n", str_right);
+	  	  		//snprintf(str_right, sizeof(str_right), "%d", Encoder_RPM_right);
+	  	  		PRINTF("%d\n", (int)Encoder_RPM_right);
 
 }
 

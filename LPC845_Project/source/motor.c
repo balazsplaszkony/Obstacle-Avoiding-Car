@@ -14,14 +14,14 @@ void InitMotors(){
 
 	//ennek igy lehet nem sok értelme van és máshogy kéne
 	//motor_right.direction = STOP_M;
-	motor_right.pwm_channel = kSCTIMER_Out_0;;
-	motor_right.Input1 = BOARD_INITPINS_Motor1IN1_PIN;
-	motor_right.Input2 = BOARD_INITPINS_Motor1IN2_PIN;
+	motor_left.pwm_channel = kSCTIMER_Out_0;;
+	motor_left.Input1 = BOARD_INITPINS_Motor1IN1_PIN;
+	motor_left.Input2 = BOARD_INITPINS_Motor1IN2_PIN;
 
 	//motor_left.direction = STOP_M;
-	motor_left.pwm_channel = kSCTIMER_Out_1;
-	motor_left.Input1 = BOARD_INITPINS_Motor2IN1_PIN;
-	motor_left.Input2 = BOARD_INITPINS_Motor2IN2_PIN;
+	motor_right.pwm_channel = kSCTIMER_Out_1;
+	motor_right.Input1 = BOARD_INITPINS_Motor2IN1_PIN;
+	motor_right.Input2 = BOARD_INITPINS_Motor2IN2_PIN;
 }
 
 void SetPWM(uint16_t duty_scaled_up, Motor motor){
@@ -98,7 +98,6 @@ void UpdatePwmDutycycleScaledUp(SCT_Type *base, sctimer_out_t output, uint16_t s
         {
             pulsePeriod = (uint32_t)(((uint64_t)period * scaledUpDutyCyclePercent) / 1000U);
         }
-    //pulsePeriod = (uint32_t)(((uint64_t)period * scaledUpDutyCyclePercent) / 1000U);
 
     /* Update dutycycle */
     base->MATCH[pulseMatchReg]    = pulsePeriod;

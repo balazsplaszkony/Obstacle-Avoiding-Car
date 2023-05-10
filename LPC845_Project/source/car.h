@@ -24,7 +24,7 @@
 #define MaximumSpeed  9
 #define MinimalDuty 40
 #define MaximumDuty 80
-#define DutyInterval MaximumDuty - MinimalDuty
+#define DutyInterval (MaximumDuty - MinimalDuty)
 #define deltaDuty  DutyInterval/(MaximumSpeed - MinimalSpeed)
 
 
@@ -46,7 +46,7 @@ typedef struct Car{
 	bool tempomat;
 	bool obstacle_avoidance;
 	uint32_t speed;
-	bool is_car_blocked_completely;
+	bool is_car_blocked;
 
 }Car;
 

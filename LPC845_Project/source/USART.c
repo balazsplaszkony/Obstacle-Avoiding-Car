@@ -110,11 +110,23 @@ bool GetUSARTMessage()
 	{
 		buffer.buff[buffer.received_bytes++] = data;
 	}
+
+//	for(int i = 0; USART1_handle.rxDataSize > 0; i++)
+//	{
+//		int max_length = USART1_handle.rxDataSize;
+//		GetString_TillEndChar(buffer.prompts[i], ',', 64, 1);
+//	    do{
+//	    }while(!GetString_TillEndChar(buffer.prompts[i], ',', 64, 0));
+//		buffer.received_prompts++;
+//	}
+
 //	buffer.received_bytes=10;
 //	char* s = "STOP,L,Rr,";
 //	strcpy(buffer.buff, s);
 	splitUSARTMessage();
 	return buffer.received_bytes > 0;
+
+//	return buffer.received_prompts > 0;
 }
 //void splitUSARTMessage() {
 //    char* token = strtok(buffer.buff, ",");

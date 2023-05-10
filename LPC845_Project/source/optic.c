@@ -64,14 +64,14 @@ void ADC0_SEQA_IRQHandler(void)
 	optic_measurement.optic_flag = true;
 
 	if(optic_measurement.status == WaitForFirstConversion){
-		PRINTF("1\n");
+		//PRINTF("1\n");
 		front_right_first = ADC0->DAT[1] & ADC_RESULT_MASK;
 		front_left_first  = ADC0->DAT[2] & ADC_RESULT_MASK;
 		back_right_first  = ADC0->DAT[3] & ADC_RESULT_MASK;
 		back_left_first   = ADC0->DAT[5] & ADC_RESULT_MASK;
 	}
 	if(optic_measurement.status == WaitForSecondConversion){
-		PRINTF("2\n");
+		//PRINTF("2\n");
 			front_right_second = ADC0->DAT[1] & ADC_RESULT_MASK;
 			front_left_second  = ADC0->DAT[2] & ADC_RESULT_MASK;
 			back_right_second  = ADC0->DAT[3] & ADC_RESULT_MASK;
@@ -81,7 +81,7 @@ void ADC0_SEQA_IRQHandler(void)
 			optic_measurement.front_left = front_left_second - front_left_first;
 			optic_measurement.back_right = back_right_second - back_right_first;
 			optic_measurement.back_left = back_left_second - back_left_first;
-			PRINTF("%d - %d = %d\n",back_left_second, back_left_first, optic_measurement.back_left);
+			//PRINTF("%d - %d = %d\n",back_left_second, back_left_first, optic_measurement.back_left);
 		}
 
     ADC_ClearStatusFlags(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptFlag);
@@ -95,6 +95,9 @@ void SET_IR_LED()
 void RESET_IR_LED()
 {
 	GPIO_PinWrite(GPIO, 0U, 0U, 0);
+}
+void ADCTIMERHandler(){
+    optic_measurement.optic_flag = true;
 }
 
 

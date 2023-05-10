@@ -10,7 +10,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <stdint.h>
-
+#include "encoder.h"
 
 /* Allowable PWM duty cycle is between 40% and 80%
  * For higher resolution it's scaled up to between 400 and 800
@@ -18,7 +18,7 @@
 #define MAX_PID_OUTPUT 400.0
 #define MIN_PID_OUTPUT 0.0
 #define PID_OUTPUT_OFFSET 400.0
-#define MAX_RPM 80.0 //ez csak valami egyelőre
+#define MAX_RPM 230.0 //üresjárásban ennyi
 
 
 extern volatile bool pid_updated;
@@ -43,5 +43,6 @@ void PIDContollerUpdate(PidController* pid, float measurement);
 void PIDInit();
 int RoundPIDOutput(float output);
 float ScaleUpSetpoint(float rpm);
+void PIDTIMERHandler();
 
 #endif /* PID_H_ */

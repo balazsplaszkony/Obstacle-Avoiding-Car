@@ -11,3 +11,4 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/optic.c:62:6:ADC0_SEQA_IRQHandler	8	static
 ../source/optic.c:90:6:SET_IR_LED	8	static
 ../source/optic.c:95:6:RESET_IR_LED	8	static
+../source/optic.c:99:6:ADCTIMERHandler	8	static

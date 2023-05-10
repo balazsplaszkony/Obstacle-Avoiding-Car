@@ -56,5 +56,6 @@ void MoveToNextState();
 void StartConversion();
 void SET_IR_LED();
 void RESET_IR_LED();
+void ADCTIMERHandler();
 
 #endif /* OPTIC_H_ */

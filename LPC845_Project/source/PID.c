@@ -71,3 +71,10 @@ int RoundPIDOutput(float output)
 float ScaleUpSetpoint(float rpm){
 	return (rpm/MAX_RPM)*MAX_PID_OUTPUT;
 }
+void PIDTIMERHandler(){
+    if(1)//car.direction == GOFORWARD)
+    {
+        PIDContollerUpdate(&pid_right, Encoder_RPM_right);
+        PIDContollerUpdate(&pid_left, Encoder_RPM_left);
+        pid_updated = true;}
+}
