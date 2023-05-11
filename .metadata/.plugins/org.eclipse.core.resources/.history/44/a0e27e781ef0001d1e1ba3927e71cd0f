@@ -112,7 +112,7 @@ int main(void) {
     	UpdateDirection();
 
     	// Looks for a clear path, if the car cannot go towards the selected direction
-    	if(car.is_obstacle_in_the_way || car.collision)
+    	if(car.is_obstacle_in_the_way)
     		FindClearRoute();
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,

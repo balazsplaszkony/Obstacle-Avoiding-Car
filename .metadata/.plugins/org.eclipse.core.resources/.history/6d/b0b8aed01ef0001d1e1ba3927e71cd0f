@@ -207,10 +207,8 @@ bool DetectCollision(){
 	if((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
 			(!car.tempomat && car.duty == car_prev.duty)) &&
 			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) ||
-			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop))){
-		car.collision = true;
-	}
-	return car.collision;
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)))
+
 }
 
 void SetSpeed(){
