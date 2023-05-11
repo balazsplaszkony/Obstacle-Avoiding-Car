@@ -17,6 +17,7 @@ void InitComponents()
 	InitMotors();
 	UsartBufferInit();
 	PIDInit();
+	InitEncoders();
 }
 
 void InitCar()
@@ -24,25 +25,24 @@ void InitCar()
 	car.direction = STOPCAR;
 	car.obstacle_avoidance = false;
 	car.tempomat = false;
-	car.speed = MinimalSpeed;
+	car.speed = 0;
+	car.duty = 0;
 	car.is_obstacle_in_the_way = false;
 	car.is_car_blocked = false;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = false;
 	car_prev.tempomat = false;
-	car_prev.speed = MinimalSpeed;
+	car_prev.speed = 0;
+	car_prev.duty = 0;
 	car_prev.is_obstacle_in_the_way = false;
 	car_prev.is_car_blocked = false;
 }
 
-void ProcessPrompts()
+void ProcessPrompt()
 {
 	Car car_new = car;
-
-	for(int i = 0; i< buffer.received_prompts; i++)
-	{
-        char* prompt = buffer.prompts[i];
+        char* prompt = buffer.prompt;
 
 		if(strcmp(prompt, "F\0")==0){ //FORWARD
 			car_new.direction = GOFORWARD;
@@ -72,14 +72,14 @@ void ProcessPrompts()
 				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)
 					&& car.direction == car_new.direction)
 				{
-					float rpm_setpoint = ScaleUpSetpoint((Encoder_RPM_right + Encoder_RPM_left)/2.0);
+					float rpm_setpoint = ScaleUpSetpoint((Encoder_right.RPM + Encoder_left.RPM)/2.0);
 					pid_right.setpoint = rpm_setpoint;
 					pid_left.setpoint =  rpm_setpoint;
 				}
 				else
 				{
-					pid_right.setpoint = ScaleUpSetpoint(Encoder_RPM_right);
-					pid_left.setpoint = ScaleUpSetpoint(Encoder_RPM_left);
+					pid_right.setpoint = ScaleUpSetpoint(Encoder_right.RPM);
+					pid_left.setpoint = ScaleUpSetpoint(Encoder_left.RPM);
 				}
 				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
 			}
@@ -89,22 +89,61 @@ void ProcessPrompts()
 			}
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(buffer.prompts[i], "D\0")==0){	//SLOWDOWN
-			if(car_new.speed > MinimalSpeed) car_new.speed--;
-			PrintUSART1_NB("OK");
-		}
-		else if(strcmp(prompt, "U\0")==0){	//SPEEDUP
-			if(car_new.speed < MaximumSpeed) car_new.speed++;
-			PrintUSART1_NB("OK");
-		}
+//		else if(strcmp(prompt, "D\0")==0){	//SLOWDOWN
+//			if(car_new.tempomat)
+//			{
+//				car_new.speed -= buffer.parameter;
+//				float rpm_setpoint = ScaleUpSetpoint(CalculateRPMfromSpeed(car_new.speed));
+//				pid_right.setpoint = rpm_setpoint;
+//				pid_left.setpoint =  rpm_setpoint;
+//				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+//			}
+//			else{
+//
+//			}
+//			PrintUSART1_NB("OK");
+//		}
+//		else if(strcmp(prompt, "U\0")==0){	//SPEEDUP
+//			if(car_new.tempomat)
+//			{
+//				car_new.speed = buffer.parameter;
+//				float rpm_setpoint = ScaleUpSetpoint(CalculateRPMfromSpeed(car_new.speed));
+//				pid_right.setpoint = rpm_setpoint;
+//				pid_left.setpoint =  rpm_setpoint;
+//				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+//			}
+//			else{
+//
+//			}
+//			PrintUSART1_NB("OK");
+//		}
 		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
 			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
 			PrintUSART1_NB("OK");
 		}
+		else if(strcmp(prompt, "Speed\0")==0){
+					if(car.tempomat)
+					{
+						car_new.speed = buffer.parameter;
+						float rpm_setpoint = ScaleUpSetpoint(CalculateRPMfromSpeed(car_new.speed));
+						rpm_setpoint = (rpm_setpoint > MAX_PID_OUTPUT) ? rpm_setpoint : MAX_PID_OUTPUT;
+						rpm_setpoint = (rpm_setpoint < MIN_PID_OUTPUT) ? rpm_setpoint : MIN_PID_OUTPUT;
+
+						pid_right.setpoint = rpm_setpoint;
+						pid_left.setpoint =  rpm_setpoint;
+						MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+					}
+					PrintUSART1_NB("OK");
+				}
+		else if(strcmp(prompt, "Duty\0")==0){
+					if(!car.tempomat && (buffer.parameter > MinimalDuty) && (buffer.parameter < MaximumDuty))
+						car_new.duty = buffer.parameter;
+					PrintUSART1_NB("OK");
+						}
 		else{
 			PrintUSART1_NB("invalid prompt");
 		}
-}
+
 	car_prev = car;
 	car = car_new;
 
@@ -162,6 +201,14 @@ bool isRoadBlockedinEveryDirection()
 			);
 }
 
+//legelso kozelites, ha nem valtozott az irany, sebesseg, de lecsökkent hirtelen az rpm akkor ütközés volt
+bool DetectCollision(){
+	return((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
+			(!car.tempomat && car.duty == car_prev.duty)) &&
+			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) ||
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)));
+}
+
 void SetSpeed(){
 	if(car.is_car_blocked)
 		return;
@@ -169,20 +216,26 @@ void SetSpeed(){
 	{
 		 if(isPIDUpdated())
 		 {
-		 SetPWM(RoundPIDOutput(pid_right.output), motor_right);
-		 SetPWM(RoundPIDOutput(pid_left.output), motor_left);
+		 SetPWM(RoundPIDOutput(pid_right.output), &motor_right);
+		 SetPWM(RoundPIDOutput(pid_left.output), &motor_left);
 		 pid_updated = false;
 		 }
 	}
 	else if(!car.tempomat)
 	{
-		if(car.speed != car_prev.speed)
+		if(car.duty != car_prev.duty)
 		{
-			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0,
-			MinimalDuty + (car.speed-1) * deltaDuty, SCT0_pwmEvent[0]);
-			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1,
-			MinimalDuty + (car.speed-1) * deltaDuty, SCT0_pwmEvent[1]);
+			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, car.duty, SCT0_pwmEvent[0]);
+			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, car.duty, SCT0_pwmEvent[1]);
 		}
 	}
 
+}
+float CalculateSpeedfromRPM(float rpm)
+{
+	return (WheelCircumference * rpm) / 60;
+}
+float CalculateRPMfromSpeed(float speed)
+{
+	return (speed / WheelCircumference) * 60;
 }

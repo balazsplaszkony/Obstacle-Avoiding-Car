@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="is_car_blocked"/>
+		<item key="selection" value="int16_t"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="uint32_t"/>
+			<item value="int"/>
 			<item value="is_car_blocked"/>
 			<item value="output"/>
 			<item value="USART0"/>
@@ -21,10 +23,10 @@
 			<item value="usart"/>
 			<item value=" while (1)"/>
 			<item value="PIO0_16"/>
-			<item value="PIO_16"/>
-			<item value="Motor1EN"/>
 		</list>
 		<list key="replacehistory">
+			<item value="int16_t"/>
+			<item value="int"/>
 			<item value="USART1"/>
 			<item value="Sajóvámos"/>
 			<item value="scaledUpDutyCyclePercent"/>

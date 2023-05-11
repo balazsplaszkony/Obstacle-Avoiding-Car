@@ -1,5 +1,5 @@
 /*
- * speedcontrol.h
+ * motor.h
  *
  *  Created on: 2023. márc. 8.
  *      Author: plasz
@@ -29,7 +29,7 @@ extern Motor motor_right;
 extern Motor motor_left;
 
 void InitMotors();
-void SetPWM(uint16_t duty_scaled_up, Motor motor);
+void SetPWM(uint16_t duty_scaled_up, Motor *motor);
 void SetRPM(Motor* motor);
 void RotateForward(Motor* motor);
 void RotateBackward(Motor* motor);

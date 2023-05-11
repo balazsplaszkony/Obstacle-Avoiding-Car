@@ -26,6 +26,10 @@
 #define MaximumDuty 80
 #define DutyInterval (MaximumDuty - MinimalDuty)
 #define deltaDuty  DutyInterval/(MaximumSpeed - MinimalSpeed)
+#define pi 3.14159
+#define WheelDiameter 6 //cm
+#define WheelRadius (WheelDiameter / 2)
+#define WheelCircumference (pi * 2* WheelRadius)
 
 
 extern volatile UsartBuffer bluetooth_prompts;
@@ -45,8 +49,9 @@ typedef struct Car{
 	bool is_obstacle_in_the_way;
 	bool tempomat;
 	bool obstacle_avoidance;
-	uint32_t speed;
 	bool is_car_blocked;
+	uint8_t speed; // cm/s
+	uint8_t duty;
 
 }Car;
 
@@ -58,7 +63,8 @@ void InitComponents();
 void InitCar();
 bool isObstacleDetected();
 bool isRoadBlockedinEveryDirection();
-void ProcessPrompts();
+bool DetectCollision();
+void ProcessPrompt();
 void UpdateDirection();
 void GoForward();
 void GoBackward();
@@ -68,6 +74,10 @@ void TurnRightStationary();
 void TurnLeftStationary();
 void StopCar();
 void SetSpeed();
+float CalculateSpeedfromRPM(float rpm);
+float CalculateRPMfromSpeed(float speed);
+
+
 
 
 

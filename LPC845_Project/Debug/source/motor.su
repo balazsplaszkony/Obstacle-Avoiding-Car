@@ -2,9 +2,9 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h:503:20:SCTIMER_StartTimer	16	static
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h:545:20:SCTIMER_StopTimer	16	static
 ../source/motor.c:13:6:InitMotors	8	static
-../source/motor.c:27:6:SetPWM	16	static
-../source/motor.c:36:6:SetRPM	16	static
-../source/motor.c:41:6:RotateForward	16	static
-../source/motor.c:47:6:RotateBackward	16	static
-../source/motor.c:53:6:StopMotor	16	static
-../source/motor.c:62:6:UpdatePwmDutycycleScaledUp	72	static
+../source/motor.c:27:6:SetPWM	24	static
+../source/motor.c:37:6:SetRPM	16	static
+../source/motor.c:42:6:RotateForward	16	static
+../source/motor.c:48:6:RotateBackward	16	static
+../source/motor.c:54:6:StopMotor	16	static
+../source/motor.c:63:6:UpdatePwmDutycycleScaledUp	72	static

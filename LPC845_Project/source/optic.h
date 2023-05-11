@@ -15,6 +15,7 @@
 
 #define ADC_RESULT_MASK 0xFFF
 #define OpticTreshold  3000 //ki kell még méregetni
+#define MOVING_AVERAGE_FILTER_SIZE 5
 
 typedef enum Status_Optic
 {
@@ -32,14 +33,13 @@ typedef struct OpticMeasurement
 	int16_t front_left;
 	int16_t back_right;
 	int16_t back_left;
-	int16_t measurement[4][5];
+	int16_t measurement[4][MOVING_AVERAGE_FILTER_SIZE];
 
 	//bool is_valid;
 	OpticStatus status;
 }OpticMeasurement;
 
 extern volatile OpticMeasurement optic_measurement;
-extern volatile int16_t potmeter;
 
 extern volatile int16_t front_right_first;
 extern volatile int16_t front_left_first;

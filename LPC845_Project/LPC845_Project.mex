@@ -1024,7 +1024,7 @@
                            <setting name="IRQn" value="ADC0_SEQA_IRQn"/>
                            <setting name="enable_interrrupt" value="enabled"/>
                            <setting name="enable_priority" value="true"/>
-                           <setting name="priority" value="2"/>
+                           <setting name="priority" value="3"/>
                            <setting name="enable_custom_name" value="false"/>
                         </struct>
                         <setting name="enable_irq_seqB" value="false"/>

@@ -18,7 +18,7 @@ volatile int16_t back_left_second = 0;
 
 
 volatile OpticMeasurement optic_measurement; //= {0, 0, 0, 0,} ;//false, StartConversion};
-//volatile int16_t potmeter = 0;
+
 void OpticMeasure()
 {
 	if(optic_measurement.optic_flag)
@@ -94,11 +94,9 @@ void ADC0_SEQA_IRQHandler(void)
 			optic_measurement.front_left = AveragingMeasurements(1);
 			optic_measurement.back_right = AveragingMeasurements(2);
 			optic_measurement.back_left = AveragingMeasurements(3);
-			//PRINTF("%d - %d = %d\n",back_left_second, back_left_first, optic_measurement.back_left);
-
 
 			counter++;
-			counter = counter % 5;
+			counter = counter % MOVING_AVERAGE_FILTER_SIZE;
 		}
 
     ADC_ClearStatusFlags(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptFlag);
@@ -121,9 +119,9 @@ void ADCTIMERHandler(){
 int16_t AveragingMeasurements(uint8_t sensor)
 {
 	int sensor_data = 0;
-	for(int i = 0; i < 5; i++)
+	for(int i = 0; i < MOVING_AVERAGE_FILTER_SIZE; i++)
 		sensor_data += optic_measurement.measurement[sensor][i];
-	return sensor_data / 5;
+	return sensor_data / MOVING_AVERAGE_FILTER_SIZE;
 }
 
 

@@ -1,5 +1,5 @@
 /*
- * speedcontrol.c
+ * motor.c
  *
  *  Created on: 2023. márc. 8.
  *      Author: plasz
@@ -24,13 +24,14 @@ void InitMotors(){
 	motor_right.Input2 = BOARD_INITPINS_Motor2IN2_PIN;
 }
 
-void SetPWM(uint16_t duty_scaled_up, Motor motor){
+void SetPWM(uint16_t duty_scaled_up, Motor* motor){
 	if(duty_scaled_up > 800)
 		duty_scaled_up = 800;
-	switch(motor.pwm_channel){
-		case 0: UpdatePwmDutycycleScaledUp(SCT0, 0, duty_scaled_up, SCT0_pwmEvent[0]); break;
-		case 1: UpdatePwmDutycycleScaledUp(SCT0, 1, duty_scaled_up, SCT0_pwmEvent[1]); break;
-	}
+//	switch(motor.pwm_channel){
+//		case 0: UpdatePwmDutycycleScaledUp(SCT0, 0, duty_scaled_up, SCT0_pwmEvent[0]); break;
+//		case 1: UpdatePwmDutycycleScaledUp(SCT0, 1, duty_scaled_up, SCT0_pwmEvent[1]); break;
+//	}
+	UpdatePwmDutycycleScaledUp(SCT0, motor->pwm_channel, duty_scaled_up, SCT0_pwmEvent[motor->pwm_channel]);
 }
 
 void SetRPM(Motor* motor)

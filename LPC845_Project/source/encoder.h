@@ -17,14 +17,20 @@
 
 #define MicroSecondsInMinute 60000000
 #define Resolution 20
-#define RPMCONST MicroSecondsInMinute * Resolution
-
-extern volatile float Encoder_RPM_right;
-extern volatile float Encoder_RPM_left;
+#define RPMCONST (MicroSecondsInMinute * Resolution)
+#define Maximum_Tolerated_RPM_Drop 50
 
 
+typedef struct Encoder{
+	volatile float RPM;
+	volatile float RPM_prev;
 
+}Encoder;
 
+extern volatile Encoder Encoder_right;
+extern volatile Encoder Encoder_left;
+
+void InitEncoders();
 void EncoderRightCallback(uint32_t flags);
 void EncoderLeftCallback(uint32_t flags);
 

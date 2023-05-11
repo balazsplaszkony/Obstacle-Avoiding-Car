@@ -15,10 +15,18 @@ volatile double  microseconds_elapsed_right = 0;
 volatile double microseconds_elapsed_left = 0;
 
 
-volatile float Encoder_RPM_right = 0.0;
-volatile float Encoder_RPM_left = 0.0;
-char str_right[16];
-char str_left[16];
+
+volatile Encoder Encoder_right;
+volatile Encoder Encoder_left;
+
+void InitEncoders()
+{
+	Encoder_right.RPM = 0.0;
+	Encoder_right.RPM_prev = 0.0;
+
+	Encoder_left.RPM = 0.0;
+	Encoder_left.RPM_prev = 0.0;
+}
 
 
 void EncoderRightCallback(uint32_t flags) {
@@ -28,14 +36,10 @@ void EncoderRightCallback(uint32_t flags) {
 	if(captured_time_right_prev)
 	{
 		microseconds_elapsed_right = captured_time_right - captured_time_right_prev;
-//		double a = microseconds_elapsed_right / RPMCONST;
-//		RPM_right = 1/a;
-		Encoder_RPM_right = 1.0/(microseconds_elapsed_right / RPMCONST);
+		Encoder_right.RPM = 1.0/(microseconds_elapsed_right / RPMCONST);
 	}
 
-	  	  		//snprintf(str_right, sizeof(str_right), "%d", Encoder_RPM_right);
-	  	  		PRINTF("%d\n", (int)Encoder_RPM_right);
-
+	PRINTF("%d\n", (int)Encoder_right.RPM);
 }
 
 void EncoderLeftCallback(uint32_t flags) {
@@ -44,9 +48,7 @@ void EncoderLeftCallback(uint32_t flags) {
 	if(captured_time_left_prev)
 	{
 		microseconds_elapsed_left = captured_time_left - captured_time_left_prev;
-		Encoder_RPM_left = 1 / (microseconds_elapsed_left / RPMCONST);
+		Encoder_left.RPM = 1 / (microseconds_elapsed_left / RPMCONST);
 	}
-		snprintf(str_left, sizeof(str_left), "%d", Encoder_RPM_left);
-		PRINTF("%s\n", str_left);
-
+	PRINTF("%d\n", (int)Encoder_left.RPM);
 }

@@ -340,7 +340,7 @@ instance:
       - IRQn: 'ADC0_SEQA_IRQn'
       - enable_interrrupt: 'enabled'
       - enable_priority: 'true'
-      - priority: '2'
+      - priority: '3'
       - enable_custom_name: 'false'
     - enable_irq_seqB: 'false'
     - adc_interrupt_seqB:

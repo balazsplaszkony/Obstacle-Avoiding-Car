@@ -64,13 +64,9 @@ void INIT_USART(void)
 void UsartBufferInit()
 {
 	buffer.received_bytes = 0;
-	buffer.received_prompts = 0;
-	buffer.usartflag = false;
 	for(int i = 0; i < rx_buffer_size; i++)
-		buffer.buff[i] = 0;
-	for(int i = 0; i < max_number_of_prompts; i++)
-		for(int j = 0; j < max_prompt_size; j++)
-			buffer.prompts[i][j] = 0;
+		buffer.prompt[i] = 0;
+	buffer.parameter = 0;
 }
 
 void PrintUSART1_NB(char * str)
@@ -105,65 +101,43 @@ uint8_t GetUSART1(uint8_t *data)
 
 bool GetUSARTMessage()
 {
-	uint8_t data;
-	while(GetUSART1(&data))
+	static int reset = 1;
+	int retval = 0;
+	if(reset)
 	{
-		buffer.buff[buffer.received_bytes++] = data;
+		GetString_TillEndChar(buffer.prompt, ',', rx_buffer_size, 1);
+		reset = 0;
+	}
+	else
+	{
+		if(GetString_TillEndChar(buffer.prompt, ',', rx_buffer_size, 0))
+		{
+			reset = 1;
+			retval = 1;
+			buffer.received_bytes = strlen(buffer.prompt) - 1;
+		}
+	}
+	return retval;
 	}
 
-//	for(int i = 0; USART1_handle.rxDataSize > 0; i++)
-//	{
-//		int max_length = USART1_handle.rxDataSize;
-//		GetString_TillEndChar(buffer.prompts[i], ',', 64, 1);
-//	    do{
-//	    }while(!GetString_TillEndChar(buffer.prompts[i], ',', 64, 0));
-//		buffer.received_prompts++;
-//	}
+void ParsePrompt(){
+	char* colonPtr = strchr(buffer.prompt, ':');  // Find the first occurrence of ":"
 
-//	buffer.received_bytes=10;
-//	char* s = "STOP,L,Rr,";
-//	strcpy(buffer.buff, s);
-	splitUSARTMessage();
-	return buffer.received_bytes > 0;
-
-//	return buffer.received_prompts > 0;
-}
-//void splitUSARTMessage() {
-//    char* token = strtok(buffer.buff, ",");
-//    for(int i = 0; token != NULL; i++) {
-//        buffer.prompts[buffer.received_prompts++][i] = token;
-//        token = strtok(NULL, ",");
-//    }
-//}
-void splitUSARTMessage() {
-		int i = 0;
-	    int offset = 0;
-	    char* prompt = strtok(buffer.buff + offset, ",");
-	    while (prompt != NULL && i < max_number_of_prompts) {
-	        int promptLength = strlen(prompt);
-	        if (promptLength >= max_prompt_size) {
-	            promptLength = max_prompt_size - 1;
-	        }
-	        strncpy(buffer.prompts[i], prompt, promptLength);
-	        buffer.prompts[i][promptLength] = '\0';
-	        i++;
-	        offset += promptLength + 1;
-	        prompt = strtok(buffer.buff + offset, ",");
+	    if (colonPtr != NULL) {
+	        *colonPtr = '\0';  // Truncate the string at ":"
+	        buffer.received_bytes = colonPtr - buffer.prompt;
+	        char* numberString = colonPtr + 1;
+	        buffer.parameter = atoi(numberString);
+	    } else {
+	    	buffer.received_bytes = strlen(buffer.prompt);
 	    }
-	    buffer.received_prompts = i;
+
 }
+
 void ClearBuffer()
 {
 	buffer.received_bytes = 0;
-	buffer.received_prompts = 0;
-	buffer.usartflag = false;
-}
-void Acknowledge()
-{
-	for(int i = 0; i< buffer.received_prompts; i++)
-	{
-		PrintUSART1_NB("OK");
-	}
+	buffer.parameter = 0;
 }
 
 

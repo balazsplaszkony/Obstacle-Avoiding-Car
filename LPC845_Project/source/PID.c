@@ -74,7 +74,7 @@ float ScaleUpSetpoint(float rpm){
 void PIDTIMERHandler(){
     if(1)//car.direction == GOFORWARD)
     {
-        PIDContollerUpdate(&pid_right, Encoder_RPM_right);
-        PIDContollerUpdate(&pid_left, Encoder_RPM_left);
+        PIDContollerUpdate(&pid_right, Encoder_right.RPM);
+        PIDContollerUpdate(&pid_left, Encoder_left.RPM);
         pid_updated = true;}
 }

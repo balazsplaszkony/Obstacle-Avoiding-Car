@@ -64,7 +64,7 @@ extern "C" {
 /* ADC0 interrupt vector ID (number). */
 #define ADC0_ADC_SEQ_A_IRQN ADC0_SEQA_IRQn
 /* ADC0 interrupt vector priority. */
-#define ADC0_ADC_SEQ_A_IRQ_PRIORITY 2
+#define ADC0_ADC_SEQ_A_IRQ_PRIORITY 3
 /* ADC0 interrupt handler identifier. */
 #define ADC0_ADC_SEQ_A_IRQHANDLER ADC0_SEQA_IRQHandler
 /* BOARD_InitPeripherals defines for SCT0 */

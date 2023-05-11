@@ -72,13 +72,13 @@ int main(void) {
     InitComponents();
 
     POWER_DisablePD(kPDRUNCFG_PD_ADC0);
-    BOARD_InitBootPeripherals();
+    //BOARD_InitBootPeripherals();
     BOARD_InitPeripherals();
 	INIT_USART();
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
-    SetPWM(405, motor_right);
-    SetPWM(210, motor_left);
+    SetPWM(405, &motor_right);
+    SetPWM(210, &motor_left);
 //		SetPWM(305, motor_right);
 //		SetPWM(605, motor_left);
 	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
@@ -100,15 +100,10 @@ int main(void) {
     	// Gets UART message to the buffer if there is a new message,
     	// then processes it and clears the buffer
     	if(GetUSARTMessage()){
-    		ProcessPrompts();
-    	}
-//    	for(int i = 0; i < buffer.received_prompts; i++)
-//	  		PRINTF("%s ", buffer.prompts[i]);
-//
-//  			PRINTF("\n");
+    		ParsePrompt();
+    		ProcessPrompt();
   			ClearBuffer();
-
-
+    	}
 
     	// Calls the state machine of the optic and ultrasonic distance measurements
     	SenseDistance();
