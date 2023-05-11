@@ -8,6 +8,7 @@
 #ifndef DIRECTION_H_
 #define DIRECTION_H_
 #include "ultrasonic.h"
+#include "bluetooth.h"
 #include "car.h"
 #include "optic.h"
 

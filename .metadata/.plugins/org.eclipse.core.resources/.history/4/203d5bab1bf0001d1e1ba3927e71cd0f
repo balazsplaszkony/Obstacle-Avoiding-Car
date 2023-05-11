@@ -66,7 +66,7 @@ void UsartBufferInit()
 	buffer.received_bytes = 0;
 	for(int i = 0; i < rx_buffer_size; i++)
 		buffer.prompt[i] = 0;
-	buffer.parameter = 0.0;
+	buffer.parameter = 0;
 }
 
 void PrintUSART1_NB(char * str)
@@ -127,7 +127,7 @@ void ParsePrompt(){
 	        *colonPtr = '\0';  // Truncate the string at ":"
 	        buffer.received_bytes = colonPtr - buffer.prompt;
 	        char* numberString = colonPtr + 1;
-	        buffer.parameter = atof(numberString);
+	        buffer.parameter = atoi(numberString);
 	    } else {
 	    	buffer.received_bytes = strlen(buffer.prompt);
 	    }

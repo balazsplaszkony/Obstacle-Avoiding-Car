@@ -41,7 +41,7 @@ typedef struct UsartBuffer{
 
 }UsartBuffer;
 
-extern  UsartBuffer buffer;
+extern volatile UsartBuffer buffer;
 void INIT_USART(void);
 void UsartBufferInit();
 void PrintUSART1_NB(char * str);

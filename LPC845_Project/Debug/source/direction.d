@@ -17,8 +17,7 @@ source/direction.o source/direction.d: ../source/direction.c \
  ../source/sys.h ../source/SysTimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h \
- ../source/bluetooth.h ../source/car.h ../source/motor.h \
- ../source/optic.h \
+ ../source/car.h ../source/motor.h ../source/optic.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/peripherals.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_clock.h \
@@ -48,7 +47,6 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/SysTimer.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h:
-../source/bluetooth.h:
 ../source/car.h:
 ../source/motor.h:
 ../source/optic.h:

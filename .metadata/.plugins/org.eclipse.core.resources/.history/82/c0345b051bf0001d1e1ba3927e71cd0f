@@ -29,7 +29,6 @@ void InitCar()
 	car.duty = 0;
 	car.is_obstacle_in_the_way = false;
 	car.is_car_blocked = false;
-	car.collision = false;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = false;
@@ -38,7 +37,6 @@ void InitCar()
 	car_prev.duty = 0;
 	car_prev.is_obstacle_in_the_way = false;
 	car_prev.is_car_blocked = false;
-	car_prev.collision = false;
 }
 
 void ProcessPrompt()
@@ -148,6 +146,7 @@ void ProcessPrompt()
 
 	car_prev = car;
 	car = car_new;
+
 }
 void GoForward()
 {
@@ -204,11 +203,10 @@ bool isRoadBlockedinEveryDirection()
 
 //legelso kozelites, ha nem valtozott az irany, sebesseg, de lecsökkent hirtelen az rpm akkor ütközés volt
 bool DetectCollision(){
-	if((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
+	return((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
 			(!car.tempomat && car.duty == car_prev.duty)) &&
 			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) ||
-			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)))
-
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)));
 }
 
 void SetSpeed(){

@@ -47,7 +47,6 @@ typedef struct Car{
 	bool tempomat;
 	bool obstacle_avoidance;
 	bool is_car_blocked;
-	bool collision;
 	uint8_t speed; // cm/s
 	uint8_t duty;
 

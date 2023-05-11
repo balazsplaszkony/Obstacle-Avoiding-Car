@@ -26,8 +26,8 @@ source/servo.o source/servo.d: ../source/servo.c ../source/servo.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h \
- ../source/encoder.h ../source/direction.h ../source/bluetooth.h \
- ../source/PID.h ../source/USART.h
+ ../source/encoder.h ../source/direction.h ../source/PID.h \
+ ../source/USART.h
 ../source/servo.h:
 ../source/car.h:
 ../source/motor.h:
@@ -61,6 +61,5 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h:
 ../source/encoder.h:
 ../source/direction.h:
-../source/bluetooth.h:
 ../source/PID.h:
 ../source/USART.h:

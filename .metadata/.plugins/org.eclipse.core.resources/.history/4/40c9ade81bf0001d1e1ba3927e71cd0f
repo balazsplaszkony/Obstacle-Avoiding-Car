@@ -55,7 +55,7 @@ void USART_TransferStartRingBuffer(USART_Type *base,
                                    size_t ringBufferSize);
 */
 
-UsartBuffer buffer;
+UsartBuffer volatile buffer;
 
 void INIT_USART(void)
 {
