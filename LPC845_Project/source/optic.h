@@ -28,26 +28,28 @@ typedef enum Status_Optic
 typedef struct OpticMeasurement
 {
 	volatile bool optic_flag;
-	uint32_t front_right;
-	uint32_t front_left;
-	uint32_t back_right;
-	uint32_t back_left;
+	int16_t front_right;
+	int16_t front_left;
+	int16_t back_right;
+	int16_t back_left;
+	int16_t measurement[4][5];
+
 	//bool is_valid;
 	OpticStatus status;
 }OpticMeasurement;
 
 extern volatile OpticMeasurement optic_measurement;
-extern volatile uint32_t potmeter;
+extern volatile int16_t potmeter;
 
-extern volatile uint32_t front_right_first;
-extern volatile uint32_t front_left_first;
-extern volatile uint32_t back_right_first;
-extern volatile uint32_t back_left_first;
+extern volatile int16_t front_right_first;
+extern volatile int16_t front_left_first;
+extern volatile int16_t back_right_first;
+extern volatile int16_t back_left_first;
 
-extern volatile uint32_t front_right_second;
-extern volatile uint32_t front_left_second;
-extern volatile uint32_t back_right_second;
-extern volatile uint32_t back_left_second;
+extern volatile int16_t front_right_second;
+extern volatile int16_t front_left_second;
+extern volatile int16_t back_right_second;
+extern volatile int16_t back_left_second;
 
 
 void InitOpticMeasurement(volatile OpticMeasurement* optic_measurement);
@@ -57,5 +59,6 @@ void StartConversion();
 void SET_IR_LED();
 void RESET_IR_LED();
 void ADCTIMERHandler();
+int16_t AveragingMeasurements(uint8_t sensor);
 
 #endif /* OPTIC_H_ */

@@ -6,19 +6,19 @@
  */
 
 #include "optic.h"
-volatile uint32_t front_right_first = 0;
-volatile uint32_t front_left_first = 0;
-volatile uint32_t back_right_first = 0;
-volatile uint32_t back_left_first = 0;
+volatile int16_t front_right_first = 0;
+volatile int16_t front_left_first = 0;
+volatile int16_t back_right_first = 0;
+volatile int16_t back_left_first = 0;
 
-volatile uint32_t front_right_second = 0;
-volatile uint32_t front_left_second = 0;
-volatile uint32_t back_right_second = 0;
-volatile uint32_t back_left_second = 0;
+volatile int16_t front_right_second = 0;
+volatile int16_t front_left_second = 0;
+volatile int16_t back_right_second = 0;
+volatile int16_t back_left_second = 0;
 
 
 volatile OpticMeasurement optic_measurement; //= {0, 0, 0, 0,} ;//false, StartConversion};
-//volatile uint32_t potmeter = 0;
+//volatile int16_t potmeter = 0;
 void OpticMeasure()
 {
 	if(optic_measurement.optic_flag)
@@ -62,26 +62,43 @@ void StartConversion()
 void ADC0_SEQA_IRQHandler(void)
 {
 	optic_measurement.optic_flag = true;
-
+	static uint8_t counter = 0;
 	if(optic_measurement.status == WaitForFirstConversion){
-		//PRINTF("1\n");
 		front_right_first = ADC0->DAT[1] & ADC_RESULT_MASK;
 		front_left_first  = ADC0->DAT[2] & ADC_RESULT_MASK;
 		back_right_first  = ADC0->DAT[3] & ADC_RESULT_MASK;
 		back_left_first   = ADC0->DAT[5] & ADC_RESULT_MASK;
 	}
 	if(optic_measurement.status == WaitForSecondConversion){
-		//PRINTF("2\n");
 			front_right_second = ADC0->DAT[1] & ADC_RESULT_MASK;
 			front_left_second  = ADC0->DAT[2] & ADC_RESULT_MASK;
 			back_right_second  = ADC0->DAT[3] & ADC_RESULT_MASK;
 			back_left_second   = ADC0->DAT[5] & ADC_RESULT_MASK;
 
-			optic_measurement.front_right = front_right_second - front_right_second;
-			optic_measurement.front_left = front_left_second - front_left_first;
-			optic_measurement.back_right = back_right_second - back_right_first;
-			optic_measurement.back_left = back_left_second - back_left_first;
+			optic_measurement.measurement[0][counter] =  (front_right_second - front_right_second >0 ) ?
+					(front_right_second - front_right_second) : 0;
+
+
+			optic_measurement.measurement[1][counter] = (front_left_second - front_left_first >0 ) ?
+					(front_left_second - front_left_first) : 0;
+
+
+			optic_measurement.measurement[2][counter] = (back_right_second - back_right_first >0 ) ?
+					(back_right_second - back_right_first) : 0;
+
+
+			optic_measurement.measurement[3][counter] = (back_left_second - back_left_first >0 ) ?
+					(back_left_second - back_left_first) : 0;
+
+			optic_measurement.front_right = AveragingMeasurements(0);
+			optic_measurement.front_left = AveragingMeasurements(1);
+			optic_measurement.back_right = AveragingMeasurements(2);
+			optic_measurement.back_left = AveragingMeasurements(3);
 			//PRINTF("%d - %d = %d\n",back_left_second, back_left_first, optic_measurement.back_left);
+
+
+			counter++;
+			counter = counter % 5;
 		}
 
     ADC_ClearStatusFlags(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptFlag);
@@ -92,12 +109,21 @@ void SET_IR_LED()
 	GPIO_PinWrite(GPIO, 0U, 0U, 1);
 }
 
+
 void RESET_IR_LED()
 {
 	GPIO_PinWrite(GPIO, 0U, 0U, 0);
 }
 void ADCTIMERHandler(){
     optic_measurement.optic_flag = true;
+}
+
+int16_t AveragingMeasurements(uint8_t sensor)
+{
+	int sensor_data = 0;
+	for(int i = 0; i < 5; i++)
+		sensor_data += optic_measurement.measurement[sensor][i];
+	return sensor_data / 5;
 }
 
 
