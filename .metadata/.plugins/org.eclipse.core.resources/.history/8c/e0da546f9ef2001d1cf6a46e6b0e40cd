@@ -66,7 +66,6 @@ int main(void) {
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
 
-
     // initializes the starting state of the car
     InitCar();
     // initializes the components of the car
@@ -78,8 +77,8 @@ int main(void) {
 	INIT_USART();
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
-    SetPWM(500, &motor_right);
-    SetPWM(500, &motor_left);
+    SetPWM(800, &motor_right);
+    SetPWM(800, &motor_left);
 //		SetPWM(305, motor_right);
 //		SetPWM(605, motor_left);
 	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
