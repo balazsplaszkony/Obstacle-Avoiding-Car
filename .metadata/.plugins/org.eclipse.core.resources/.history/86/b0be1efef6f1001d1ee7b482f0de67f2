@@ -1,0 +1,19 @@
+/*
+ * collision.c
+ *
+ *  Created on: 2023. máj. 14.
+ *      Author: plasz
+ */
+#include "collision.h"
+
+
+CollisionType DetectCollision(){
+	if(( &&
+			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) ||
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop))){
+		car.collision = true;
+	}
+
+	if()
+	return car.collision;
+}

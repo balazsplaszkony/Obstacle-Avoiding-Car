@@ -1,0 +1,31 @@
+/*
+ * collision.c
+ *
+ *  Created on: 2023. máj. 14.
+ *      Author: plasz
+ */
+#include "collision.h"
+
+
+CollisionType DetectCollision(){
+	if( hasCarParametersChanged() && car.direction == GOFORWARD &&
+			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) &&
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)))
+		car.collision = FrontalCollision;
+
+	if( hasCarParametersChanged() && car.direction == BACKWARD &&
+			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) &&
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)))
+		car.collision = RearCollision;
+
+	if( hasCarParametersChanged() && car.direction == TURNRIGHT &&
+			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) &&
+			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop)))
+			car.collision = RearCollision;
+
+	return car.collision;
+}
+bool hasCarParametersChanged(){
+	return (!((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
+			(!car.tempomat && car.duty == car_prev.duty))));
+}

@@ -9,6 +9,7 @@ C_SRCS += \
 ../source/SysTimer.c \
 ../source/USART.c \
 ../source/car.c \
+../source/collision.c \
 ../source/direction.c \
 ../source/distance.c \
 ../source/encoder.c \
@@ -27,6 +28,7 @@ C_DEPS += \
 ./source/SysTimer.d \
 ./source/USART.d \
 ./source/car.d \
+./source/collision.d \
 ./source/direction.d \
 ./source/distance.d \
 ./source/encoder.d \
@@ -45,6 +47,7 @@ OBJS += \
 ./source/SysTimer.o \
 ./source/USART.o \
 ./source/car.o \
+./source/collision.o \
 ./source/direction.o \
 ./source/distance.o \
 ./source/encoder.o \
@@ -70,7 +73,7 @@ source/%.o: ../source/%.c source/subdir.mk
 clean: clean-source
 
 clean-source:
-	-$(RM) ./source/MRT.d ./source/MRT.o ./source/PID.d ./source/PID.o ./source/SysTimer.d ./source/SysTimer.o ./source/USART.d ./source/USART.o ./source/car.d ./source/car.o ./source/direction.d ./source/direction.o ./source/distance.d ./source/distance.o ./source/encoder.d ./source/encoder.o ./source/main.d ./source/main.o ./source/motor.d ./source/motor.o ./source/mtb.d ./source/mtb.o ./source/optic.d ./source/optic.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/servo.d ./source/servo.o ./source/sys.d ./source/sys.o ./source/ultrasonic.d ./source/ultrasonic.o
+	-$(RM) ./source/MRT.d ./source/MRT.o ./source/PID.d ./source/PID.o ./source/SysTimer.d ./source/SysTimer.o ./source/USART.d ./source/USART.o ./source/car.d ./source/car.o ./source/collision.d ./source/collision.o ./source/direction.d ./source/direction.o ./source/distance.d ./source/distance.o ./source/encoder.d ./source/encoder.o ./source/main.d ./source/main.o ./source/motor.d ./source/motor.o ./source/mtb.d ./source/mtb.o ./source/optic.d ./source/optic.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/servo.d ./source/servo.o ./source/sys.d ./source/sys.o ./source/ultrasonic.d ./source/ultrasonic.o
 
 .PHONY: clean-source
 

@@ -10,7 +10,7 @@
 #include <stdbool.h>
 #include <math.h>
 #include <stdint.h>
-#include "encoder.h"
+#include "car.h"
 
 /* Allowable PWM duty cycle is between 40% and 80%
  * For higher resolution it's scaled up to between 400 and 800

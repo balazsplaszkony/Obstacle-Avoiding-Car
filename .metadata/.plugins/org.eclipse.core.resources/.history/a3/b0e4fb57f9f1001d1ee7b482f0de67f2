@@ -1,0 +1,19 @@
+/*
+ * collision.h
+ *
+ *  Created on: 2023. máj. 14.
+ *      Author: plasz
+ */
+
+#ifndef COLLISION_H_
+#define COLLISION_H_
+
+#include "car.h"
+
+
+CollisionType DetectCollision();
+
+bool hasCarParametersChanged();
+
+
+#endif /* COLLISION_H_ */

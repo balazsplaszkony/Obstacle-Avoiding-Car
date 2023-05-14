@@ -1,0 +1,3 @@
+../source/collision.c:10:15:DetectCollision	8	static
+../source/collision.c:37:6:hasCarParametersChanged	8	static
+../source/collision.c:42:6:isRPMDrop	24	static

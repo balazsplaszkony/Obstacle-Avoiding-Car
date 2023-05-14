@@ -5,6 +5,9 @@ void UpdateDirection(){
 
 		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance))
 			return;
+		if(car.collision != NoCollision)
+			return;
+
 		switch(car.direction)
 		{
 		case GOFORWARD: if((!car.obstacle_avoidance) || (ultrasonic_measurement.distance_in_cm > UltrasonicTreshold
@@ -51,9 +54,30 @@ void FindClearRoute(){
 		car.is_car_blocked = true;
 		car.direction = STOPCAR;
 		StopCar();
+		return;
 	}
+	if(car.collision == NoCollision)
+		FindClearRouteNoCollision;
+
+	else
+		FindClearRouteCollision();
+
+	return;
+}
+
+void FindClearRouteNoCollision()
+{
 	if(car.direction == GOFORWARD){
-		TurnRightStationary();
+		if(optic_measurement.front_right> optic_measurement.front_left)
+		{
+			car.direction = TURNRIGHTSTATIONARY;
+			TurnRightStationary();
+		}
+		else
+		{
+			car.direction = TURNLEFTSTATIONARY;
+			TurnLeftStationary();
+		}
 		if(ultrasonic_measurement.distance_in_cm > UltrasonicTreshold &&
 		   ultrasonic_measurement.is_valid)
 		{
@@ -62,7 +86,6 @@ void FindClearRoute(){
 			car.direction = GOFORWARD;
 			GoForward();
 			car.is_obstacle_in_the_way = false;
-			car.collision = false;
 		}
 		return;
 	}
@@ -73,7 +96,6 @@ void FindClearRoute(){
 			car.direction = GOFORWARD;
 			GoForward();
 			car.is_obstacle_in_the_way = false;
-			car.collision = false;
 		}
 		else if((optic_measurement.back_left < OpticTreshold &&
 	  	  	  	optic_measurement.back_right < OpticTreshold))
@@ -81,7 +103,6 @@ void FindClearRoute(){
 			car.direction = GOBACKWARD;
 			GoBackward();
 			car.is_obstacle_in_the_way = false;
-			car.collision = false;
 		}
 	else if(car.direction == GOBACKWARD)
 	{
@@ -91,8 +112,31 @@ void FindClearRoute(){
 			car.direction = GOFORWARD;
 			GoForward();
 			car.is_obstacle_in_the_way = false;
-			car.collision = false;
 		}
 	}
 	}
 }
+void FindClearRouteCollision()
+{
+	switch(car.collision)
+	{
+	case FrontalCollision: break;
+
+
+	case RearCollision: break;
+
+
+	case RightCollision: break;
+
+
+	case LeftCollision: break;
+
+	default: break;
+
+	}
+
+
+
+
+}
+

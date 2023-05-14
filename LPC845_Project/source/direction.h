@@ -8,12 +8,27 @@
 #ifndef DIRECTION_H_
 #define DIRECTION_H_
 #include "ultrasonic.h"
-#include "car.h"
 #include "optic.h"
 
-//#define
+
+typedef enum Direction{
+	GOFORWARD,
+	GOBACKWARD,
+	TURNRIGHT,
+	TURNLEFT,
+	TURNRIGHTSTATIONARY,
+	TURNLEFTSTATIONARY,
+	STOPCAR,
+}Direction;
+
+#include "car.h"
+
 
 void FindClearRoute();
 void UpdateDirection();
+void FindClearRouteNoCollision();
+void FindClearRouteCollision();
+
+
 
 #endif /* DIRECTION_H_ */

@@ -27,7 +27,7 @@ source/car.o source/car.d: ../source/car.c ../source/car.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h \
  ../source/encoder.h ../source/direction.h ../source/PID.h \
- ../source/USART.h ../source/servo.h
+ ../source/USART.h ../source/servo.h ../source/collision.h
 ../source/car.h:
 ../source/motor.h:
 ../source/ultrasonic.h:
@@ -63,3 +63,4 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/PID.h:
 ../source/USART.h:
 ../source/servo.h:
+../source/collision.h:

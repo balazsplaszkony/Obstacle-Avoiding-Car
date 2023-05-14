@@ -19,6 +19,7 @@
 //speed of sound in cm/usec
 #define SpeedOfSound 0.0343
 #define UltrasonicTreshold 30
+#define DistanceMax 400
 
 typedef enum Status_UltraSonic
 {
@@ -30,7 +31,7 @@ typedef enum Status_UltraSonic
 
 typedef struct UltraSonicMeasurement
 {
-	float distance_in_cm;
+	uint16_t distance_in_cm;
 	bool is_valid;
 	UltraSonicStatus status;
 }UltraSonicMeasurement;

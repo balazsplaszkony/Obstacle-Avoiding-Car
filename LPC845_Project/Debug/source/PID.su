@@ -1,6 +1,6 @@
 ../source/PID.c:6:6:PIDInit	8	static
 ../source/PID.c:25:6:PIDContollerUpdate	40	static
-../source/PID.c:56:6:isPIDUpdated	8	static
-../source/PID.c:61:5:RoundPIDOutput	32	static
-../source/PID.c:71:7:ScaleUpSetpoint	16	static
-../source/PID.c:74:6:PIDTIMERHandler	8	static
+../source/PID.c:62:6:isPIDUpdated	8	static
+../source/PID.c:67:5:RoundPIDOutput	32	static
+../source/PID.c:77:7:ScaleUpSetpoint	16	static
+../source/PID.c:80:6:PIDTIMERHandler	8	static

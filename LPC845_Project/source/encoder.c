@@ -31,6 +31,7 @@ void InitEncoders()
 
 void EncoderRightCallback(uint32_t flags) {
 
+	Encoder_right.RPM_prev= Encoder_right.RPM;
 	captured_time_right_prev = captured_time_right;
 	captured_time_right = CTIMER0->CR[1];
 	if(captured_time_right_prev)
@@ -43,6 +44,8 @@ void EncoderRightCallback(uint32_t flags) {
 }
 
 void EncoderLeftCallback(uint32_t flags) {
+	Encoder_left.RPM_prev= Encoder_left.RPM;
+
 	captured_time_left_prev = captured_time_left;
 	captured_time_left = CTIMER0->CR[2];
 	if(captured_time_left_prev)

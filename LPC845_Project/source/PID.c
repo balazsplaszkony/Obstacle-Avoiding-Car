@@ -40,6 +40,12 @@ void PIDContollerUpdate(PidController* pid, float measurement){
 
     float derivative = pid->Kd * (error - pid->last_error);
 
+    if(car.direction != GOFORWARD || car.direction != GOBACKWARD)
+    {
+    	pid->integral = 0;
+    	derivative = 0;
+    }
+
     pid->output = proportional + pid->integral + derivative;
 
     // Limit the output to within the allowable range

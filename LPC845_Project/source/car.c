@@ -22,27 +22,28 @@ void InitComponents()
 
 void InitCar()
 {
-	car.direction = STOPCAR;
+	car.direction = GOFORWARD;
 	car.obstacle_avoidance = false;
 	car.tempomat = false;
 	car.speed = 0;
-	car.duty = 0;
+	car.duty = 50;
 	car.is_obstacle_in_the_way = false;
 	car.is_car_blocked = false;
-	car.collision = false;
+	car.collision = NoCollision;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = false;
 	car_prev.tempomat = false;
 	car_prev.speed = 0;
-	car_prev.duty = 0;
+	car_prev.duty = 50;
 	car_prev.is_obstacle_in_the_way = false;
 	car_prev.is_car_blocked = false;
-	car_prev.collision = false;
+	car_prev.collision = NoCollision;
 }
 
 void ProcessPrompt()
 {
+	static bool first = true;
 	Car car_new = car;
         char* prompt = buffer.prompt;
 
@@ -74,12 +75,14 @@ void ProcessPrompt()
 				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)
 					&& car.direction == car_new.direction)
 				{
+					car_new.speed = CalculateSpeedfromRPM((Encoder_left.RPM + Encoder_right.RPM)/2.0);
 					float rpm_setpoint = ScaleUpSetpoint((Encoder_right.RPM + Encoder_left.RPM)/2.0);
 					pid_right.setpoint = rpm_setpoint;
 					pid_left.setpoint =  rpm_setpoint;
 				}
 				else
 				{
+					car.speed = (Encoder_right.RPM > Encoder_left.RPM) ? CalculateSpeedfromRPM(Encoder_right.RPM) : CalculateSpeedfromRPM(Encoder_left.RPM);
 					pid_right.setpoint = ScaleUpSetpoint(Encoder_right.RPM);
 					pid_left.setpoint = ScaleUpSetpoint(Encoder_left.RPM);
 				}
@@ -87,43 +90,23 @@ void ProcessPrompt()
 			}
 			else if(!car_new.tempomat)
 			{
+				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)
+				&& car.direction == car_new.direction){
+					 car_new.duty = (pid_left.output + pid_right.output) / 20;
+				}
+				else {
+					car.duty = (Encoder_right.RPM > Encoder_left.RPM) ? pid_right.output/10 : pid_left.output/10;
+				}
 	          	 MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
+
 			}
 			PrintUSART1_NB("OK");
 		}
-//		else if(strcmp(prompt, "D\0")==0){	//SLOWDOWN
-//			if(car_new.tempomat)
-//			{
-//				car_new.speed -= buffer.parameter;
-//				float rpm_setpoint = ScaleUpSetpoint(CalculateRPMfromSpeed(car_new.speed));
-//				pid_right.setpoint = rpm_setpoint;
-//				pid_left.setpoint =  rpm_setpoint;
-//				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
-//			}
-//			else{
-//
-//			}
-//			PrintUSART1_NB("OK");
-//		}
-//		else if(strcmp(prompt, "U\0")==0){	//SPEEDUP
-//			if(car_new.tempomat)
-//			{
-//				car_new.speed = buffer.parameter;
-//				float rpm_setpoint = ScaleUpSetpoint(CalculateRPMfromSpeed(car_new.speed));
-//				pid_right.setpoint = rpm_setpoint;
-//				pid_left.setpoint =  rpm_setpoint;
-//				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
-//			}
-//			else{
-//
-//			}
-//			PrintUSART1_NB("OK");
-//		}
 		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
 			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "Speed\0")==0){
+		else if(strcmp(prompt, "Speed\0" || strcmp(prompt, "s\0")==0)==0){
 					if(car.tempomat)
 					{
 						car_new.speed = buffer.parameter;
@@ -137,7 +120,7 @@ void ProcessPrompt()
 					}
 					PrintUSART1_NB("OK");
 				}
-		else if(strcmp(prompt, "Duty\0")==0){
+		else if(strcmp(prompt, "Duty\0")==0 || strcmp(prompt, "d\0")==0){
 					if(!car.tempomat && (buffer.parameter > MinimalDuty) && (buffer.parameter < MaximumDuty))
 						car_new.duty = buffer.parameter;
 					PrintUSART1_NB("OK");
@@ -148,6 +131,11 @@ void ProcessPrompt()
 
 	car_prev = car;
 	car = car_new;
+//	if(first)
+//	{
+//		car_prev = car_new;
+//		first = false;
+//	}
 }
 void GoForward()
 {
@@ -202,16 +190,7 @@ bool isRoadBlockedinEveryDirection()
 			);
 }
 
-//legelso kozelites, ha nem valtozott az irany, sebesseg, de lecsökkent hirtelen az rpm akkor ütközés volt
-bool DetectCollision(){
-	if((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
-			(!car.tempomat && car.duty == car_prev.duty)) &&
-			((abs(Encoder_left.RPM - Encoder_left.RPM_prev) > Maximum_Tolerated_RPM_Drop) ||
-			(abs(Encoder_right.RPM - Encoder_right.RPM_prev) > Maximum_Tolerated_RPM_Drop))){
-		car.collision = true;
-	}
-	return car.collision;
-}
+
 
 void SetSpeed(){
 	if(car.is_car_blocked)

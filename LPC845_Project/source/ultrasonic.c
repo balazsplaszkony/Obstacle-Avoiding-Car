@@ -31,7 +31,6 @@ void EndTriggerUltrasonicSensor()
 {
 	ultrasonic_measurement.status = WAITFIRSTIT;
 	GPIO_PinWrite(BOARD_INITPINS_UltraSonicTrig_GPIO, BOARD_INITPINS_UltraSonicTrig_PORT, BOARD_INITPINS_UltraSonicTrig_PIN, 0);
-	//tesztérték, előzetes számítás alapján kb 23 msec lehet max
 	StartTimeout2(30);
 }
 

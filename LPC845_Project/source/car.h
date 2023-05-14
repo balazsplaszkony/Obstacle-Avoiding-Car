@@ -18,6 +18,8 @@
 #include "optic.h"
 #include <stdbool.h>
 #include "servo.h"
+#include "collision.h"
+
 
 
 
@@ -31,14 +33,6 @@
 
 extern volatile UsartBuffer bluetooth_prompts;
 
-typedef enum Direction{
-	GOFORWARD,
-	GOBACKWARD,
-	TURNRIGHT,
-	TURNLEFT,
-	STOPCAR
-}Direction;
-
 typedef struct Car{
 	//ide belerakhatnám az összes érzékelőt?
 
@@ -47,7 +41,7 @@ typedef struct Car{
 	bool tempomat;
 	bool obstacle_avoidance;
 	bool is_car_blocked;
-	bool collision;
+	CollisionType collision;
 	uint8_t speed; // cm/s
 	uint8_t duty;
 
@@ -61,7 +55,6 @@ void InitComponents();
 void InitCar();
 bool isObstacleDetected();
 bool isRoadBlockedinEveryDirection();
-bool DetectCollision();
 void ProcessPrompt();
 void UpdateDirection();
 void GoForward();

@@ -1,0 +1,18 @@
+"Task Aware Debugger for GDB" version 11.7.0 (202212092054)
+(c) 2016-2022 NXP Semiconductors, Inc.
+==================================
+19:24:41.606 INFO: [ZephyrRTOS] .config file could not be read [C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\Debug\.config (A rendszer nem találja a megadott fájlt)]
+19:24:41.607 INFO: [TadModel] DSF session ID 1 has started.
+19:24:52.698 INFO: [TadState] TAD state changed: DEBUG_STARTED -> DEBUG_INIT_0 (RESUMED, USER_REQUEST)
+19:24:52.724 INFO: [TadState] TAD state changed: DEBUG_INIT_0 -> DEBUG_INIT_1 (SUSPENDED, SIGNAL)
+19:24:59.438 INFO: [TadState] TAD state changed: DEBUG_INIT_1 -> DEBUG_SUSPENDED (RESUMED, USER_REQUEST)
+19:24:59.530 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_SUSPENDED (SUSPENDED, BREAKPOINT)
+19:25:02.232 INFO: [TadState] TAD state changed: DEBUG_SUSPENDED -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+19:25:04.521 INFO: [TadState] TAD state changed: DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+19:25:08.485 INFO: [TadState] TAD state changed: READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+19:25:22.771 INFO: [TadState] TAD state changed: DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+19:26:05.742 INFO: [TadState] TAD state changed: READY -> DEBUG_RESUMED (RESUMED, USER_REQUEST)
+19:26:15.545 INFO: [TadState] TAD state changed: DEBUG_RESUMED -> READY (SUSPENDED, BREAKPOINT)
+19:26:18.257 INFO: [TadState] TAD state changed: READY -> DEBUG_RESUMED (RESUMED, STEP)
+19:26:18.489 INFO: [TadState] TAD state changed: DEBUG_RESUMED -> READY (SUSPENDED, STEP)
+19:26:52.146 INFO: [TadModel] DSF session ID 1 has ended.

@@ -1130,7 +1130,7 @@
                               <setting name="mrtChannelPrefixID" value="Channel_1"/>
                               <setting name="channelNumber" value="kMRT_Channel_1"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="100 ms"/>
+                              <setting name="timerValueStr" value="10 ms"/>
                               <setting name="startTimer" value="false"/>
                               <setting name="enableInterruptRequest" value="true"/>
                            </struct>

@@ -77,8 +77,8 @@ int main(void) {
 	INIT_USART();
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
-    SetPWM(405, &motor_right);
-    SetPWM(210, &motor_left);
+    SetPWM(800, &motor_right);
+    SetPWM(800, &motor_left);
 //		SetPWM(305, motor_right);
 //		SetPWM(605, motor_left);
 	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
@@ -108,16 +108,18 @@ int main(void) {
     	// Calls the state machine of the optic and ultrasonic distance measurements
     	SenseDistance();
 
+    	DetectCollision();
+
     	// Updates the direction based on commands and sensor data
     	UpdateDirection();
 
     	// Looks for a clear path, if the car cannot go towards the selected direction
-    	if(car.is_obstacle_in_the_way || car.collision)
+    	if(car.is_obstacle_in_the_way || (car.collision != NoCollision))
     		FindClearRoute();
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
-    	SetSpeed();
+//    	SetSpeed();
     }
     return 0;
 }
