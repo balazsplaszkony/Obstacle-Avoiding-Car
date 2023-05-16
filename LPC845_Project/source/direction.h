@@ -19,12 +19,14 @@ typedef enum Direction{
 	TURNRIGHTSTATIONARY,
 	TURNLEFTSTATIONARY,
 	STOPCAR,
+	INDEPENDENT,
 }Direction;
 
 #include "car.h"
 
 
 void FindClearRoute();
+void FindClearRouteIndependent();
 void UpdateDirection();
 void FindClearRouteNoCollision();
 void FindClearRouteCollision();

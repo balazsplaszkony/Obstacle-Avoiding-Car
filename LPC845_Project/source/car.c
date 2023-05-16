@@ -47,6 +47,9 @@ void ProcessPrompt()
 	Car car_new = car;
         char* prompt = buffer.prompt;
 
+        if(car_new.independent && strcmp(prompt, "I\0")!=0)
+			return;
+
 		if(strcmp(prompt, "F\0")==0){ //FORWARD
 			car_new.direction = GOFORWARD;
 			PrintUSART1_NB("OK");
@@ -125,6 +128,28 @@ void ProcessPrompt()
 						car_new.duty = buffer.parameter;
 					PrintUSART1_NB("OK");
 						}
+		else if(strcmp(prompt, "I")==0){
+			if(car.independent != true)
+			{	car.independent = true;
+
+				//TODO ezt kitalálni
+				//car_new.tempomat = true;
+				//TODO bealitani a sebesseget
+
+				car_new.obstacle_avoidance = true;
+				car.direction = FORWARD;
+				GoForward();
+				PrintUSART1_NB("OK");
+			}
+			else
+			{
+				car_new.independent = false;
+				car_new.direction = STOPCAR;
+				StopCar();
+			}
+			PrintUSART1_NB("OK");
+
+		}
 		else{
 			PrintUSART1_NB("invalid prompt");
 		}

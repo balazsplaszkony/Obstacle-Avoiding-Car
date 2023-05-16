@@ -44,6 +44,7 @@ typedef struct Car{
 	CollisionType collision;
 	uint8_t speed; // cm/s
 	uint8_t duty;
+	bool independent;
 
 }Car;
 

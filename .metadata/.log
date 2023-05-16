@@ -11874,3 +11874,17 @@ java.lang.Exception: Stopping Thread 1 failed: T06thread:1;
 
 !ENTRY com.nxp.mcuxpresso.core.debug 1 0 2023-05-14 20:31:53.932
 !MESSAGE Telnet session connected on port 3330->59493 @ 127.0.0.1
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2023-05-15 07:00:40.094
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.gdb.service.GDBRunControl_7_0_NS$16@635292bb): Status ERROR: org.eclipse.cdt.dsf.gdb code=10001 Connection is shut down' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10001 2023-05-15 07:00:40.094
+!MESSAGE Connection is shut down
+
+!ENTRY com.crt.log 1 0 2023-05-15 07:00:40.506
+!MESSAGE Trying to connect to redlink server on port 3025.
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 1 0 2023-05-15 07:00:41.549
+!MESSAGE RedlinkServer telnet session connected on port 3025->62710 @ 127.0.0.1
+
+!ENTRY com.nxp.mcuxpresso.core.debug.support.linkserver 4 0 2023-05-15 07:00:41.555
+!MESSAGE Unable to parse ProbeList output to get probe ref count: []

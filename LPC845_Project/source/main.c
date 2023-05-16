@@ -59,7 +59,7 @@
  * @brief   Application entry point.
  */
 
-
+bool first_update = true;
 int main(void) {
 
     /* Init board hardware. */

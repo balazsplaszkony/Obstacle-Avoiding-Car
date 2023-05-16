@@ -35,7 +35,7 @@ typedef struct UsartBuffer{
 	float parameter;
 	//char prompts[max_number_of_prompts][max_prompt_size];
 	//bool usartflag;
-	uint8_t received_bytes;
+	//uint8_t received_bytes;
 
 	//uint8_t received_prompts;
 

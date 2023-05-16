@@ -5,6 +5,6 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/USART.c:72:6:PrintUSART1_NB	24	static
 ../source/USART.c:85:9:GetUSART1	24	static
 ../source/USART.c:102:6:GetUSARTMessage	16	static
-../source/USART.c:123:6:ParsePrompt	16	static
-../source/USART.c:137:6:ClearBuffer	8	static
-../source/USART.c:144:9:GetString_TillEndChar	24	static
+../source/USART.c:123:6:ParsePrompt	24	static
+../source/USART.c:155:6:ClearBuffer	16	static
+../source/USART.c:164:9:GetString_TillEndChar	24	static

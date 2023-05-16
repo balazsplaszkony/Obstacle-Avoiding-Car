@@ -3,7 +3,7 @@
 /*determines where can the car go based on the sensor data and the bluetooth prompts*/
 void UpdateDirection(){
 
-		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance))
+		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance) && car.independent == car_prev.independent )
 			return;
 		if(car.collision != NoCollision)
 			return;
@@ -43,11 +43,50 @@ void UpdateDirection(){
 					   	   }
 					   break;
 		case STOPCAR: StopCar();break;
+//		case INDEPENDENT: if(ultrasonic_measurement.distance_in_cm > UltrasonicTreshold)
+//								GoForward();
+//						  else
+//						  {
+//							  	StopCar();
+//								car.is_obstacle_in_the_way = true;
+//						  }
+
 		default: break;
 		}
 
 }
+void FindClearRouteIndependent()
+{
+	if(car.independent)
+	{
+		if(optic_measurement.front_right> optic_measurement.front_left)
+		{
+			car.direction = TURNRIGHTSTATIONARY;
+			TurnRightStationary();
+		}
+		else
+		{
+			car.direction = TURNLEFTSTATIONARY;
+			TurnLeftStationary();
+		}
+		if(ultrasonic_measurement.distance_in_cm > UltrasonicTreshold &&
+		   ultrasonic_measurement.is_valid)
+		{
+			SCTIMER_UpdatePwmDutycycle(SCT0, 0U, 50, SCT0_pwmEvent[0]);
+			SCTIMER_UpdatePwmDutycycle(SCT0, 1U, 50, SCT0_pwmEvent[1]);
+			car.direction = GOFORWARD;
+			GoForward();
+			car.is_obstacle_in_the_way = false;
+			car.collision = NoCollision;
+		}
+
+	}
+}
 void FindClearRoute(){
+	if(car.independent)
+	{	FindClearRouteIndependent();
+		return;
+	}
 
 	if(isRoadBlockedinEveryDirection())
 	{
@@ -57,7 +96,7 @@ void FindClearRoute(){
 		return;
 	}
 	if(car.collision == NoCollision)
-		FindClearRouteNoCollision;
+		FindClearRouteNoCollision();
 
 	else
 		FindClearRouteCollision();

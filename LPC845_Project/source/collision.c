@@ -8,27 +8,30 @@
 
 
 CollisionType DetectCollision(){
-	if( hasCarParametersChanged() && car.direction == GOFORWARD &&
+	if(hasCarParametersChanged() == false)
+		return car.collision;
+
+	if(car.direction == GOFORWARD &&
 			isRPMDrop(Encoder_left) && isRPMDrop(Encoder_right))
 		car.collision = FrontalCollision;
 
-	else if( hasCarParametersChanged() && car.direction == GOBACKWARD &&
+	else if( car.direction == GOBACKWARD &&
 			isRPMDrop(Encoder_left) && isRPMDrop(Encoder_right))
 		car.collision = RearCollision;
 
-	else if( hasCarParametersChanged() && car.direction == TURNRIGHTSTATIONARY &&
+	else if( car.direction == TURNRIGHTSTATIONARY &&
 			(isRPMDrop(Encoder_left) || isRPMDrop(Encoder_right)))
 			car.collision = RightCollision;
 
-	else if( hasCarParametersChanged() && car.direction == TURNRIGHT &&
+	else if( car.direction == TURNRIGHT &&
 			(isRPMDrop(Encoder_left) || isRPMDrop(Encoder_right)))
 			car.collision = RightCollision;
 
-	else if( hasCarParametersChanged() && car.direction == TURNLEFT &&
+	else if( car.direction == TURNLEFT &&
 			(isRPMDrop(Encoder_left) || isRPMDrop(Encoder_right)))
 			car.collision = LeftCollision;
 
-	else if( hasCarParametersChanged() && car.direction == TURNLEFTSTATIONARY &&
+	else if( car.direction == TURNLEFTSTATIONARY &&
 			(isRPMDrop(Encoder_left) || isRPMDrop(Encoder_right)))
 			car.collision = LeftCollision;
 

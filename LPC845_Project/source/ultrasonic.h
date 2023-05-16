@@ -18,7 +18,7 @@
 
 //speed of sound in cm/usec
 #define SpeedOfSound 0.0343
-#define UltrasonicTreshold 30
+#define UltrasonicTreshold 20
 #define DistanceMax 400
 
 typedef enum Status_UltraSonic

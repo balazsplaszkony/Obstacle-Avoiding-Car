@@ -1,24 +1,44 @@
-20:31:47 **** Incremental Build of configuration Debug for project LPC845_Project ****
+07:08:58 **** Incremental Build of configuration Debug for project LPC845_Project ****
 make -r -j4 all 
-Building file: ../source/main.c
+Building file: ../source/car.c
 Invoking: MCU C Compiler
-arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\component\uart" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\component\uart" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/main.d" -MT"source/main.o" -MT"source/main.d" -o "source/main.o" "../source/main.c"
-Finished building: ../source/main.c
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\component\uart" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\component\uart" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/car.d" -MT"source/car.o" -MT"source/car.d" -o "source/car.o" "../source/car.c"
+../source/car.c: In function 'ProcessPrompt':
+../source/car.c:112:36: warning: passing argument 2 of 'strcmp' makes pointer from integer without a cast [-Wint-conversion]
+  112 |   else if(strcmp(prompt, "Speed\0" || strcmp(prompt, "s\0")==0)==0){
+      |                          ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    |
+      |                                    int
+In file included from C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h:15,
+                 from C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:12,
+                 from ../source/ultrasonic.h:11,
+                 from ../source/motor.h:11,
+                 from ../source/car.h:12,
+                 from ../source/car.c:9:
+c:\nxp\mcuxpressoide_11.7.0_9198\ide\plugins\com.nxp.mcuxpresso.tools.win32_11.7.0.202209140929\tools\redlib\include\string.h:46:49: note: expected 'const char *' but argument is of type 'int'
+   46 | extern int strcmp(const char *__s1, const char *__s2);
+      |                                     ~~~~~~~~~~~~^~~~
+../source/car.c:46:14: warning: unused variable 'first' [-Wunused-variable]
+   46 |  static bool first = true;
+      |              ^~~~~
+At top level:
+../source/car.c:46:14: warning: 'first' defined but not used [-Wunused-variable]
+Finished building: ../source/car.c
  
 Building target: LPC845_Project.axf
 Invoking: MCU Linker
 arm-none-eabi-gcc -nostdlib -Xlinker -Map="LPC845_Project.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T LPC845_Project_Debug.ld -o "LPC845_Project.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc845.o  ./source/MRT.o ./source/PID.o ./source/SysTimer.o ./source/USART.o ./source/car.o ./source/collision.o ./source/direction.o ./source/distance.o ./source/encoder.o ./source/main.o ./source/motor.o ./source/mtb.o ./source/optic.o ./source/semihost_hardfault.o ./source/servo.o ./source/sys.o ./source/ultrasonic.o  ./drivers/fsl_adc.o ./drivers/fsl_capt.o ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ctimer.o ./drivers/fsl_gpio.o ./drivers/fsl_mrt.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_sctimer.o ./drivers/fsl_swm.o ./drivers/fsl_usart.o  ./device/system_LPC845.o  ./component/uart/fsl_adapter_miniusart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
 Memory region         Used Size  Region Size  %age Used
-   PROGRAM_FLASH:       39524 B        64 KB     60.31%
-            SRAM:        3016 B      16352 B     18.44%
+   PROGRAM_FLASH:       41920 B        64 KB     63.96%
+            SRAM:        3020 B      16352 B     18.47%
         IAP_SRAM:          0 GB         32 B      0.00%
 Finished building target: LPC845_Project.axf
  
 Performing post-build steps
 arm-none-eabi-size "LPC845_Project.axf"; # arm-none-eabi-objcopy -v -O binary "LPC845_Project.axf" "LPC845_Project.bin" ; # checksum -p LPC845 -d "LPC845_Project.bin";
    text	   data	    bss	    dec	    hex	filename
-  39468	     56	   2960	  42484	   a5f4	LPC845_Project.axf
+  41864	     56	   2964	  44884	   af54	LPC845_Project.axf
  
 
-20:31:47 Build Finished. 0 errors, 0 warnings. (took 773ms)
+07:08:59 Build Finished. 0 errors, 3 warnings. (took 848ms)
 
