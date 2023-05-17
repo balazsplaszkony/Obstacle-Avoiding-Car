@@ -109,7 +109,7 @@ int main(void) {
     	// Calls the state machine of the optic and ultrasonic distance measurements
     	SenseDistance();
 
-    	DetectCollision();
+//    	DetectCollision();
 
     	// Updates the direction based on commands and sensor data
     	UpdateDirection();
@@ -120,7 +120,7 @@ int main(void) {
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
-//    	SetSpeed();
+    	SetSpeed();
     }
     return 0;
 }

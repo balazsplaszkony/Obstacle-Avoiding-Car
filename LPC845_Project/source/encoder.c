@@ -21,11 +21,11 @@ volatile Encoder Encoder_left;
 
 void InitEncoders()
 {
-	Encoder_right.RPM = 0.0;
-	Encoder_right.RPM_prev = 0.0;
+	Encoder_right.RPM = 0;
+	Encoder_right.RPM_prev = 0;
 
-	Encoder_left.RPM = 0.0;
-	Encoder_left.RPM_prev = 0.0;
+	Encoder_left.RPM = 0;
+	Encoder_left.RPM_prev = 0;
 }
 
 
@@ -37,7 +37,8 @@ void EncoderRightCallback(uint32_t flags) {
 	if(captured_time_right_prev)
 	{
 		microseconds_elapsed_right = captured_time_right - captured_time_right_prev;
-		Encoder_right.RPM = 1.0/(microseconds_elapsed_right / RPMCONST);
+		//Encoder_right.RPM = 1/(microseconds_elapsed_right / RPMCONST);
+		Encoder_right.RPM = (1.0 / (microseconds_elapsed_right / (60.0 * 1000000.0))) * (1.0 / 20);
 	}
 
 	PRINTF("%d\n", (int)Encoder_right.RPM);
@@ -51,7 +52,7 @@ void EncoderLeftCallback(uint32_t flags) {
 	if(captured_time_left_prev)
 	{
 		microseconds_elapsed_left = captured_time_left - captured_time_left_prev;
-		Encoder_left.RPM = 1 / (microseconds_elapsed_left / RPMCONST);
+		Encoder_left.RPM = (1.0 / (microseconds_elapsed_left / (60.0 * 1000000.0))) * (1.0 / 20);
 	}
 	PRINTF("%d\n", (int)Encoder_left.RPM);
 }

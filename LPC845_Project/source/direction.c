@@ -3,9 +3,9 @@
 /*determines where can the car go based on the sensor data and the bluetooth prompts*/
 void UpdateDirection(){
 
-		if(car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance) && car.independent == car_prev.independent )
+		if((car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance) && car.independent == car_prev.independent)&&!first)
 			return;
-		if(car.collision != NoCollision)
+		if(car.collision != NoCollision && ! first)
 			return;
 
 		switch(car.direction)
@@ -53,6 +53,8 @@ void UpdateDirection(){
 
 		default: break;
 		}
+		if(first)
+			first = false;
 
 }
 void FindClearRouteIndependent()

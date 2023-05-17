@@ -6,7 +6,7 @@ volatile UltraSonicMeasurement ultrasonic_measurement;
 
 void InitUltrasonicMeasurement(volatile UltraSonicMeasurement* ultrasonic_measurement)
 {
-	ultrasonic_measurement->distance_in_cm = 0;
+	ultrasonic_measurement->distance_in_cm = 400;
 	ultrasonic_measurement->is_valid = false;
 	ultrasonic_measurement->status = START;
 }

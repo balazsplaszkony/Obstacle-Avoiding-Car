@@ -22,8 +22,8 @@
 
 
 typedef struct Encoder{
-	volatile float RPM;
-	volatile float RPM_prev;
+	volatile uint32_t RPM;
+	volatile uint32_t RPM_prev;
 
 }Encoder;
 

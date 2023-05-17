@@ -32,6 +32,7 @@
 
 
 extern volatile UsartBuffer bluetooth_prompts;
+extern volatile bool first;
 
 typedef struct Car{
 	//ide belerakhatnám az összes érzékelőt?

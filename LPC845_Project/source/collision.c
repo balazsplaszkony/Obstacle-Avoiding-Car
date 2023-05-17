@@ -38,7 +38,7 @@ CollisionType DetectCollision(){
 	return car.collision;
 }
 bool hasCarParametersChanged(){
-	return (!((car.direction == car_prev.direction) && ((car.tempomat && car.speed == car_prev.speed) ||
+	return (!((car.direction == car_prev.direction && !first) && ((car.tempomat && car.speed == car_prev.speed) ||
 			(!car.tempomat && car.duty == car_prev.duty))));
 }
 

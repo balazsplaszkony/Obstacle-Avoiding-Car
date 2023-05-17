@@ -19,10 +19,10 @@ void InitComponents()
 	PIDInit();
 	InitEncoders();
 }
-
+volatile bool first = 0;
 void InitCar()
 {
-	car.direction = GOFORWARD;
+	car.direction = STOPCAR;
 	car.obstacle_avoidance = false;
 	car.tempomat = false;
 	car.speed = 0;
@@ -30,6 +30,7 @@ void InitCar()
 	car.is_obstacle_in_the_way = false;
 	car.is_car_blocked = false;
 	car.collision = NoCollision;
+	car.independent =false;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = false;
@@ -39,11 +40,12 @@ void InitCar()
 	car_prev.is_obstacle_in_the_way = false;
 	car_prev.is_car_blocked = false;
 	car_prev.collision = NoCollision;
+	car_prev.independent =false;
+
 }
 
 void ProcessPrompt()
 {
-	static bool first = true;
 	Car car_new = car;
         char* prompt = buffer.prompt;
 
@@ -109,7 +111,7 @@ void ProcessPrompt()
 			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "Speed\0" || strcmp(prompt, "s\0")==0)==0){
+		else if(strcmp(prompt, "Speed\0" ) == 0 || strcmp(prompt, "s\0")==0){
 					if(car.tempomat)
 					{
 						car_new.speed = buffer.parameter;
@@ -124,21 +126,21 @@ void ProcessPrompt()
 					PrintUSART1_NB("OK");
 				}
 		else if(strcmp(prompt, "Duty\0")==0 || strcmp(prompt, "d\0")==0){
-					if(!car.tempomat && (buffer.parameter > MinimalDuty) && (buffer.parameter < MaximumDuty))
+					if(!car.tempomat && (buffer.parameter >= MinimalDuty) && (buffer.parameter <= MaximumDuty))
 						car_new.duty = buffer.parameter;
 					PrintUSART1_NB("OK");
 						}
 		else if(strcmp(prompt, "I")==0){
 			if(car.independent != true)
-			{	car.independent = true;
+			{	car_new.independent = true;
 
 				//TODO ezt kitalálni
 				//car_new.tempomat = true;
 				//TODO bealitani a sebesseget
 
 				car_new.obstacle_avoidance = true;
-				car.direction = FORWARD;
-				GoForward();
+				car_new.direction = GOFORWARD;
+
 				PrintUSART1_NB("OK");
 			}
 			else
@@ -156,11 +158,7 @@ void ProcessPrompt()
 
 	car_prev = car;
 	car = car_new;
-//	if(first)
-//	{
-//		car_prev = car_new;
-//		first = false;
-//	}
+
 }
 void GoForward()
 {

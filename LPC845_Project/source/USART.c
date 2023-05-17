@@ -122,22 +122,22 @@ bool GetUSARTMessage()
 
 void ParsePrompt(){
 
-	int i;
-	    // Find the first non-terminating zero character
-	    for (i = 0; buffer.prompt[i] != '\0'; i++) {
-	        if (buffer.prompt[i] == '\0' && i != 0) {
-	            break;
-	        }
-	    }
-
-	    // Shift the string to the beginning if a non-terminating zero character is found
-	    if (i > 0) {
-	        int j;
-	        for (j = 0; buffer.prompt[i + j] != '\0'; j++) {
-	            buffer.prompt[j] = buffer.prompt[i + j];
-	        }
-	        buffer.prompt[j] = '\0';
-	    }
+//	int i;
+//	    // Find the first non-terminating zero character
+//	    for (i = 0; buffer.prompt[i] != '\0'; i++) {
+//	        if (buffer.prompt[i] == '\0' && i != 0) {
+//	            break;
+//	        }
+//	    }
+//
+//	    // Shift the string to the beginning if a non-terminating zero character is found
+//	    if (i > 0) {
+//	        int j;
+//	        for (j = 0; buffer.prompt[i + j] != '\0'; j++) {
+//	            buffer.prompt[j] = buffer.prompt[i + j];
+//	        }
+//	        buffer.prompt[j+1] = '\0';
+//	    }
 
 	char* colonPtr = strchr(buffer.prompt, ':');  // Find the first occurrence of ":"
 

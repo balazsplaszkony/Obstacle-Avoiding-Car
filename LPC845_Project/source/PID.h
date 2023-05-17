@@ -18,7 +18,7 @@
 #define MAX_PID_OUTPUT 400.0
 #define MIN_PID_OUTPUT 0.0
 #define PID_OUTPUT_OFFSET 400.0
-#define MAX_RPM 230.0 //üresjárásban ennyi
+#define MAX_RPM 200.0 //üresjárásban ennyi
 
 
 extern volatile bool pid_updated;

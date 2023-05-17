@@ -1,3 +1,3 @@
 ../source/encoder.c:22:6:InitEncoders	8	static
 ../source/encoder.c:32:6:EncoderRightCallback	16	static
-../source/encoder.c:46:6:EncoderLeftCallback	16	static
+../source/encoder.c:47:6:EncoderLeftCallback	16	static
