@@ -25,8 +25,8 @@ void InitMotors(){
 }
 
 void SetPWM(uint16_t duty_scaled_up, Motor* motor){
-	if(duty_scaled_up > 800)
-		duty_scaled_up = 800;
+	if(duty_scaled_up > 750)
+		duty_scaled_up = 750;
 //	switch(motor.pwm_channel){
 //		case 0: UpdatePwmDutycycleScaledUp(SCT0, 0, duty_scaled_up, SCT0_pwmEvent[0]); break;
 //		case 1: UpdatePwmDutycycleScaledUp(SCT0, 1, duty_scaled_up, SCT0_pwmEvent[1]); break;
@@ -63,7 +63,7 @@ void StopMotor(Motor* motor)
 void UpdatePwmDutycycleScaledUp(SCT_Type *base, sctimer_out_t output, uint16_t scaledUpDutyCyclePercent, uint32_t event)
 
 {
-    assert(scaledUpDutyCyclePercent <= 800U);
+    assert(scaledUpDutyCyclePercent <= 750U);
     assert((uint32_t)output < (uint32_t)FSL_FEATURE_SCT_NUMBER_OF_OUTPUTS);
     assert(1U == (base->CONFIG & SCT_CONFIG_UNIFY_MASK));
 

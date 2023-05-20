@@ -6,10 +6,10 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
 ../source/optic.c:22:6:OpticMeasure	8	static
 ../source/optic.c:37:6:MoveToNextState	8	static
-../source/optic.c:43:6:InitOpticMeasurement	16	static
-../source/optic.c:54:6:StartConversion	8	static
-../source/optic.c:62:6:ADC0_SEQA_IRQHandler	8	static
-../source/optic.c:105:6:SET_IR_LED	8	static
-../source/optic.c:111:6:RESET_IR_LED	8	static
-../source/optic.c:115:6:ADCTIMERHandler	8	static
-../source/optic.c:119:9:AveragingMeasurements	24	static
+../source/optic.c:43:6:InitOpticMeasurement	24	static
+../source/optic.c:68:6:StartConversion	8	static
+../source/optic.c:76:6:ADC0_SEQA_IRQHandler	8	static
+../source/optic.c:119:6:SET_IR_LED	8	static
+../source/optic.c:125:6:RESET_IR_LED	8	static
+../source/optic.c:129:6:ADCTIMERHandler	8	static
+../source/optic.c:133:9:AveragingMeasurements	24	static

@@ -43,6 +43,8 @@ extern "C" {
 /* Definition of PWM period channel. */
 #define CTIMER0_PWM_PERIOD_CH kCTIMER_Match_0
 /* Definition of channel 0 ID */
+#define CTIMER0_MATCH_0_CHANNEL kCTIMER_Match_0
+/* Definition of channel 0 ID */
 #define CTIMER0_CAPTURE_0_CHANNEL kCTIMER_Capture_0
 /* Definition of channel 1 ID */
 #define CTIMER0_CAPTURE_1_CHANNEL kCTIMER_Capture_1
@@ -83,25 +85,25 @@ extern "C" {
 /* Definition of channel 0 mode */
 #define MRT0_CHANNEL_0_MODE kMRT_RepeatMode
 /* Definition of channel 0 timer in ticks */
-#define MRT0_CHANNEL_0_TICKS 7500000U
+#define MRT0_CHANNEL_0_TICKS 3000000U
 /* Definition of channel 1 ID */
 #define MRT0_CHANNEL_1 kMRT_Channel_1
 /* Definition of channel 1 mode */
 #define MRT0_CHANNEL_1_MODE kMRT_RepeatMode
 /* Definition of channel 1 timer in ticks */
-#define MRT0_CHANNEL_1_TICKS 300000U
+#define MRT0_CHANNEL_1_TICKS 600000U
 /* Definition of channel 2 ID */
 #define MRT0_CHANNEL_2 kMRT_Channel_2
 /* Definition of channel 2 mode */
 #define MRT0_CHANNEL_2_MODE kMRT_RepeatMode
 /* Definition of channel 2 timer in ticks */
-#define MRT0_CHANNEL_2_TICKS 1500000U
+#define MRT0_CHANNEL_2_TICKS 16500000U
 /* Definition of channel 3 ID */
 #define MRT0_CHANNEL_3 kMRT_Channel_3
 /* Definition of channel 3 mode */
 #define MRT0_CHANNEL_3_MODE kMRT_RepeatMode
 /* Definition of channel 3 timer in ticks */
-#define MRT0_CHANNEL_3_TICKS 45000U
+#define MRT0_CHANNEL_3_TICKS 30000U
 /* MRT0 interrupt vector ID (number). */
 #define MRT0_IRQN MRT0_IRQn
 /* MRT0 interrupt vector priority. */
@@ -119,6 +121,7 @@ extern usart_transfer_t USART1_rxTransfer;
 extern uint8_t USART1_txBuffer[USART1_TX_BUFFER_SIZE];
 extern usart_transfer_t USART1_txTransfer;
 extern const ctimer_config_t CTIMER0_config;
+extern const ctimer_match_config_t CTIMER0_Match_0_config;
 extern const usart_config_t USART0_config;
 extern const adc_config_t ADC0configStruct;
 extern const adc_conv_seq_config_t ADC0ConvSeqAConfigStruct;

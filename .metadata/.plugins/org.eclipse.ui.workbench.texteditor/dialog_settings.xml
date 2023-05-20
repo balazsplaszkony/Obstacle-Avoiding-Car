@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="print"/>
 			<item value="pot"/>
 			<item value="bool DetectCollision()"/>
 			<item value="pi"/>
@@ -22,7 +23,6 @@
 			<item value="servo"/>
 			<item value="dutyCyclePercent"/>
 			<item value="||"/>
-			<item value="UsartBufferInit();"/>
 		</list>
 		<list key="replacehistory">
 			<item value="int16_t"/>

@@ -750,6 +750,11 @@
                         <data type="Frequency" unit="Hz">0</data>
                      </feature>
                   </dependency>
+                  <dependency resourceType="PeripheralUnifiedSignal" resourceId="CTIMER0.ctimer_match.0" description="Match output of the match 0 channel of peripheral CTIMER0 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
+                     <feature name="routed" evaluation="equal">
+                        <data type="Boolean">true</data>
+                     </feature>
+                  </dependency>
                   <dependency resourceType="PeripheralUnifiedSignal" resourceId="CTIMER0.ctimer_capture.0" description="Capture input of the capture 0 channel of peripheral CTIMER0 is not routed." problem_level="1" source="Peripherals:BOARD_InitPeripherals">
                      <feature name="routed" evaluation="equal">
                         <data type="Boolean">true</data>
@@ -875,7 +880,18 @@
                            <setting name="timerPrescaler" value="30"/>
                         </struct>
                         <setting name="EnableTimerInInit" value="true"/>
-                        <array name="matchChannels"/>
+                        <array name="matchChannels">
+                           <struct name="0">
+                              <setting name="matchChannelPrefixId" value="Match_0"/>
+                              <setting name="matchChannel" value="kCTIMER_Match_0"/>
+                              <setting name="matchValueStr" value="500000"/>
+                              <setting name="enableCounterReset" value="false"/>
+                              <setting name="enableCounterStop" value="false"/>
+                              <setting name="outControl" value="kCTIMER_Output_NoAction"/>
+                              <setting name="outPinInitValue" value="low"/>
+                              <setting name="enableInterrupt" value="false"/>
+                           </struct>
+                        </array>
                         <array name="captureChannels">
                            <struct name="0">
                               <setting name="captureChannelPrefixId" value="Capture_0"/>
@@ -915,11 +931,11 @@
                      </config_set>
                   </instance>
                   <instance name="USART0" uuid="47b93ac2-a495-4d07-b6e2-e438267aea60" type="lpc_miniusart" type_id="lpc_miniusart_8dab9e8c7daef1c58d159a792e99242b" mode="polling" peripheral="USART0" enabled="true" comment="" custom_name_enabled="false" editing_lock="false">
-                     <config_set name="fsl_usart" quick_selection="QS_USART_1">
+                     <config_set name="fsl_usart">
                         <struct name="usartConfig">
                            <setting name="clockSource" value="FunctionClock"/>
                            <setting name="clockSourceFreq" value="ClocksTool_DefaultInit"/>
-                           <setting name="baudRate_Bps" value="9600"/>
+                           <setting name="baudRate_Bps" value="115200"/>
                            <setting name="syncMode" value="kUSART_SyncModeDisabled"/>
                            <setting name="parityMode" value="kUSART_ParityDisabled"/>
                            <setting name="stopBitCount" value="kUSART_OneStopBit"/>
@@ -1122,7 +1138,7 @@
                               <setting name="mrtChannelPrefixID" value="Channel_0"/>
                               <setting name="channelNumber" value="kMRT_Channel_0"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="250 ms"/>
+                              <setting name="timerValueStr" value="100 ms"/>
                               <setting name="startTimer" value="true"/>
                               <setting name="enableInterruptRequest" value="true"/>
                            </struct>
@@ -1130,25 +1146,25 @@
                               <setting name="mrtChannelPrefixID" value="Channel_1"/>
                               <setting name="channelNumber" value="kMRT_Channel_1"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="10 ms"/>
-                              <setting name="startTimer" value="false"/>
+                              <setting name="timerValueStr" value="20 ms"/>
+                              <setting name="startTimer" value="true"/>
                               <setting name="enableInterruptRequest" value="true"/>
                            </struct>
                            <struct name="2">
                               <setting name="mrtChannelPrefixID" value="Channel_2"/>
                               <setting name="channelNumber" value="kMRT_Channel_2"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="50 ms"/>
+                              <setting name="timerValueStr" value="550 ms"/>
                               <setting name="startTimer" value="false"/>
-                              <setting name="enableInterruptRequest" value="true"/>
+                              <setting name="enableInterruptRequest" value="false"/>
                            </struct>
                            <struct name="3">
                               <setting name="mrtChannelPrefixID" value="Channel_3"/>
                               <setting name="channelNumber" value="kMRT_Channel_3"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="1.5 ms"/>
+                              <setting name="timerValueStr" value="1 ms"/>
                               <setting name="startTimer" value="false"/>
-                              <setting name="enableInterruptRequest" value="true"/>
+                              <setting name="enableInterruptRequest" value="false"/>
                            </struct>
                         </array>
                         <struct name="interruptVector">

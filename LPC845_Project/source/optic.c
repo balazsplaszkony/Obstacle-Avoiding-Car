@@ -48,6 +48,20 @@ void InitOpticMeasurement(volatile OpticMeasurement* optic_measurement)
 	optic_measurement->back_right = 0;
 	optic_measurement->front_left = 0;
 	optic_measurement->front_right = 0;
+	for(int i = 0; i < 4; i++)
+		for(int j = 0; j < MOVING_AVERAGE_FILTER_SIZE; j++)
+			optic_measurement->measurement[i][j] = 0;
+
+//	bool initial_measurement = true;
+//	while(initial_measurement)
+//	{
+//		OpticMeasure();
+//		if(optic_measurement->measurement[0][4] != 0){
+//			initial_measurement = false;
+//         	 MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0);
+//			 MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0, 3000000);
+//		}
+//	}
 
 }
 

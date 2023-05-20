@@ -63,7 +63,7 @@ bool first_update = true;
 int main(void) {
 
     /* Init board hardware. */
-    BOARD_InitBootPins();
+     BOARD_InitBootPins();
     BOARD_InitBootClocks();
 
 
@@ -78,17 +78,18 @@ int main(void) {
 	INIT_USART();
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
 //	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
-    SetPWM(500, &motor_right);
-    SetPWM(500, &motor_left);
-//		SetPWM(305, motor_right);
-//		SetPWM(605, motor_left);
+    SetPWM(0, &motor_right);
+    SetPWM(0, &motor_left);
+//		SetPWM(500, &motor_right);
+//		SetPWM(500, &motor_left);
+		GoForward();
 	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
 
     /* Start receiving data */
 #ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
     /* Init FSL debug console. */
     BOARD_InitDebugConsole();
-    PRINTF("Hello world");
+    //PRINTF("Hello world");
 #endif
     if (SysTick_Config(SystemCoreClock / 1000U))
     {
@@ -98,8 +99,8 @@ int main(void) {
 //	  GPIO_PinWrite(GPIO, 0, motor_right.Input2, 1);
     while(true)
 	{
-    	// Gets UART message to the buffer if there is a new message,
-    	// then processes it and clears the buffer
+    	 //Gets UART message to the buffer if there is a new message,
+    	 //then processes it and clears the buffer
     	if(GetUSARTMessage()){
     		ParsePrompt();
     		ProcessPrompt();
@@ -120,7 +121,7 @@ int main(void) {
 
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
-    	SetSpeed();
+    	//SetSpeed();
     }
     return 0;
 }

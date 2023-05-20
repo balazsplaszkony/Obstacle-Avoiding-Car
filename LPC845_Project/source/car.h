@@ -23,8 +23,8 @@
 
 
 
-#define MinimalDuty 40
-#define MaximumDuty 80
+#define MinimalDuty 30
+#define MaximumDuty 70
 #define pi 3.14159
 #define WheelDiameter 6.8 //cm
 #define WheelRadius (WheelDiameter / 2)

@@ -34,6 +34,9 @@
 #define BOARD_DEBUG_USART_BAUDRATE 9600
 #endif /* BOARD_DEBUG_UART_BAUDRATE */
 
+#define DEBUG_USART_BAUDRATE_high 115200
+
+
 /*! @brief Board led mapping */
 #define LOGIC_LED_ON  0U
 #define LOGIC_LED_OFF 1U

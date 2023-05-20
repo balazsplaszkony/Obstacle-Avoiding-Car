@@ -146,7 +146,16 @@ instance:
       - clockSourceFreq: 'ClocksTool_DefaultInit'
       - timerPrescaler: '30'
     - EnableTimerInInit: 'true'
-    - matchChannels: []
+    - matchChannels:
+      - 0:
+        - matchChannelPrefixId: 'Match_0'
+        - matchChannel: 'kCTIMER_Match_0'
+        - matchValueStr: '500000'
+        - enableCounterReset: 'false'
+        - enableCounterStop: 'false'
+        - outControl: 'kCTIMER_Output_NoAction'
+        - outPinInitValue: 'low'
+        - enableInterrupt: 'false'
     - captureChannels:
       - 0:
         - captureChannelPrefixId: 'Capture_0'
@@ -184,6 +193,14 @@ const ctimer_config_t CTIMER0_config = {
   .input = kCTIMER_Capture_0,
   .prescale = 29
 };
+const ctimer_match_config_t CTIMER0_Match_0_config = {
+  .matchValue = 499999,
+  .enableCounterReset = false,
+  .enableCounterStop = false,
+  .outControl = kCTIMER_Output_NoAction,
+  .outPinInitState = false,
+  .enableInterrupt = false
+};
 /* Multiple callback functions definition */
 ctimer_callback_t CTIMER0_callback[] = {NULL, NULL, NULL, NULL, Ultrasonic_Callback, EncoderRightCallback, EncoderLeftCallback, NULL};
 
@@ -192,6 +209,8 @@ static void CTIMER0_init(void) {
   CTIMER_Init(CTIMER0_PERIPHERAL, &CTIMER0_config);
   /* Interrupt vector CTIMER0_IRQn priority settings in the NVIC. */
   NVIC_SetPriority(CTIMER0_TIMER_IRQN, CTIMER0_TIMER_IRQ_PRIORITY);
+  /* Match channel 0 of CTIMER0 peripheral initialization */
+  CTIMER_SetupMatch(CTIMER0_PERIPHERAL, CTIMER0_MATCH_0_CHANNEL, &CTIMER0_Match_0_config);
   /* capture channel 0 of CTIMER0 peripheral initialization */
   CTIMER_SetupCapture(CTIMER0_PERIPHERAL, CTIMER0_CAPTURE_0_CHANNEL, kCTIMER_Capture_BothEdge, true);
   /* capture channel 1 of CTIMER0 peripheral initialization */
@@ -221,7 +240,7 @@ instance:
     - usartConfig:
       - clockSource: 'FunctionClock'
       - clockSourceFreq: 'ClocksTool_DefaultInit'
-      - baudRate_Bps: '9600'
+      - baudRate_Bps: '115200'
       - syncMode: 'kUSART_SyncModeDisabled'
       - parityMode: 'kUSART_ParityDisabled'
       - stopBitCount: 'kUSART_OneStopBit'
@@ -232,11 +251,10 @@ instance:
       - clockPolarity: 'kUSART_RxSampleOnFallingEdge'
       - enableContinuousSCLK: 'false'
       - enableHardwareFlowControl: 'false'
-    - quick_selection: 'QS_USART_1'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 const usart_config_t USART0_config = {
-  .baudRate_Bps = 9600UL,
+  .baudRate_Bps = 115200UL,
   .syncMode = kUSART_SyncModeDisabled,
   .parityMode = kUSART_ParityDisabled,
   .stopBitCount = kUSART_OneStopBit,
@@ -519,30 +537,30 @@ instance:
         - mrtChannelPrefixID: 'Channel_0'
         - channelNumber: 'kMRT_Channel_0'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '250 ms'
+        - timerValueStr: '100 ms'
         - startTimer: 'true'
         - enableInterruptRequest: 'true'
       - 1:
         - mrtChannelPrefixID: 'Channel_1'
         - channelNumber: 'kMRT_Channel_1'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '10 ms'
-        - startTimer: 'false'
+        - timerValueStr: '20 ms'
+        - startTimer: 'true'
         - enableInterruptRequest: 'true'
       - 2:
         - mrtChannelPrefixID: 'Channel_2'
         - channelNumber: 'kMRT_Channel_2'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '50 ms'
+        - timerValueStr: '550 ms'
         - startTimer: 'false'
-        - enableInterruptRequest: 'true'
+        - enableInterruptRequest: 'false'
       - 3:
         - mrtChannelPrefixID: 'Channel_3'
         - channelNumber: 'kMRT_Channel_3'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '1.5 ms'
+        - timerValueStr: '1 ms'
         - startTimer: 'false'
-        - enableInterruptRequest: 'true'
+        - enableInterruptRequest: 'false'
     - interruptVector:
       - enableInterrupt: 'true'
       - interrupt:
@@ -572,16 +590,14 @@ static void MRT0_init(void) {
   MRT_EnableInterrupts(MRT0_PERIPHERAL, MRT0_CHANNEL_0, kMRT_TimerInterruptEnable);
   /* MRT channel 1 interrupt of MRT0 peripheral initialization */
   MRT_EnableInterrupts(MRT0_PERIPHERAL, MRT0_CHANNEL_1, kMRT_TimerInterruptEnable);
-  /* MRT channel 2 interrupt of MRT0 peripheral initialization */
-  MRT_EnableInterrupts(MRT0_PERIPHERAL, MRT0_CHANNEL_2, kMRT_TimerInterruptEnable);
-  /* MRT channel 3 interrupt of MRT0 peripheral initialization */
-  MRT_EnableInterrupts(MRT0_PERIPHERAL, MRT0_CHANNEL_3, kMRT_TimerInterruptEnable);
   /* Interrupt vector MRT0_IRQn priority settings in the NVIC. */
   NVIC_SetPriority(MRT0_IRQN, MRT0_IRQ_PRIORITY);
   /* Enable interrupt MRT0_IRQn request in the NVIC. */
   EnableIRQ(MRT0_IRQN);
   /* MRT channel 0 start of MRT0 peripheral initialization */
   MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0, MRT0_CHANNEL_0_TICKS);
+  /* MRT channel 1 start of MRT0 peripheral initialization */
+  MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
 }
 
 /***********************************************************************************************************************
