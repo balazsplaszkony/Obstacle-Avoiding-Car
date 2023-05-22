@@ -100,7 +100,7 @@ void ProcessPrompt()
 					pid_right.setpoint = ScaleUpRPM(Encoder_right.RPM);
 					pid_left.setpoint = ScaleUpRPM(Encoder_left.RPM);
 				}
-				MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+				//MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
 			}
 
 //			else if(!car_new.tempomat)
@@ -111,7 +111,7 @@ void ProcessPrompt()
 //				else {
 //					car.duty = (Encoder_right.RPM > Encoder_left.RPM) ? pid_right.output/10 : pid_left.output/10;
 //				}
-	        MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
+	        //MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
 			PrintUSART1_NB("OK");
 		}
 		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
@@ -122,13 +122,12 @@ void ProcessPrompt()
 					if(car.tempomat)
 					{
 						car_new.speed = buffer.parameter;
-						float rpm_setpoint = ScaleUpRPM(CalculateRPMfromSpeed(car_new.speed));
-						rpm_setpoint = (rpm_setpoint > MAX_PID_OUTPUT) ? rpm_setpoint : MAX_PID_OUTPUT;
-						rpm_setpoint = (rpm_setpoint < MIN_PID_OUTPUT) ? rpm_setpoint : MIN_PID_OUTPUT;
+						float rpm_setpoint = CalculateRPMfromSpeed(car_new.speed);
+						rpm_setpoint = (rpm_setpoint > 200) ? rpm_setpoint : MAX_RPM;
+						rpm_setpoint = (rpm_setpoint < MIN_PID_OUTPUT) ? rpm_setpoint : MIN_RPM;
 
 						pid_right.setpoint = rpm_setpoint;
 						pid_left.setpoint =  rpm_setpoint;
-						MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
 					}
 					PrintUSART1_NB("OK");
 				}

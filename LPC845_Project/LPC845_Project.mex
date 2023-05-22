@@ -1146,7 +1146,7 @@
                               <setting name="mrtChannelPrefixID" value="Channel_1"/>
                               <setting name="channelNumber" value="kMRT_Channel_1"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="20 ms"/>
+                              <setting name="timerValueStr" value="10 ms"/>
                               <setting name="startTimer" value="true"/>
                               <setting name="enableInterruptRequest" value="true"/>
                            </struct>
@@ -1173,7 +1173,7 @@
                               <setting name="IRQn" value="MRT0_IRQn"/>
                               <setting name="enable_interrrupt" value="enabled"/>
                               <setting name="enable_priority" value="true"/>
-                              <setting name="priority" value="1"/>
+                              <setting name="priority" value="3"/>
                               <setting name="enable_custom_name" value="false"/>
                            </struct>
                         </struct>

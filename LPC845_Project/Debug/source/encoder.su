@@ -2,6 +2,6 @@
 ../source/encoder.c:30:7:lowPassFilter	40	static
 ../source/encoder.c:40:7:butterworthSecondOrderLowPassFilter	72	static
 ../source/encoder.c:61:6:EncoderRightCallback	16	static
-../source/encoder.c:84:6:EncoderLeftCallback	16	static
-../source/encoder.c:105:6:EncoderTimerHandler	16	static
-../source/encoder.c:128:6:HandleNoEncoderSignal	16	static
+../source/encoder.c:86:6:EncoderLeftCallback	16	static
+../source/encoder.c:110:6:EncoderTimerHandler	16	static
+../source/encoder.c:133:6:HandleNoEncoderSignal	16	static

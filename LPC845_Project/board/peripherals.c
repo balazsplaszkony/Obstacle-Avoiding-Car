@@ -544,7 +544,7 @@ instance:
         - mrtChannelPrefixID: 'Channel_1'
         - channelNumber: 'kMRT_Channel_1'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '20 ms'
+        - timerValueStr: '10 ms'
         - startTimer: 'true'
         - enableInterruptRequest: 'true'
       - 2:
@@ -567,7 +567,7 @@ instance:
         - IRQn: 'MRT0_IRQn'
         - enable_interrrupt: 'enabled'
         - enable_priority: 'true'
-        - priority: '1'
+        - priority: '3'
         - enable_custom_name: 'false'
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */

@@ -5,22 +5,22 @@
 	volatile bool pid_updated = false;
 void PIDInit(){
 
-	pid_right.Kd = 0.5;//0.465;
-	pid_right.Ki = 0.5;//1.145;
-	pid_right.Kp = 1;
+	pid_right.Kd = 0.16/2;//0.465;
+	pid_right.Ki = 0.16/2;//1.145;
+	pid_right.Kp = 0.06/2;
 	pid_right.integral = 0.0;
 	pid_right.last_error = 0.0;
 	pid_right.output = 0.0;
-	pid_right.setpoint = 120; //60.0;
+	pid_right.setpoint = 160; //60.0;
 	pid_right.motor = motor_right;
 
-	pid_left.Kd = 0.5;
-	pid_left.Ki = 0.5;
-	pid_left.Kp = 1;
+	pid_left.Kd = 0.16/2;
+	pid_left.Ki = 0.16/2;
+	pid_left.Kp = 0.06/2;
 	pid_left.integral = 0.0;
 	pid_left.last_error = 0.0;
 	pid_left.output = 0.0;
-	pid_left.setpoint = 120; //60.0;
+	pid_left.setpoint = 160; //60.0;
 	pid_left.motor = motor_left;
 }
 
@@ -42,19 +42,19 @@ void PIDContollerUpdate(PidController* pid, float measurement){
 
     float derivative = pid->Kd * (error - pid->last_error);
 
-//    if(pid->motor.pwm_channel == motor_right.pwm_channel)
-//    	if(car.direction == TURNLEFT)
-//    	{
-//        	pid->integral = 0;
-//        	derivative = 0;
-//    	}
-//
-//    else if(pid->motor.pwm_channel == motor_left.pwm_channel)
-//    	if(car.direction == TURNRIGHT)
-//    	{
-//        	pid->integral = 0;
-//        	derivative = 0;
-//    	}
+    if(pid->motor.pwm_channel == motor_right.pwm_channel)
+    	if(car.direction == TURNLEFT)
+    	{
+        	pid->integral = 0;
+        	derivative = 0;
+    	}
+
+    else if(pid->motor.pwm_channel == motor_left.pwm_channel)
+    	if(car.direction == TURNRIGHT)
+    	{
+        	pid->integral = 0;
+        	derivative = 0;
+    	}
 
     pid->output = proportional + pid->integral + derivative;
 
@@ -86,7 +86,19 @@ float ScaleUpRPM(float rpm){
 	return (rpm/MAX_RPM)*MAX_PID_OUTPUT;
 }
 void PIDTIMERHandler(){
-
+	static int counter = 0;
+	if(!car.tempomat)
+		return;
+	if(counter == 0)
+	{
+		pid_left.setpoint = 40;
+		pid_right.setpoint = 40;
+	}
+	if(counter == 1000)
+	{
+		pid_left.setpoint = 40;
+		pid_right.setpoint = 40;
+	}
 	static uint8_t consecutiveMeasurementsLeft = 0;
 	    static uint8_t consecutiveMeasurementsRight = 0;
 	    static float prevRpmLeft = 0.0f;
@@ -99,7 +111,7 @@ void PIDTIMERHandler(){
     	        consecutiveMeasurementsLeft++;
     	        if (consecutiveMeasurementsLeft >= NUM_CONSECUTIVE_MEASUREMENTS) {
     	            Encoder_left.RPM = 0.0f; // Reset RPM value
-    	            rpm_right = 0.0f;
+    	            rpm_left = 0.0f;
     	            consecutiveMeasurementsLeft = 0; // Reset consecutive measurements counter
     	        }
     	    } else {
@@ -111,7 +123,7 @@ void PIDTIMERHandler(){
     	        consecutiveMeasurementsRight++;
     	        	if (consecutiveMeasurementsRight >= NUM_CONSECUTIVE_MEASUREMENTS) {
     	            Encoder_right.RPM = 0.0f; // Reset RPM value
-    	            rpm_left = 0.0f;
+    	            rpm_right = 0.0f;
     	            consecutiveMeasurementsRight = 0; // Reset consecutive measurements counter
     	        }
     	    } else {
@@ -124,8 +136,9 @@ void PIDTIMERHandler(){
         //pid_updated = true;
 		 SetPWM(RoundPIDOutput(pid_right.output + PID_OUTPUT_OFFSET), &motor_right);
 		 SetPWM(RoundPIDOutput(pid_left.output + PID_OUTPUT_OFFSET), &motor_left);
-        PRINTF("%d,%d,%d,%d,%d\n", (int)rpm_left, (int)rpm_right,
+        PRINTF("%d,%d,%d,%d,%d, \n", (int)rpm_left, (int)rpm_right,
     		(int)pid_left.output, (int)pid_right.output, (int)pid_right.setpoint);
 
-
+        counter++;
+        counter = counter % 2000;
 }

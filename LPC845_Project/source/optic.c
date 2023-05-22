@@ -51,18 +51,6 @@ void InitOpticMeasurement(volatile OpticMeasurement* optic_measurement)
 	for(int i = 0; i < 4; i++)
 		for(int j = 0; j < MOVING_AVERAGE_FILTER_SIZE; j++)
 			optic_measurement->measurement[i][j] = 0;
-
-//	bool initial_measurement = true;
-//	while(initial_measurement)
-//	{
-//		OpticMeasure();
-//		if(optic_measurement->measurement[0][4] != 0){
-//			initial_measurement = false;
-//         	 MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0);
-//			 MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_0, 3000000);
-//		}
-//	}
-
 }
 
 void StartConversion()
@@ -101,8 +89,10 @@ void ADC0_SEQA_IRQHandler(void)
 					(back_right_second - back_right_first) : 0;
 
 
-			optic_measurement.measurement[3][counter] = (back_left_second - back_left_first >0 ) ?
-					(back_left_second - back_left_first) : 0;
+//			optic_measurement.measurement[3][counter] = (back_left_second - back_left_first >0 ) ?
+//					(back_left_second - back_left_first) : 0;
+
+			optic_measurement.measurement[3][counter] = back_left_second;
 
 			optic_measurement.front_right = AveragingMeasurements(0);
 			optic_measurement.front_left = AveragingMeasurements(1);
@@ -111,6 +101,19 @@ void ADC0_SEQA_IRQHandler(void)
 
 			counter++;
 			counter = counter % MOVING_AVERAGE_FILTER_SIZE;
+			  	   		PRINTF("BH: %d\n", optic_measurement.back_left);
+
+			  	  		//char str_rl[16];
+			  	  		//snprintf(str_rl, sizeof(str_rl), "%d", optic_measurement.back_right_distance_in_cm);
+			  	   		//PRINTF("JH: %s\n", str_rl);
+
+			  	   		//char str_bf[16];
+			  	  		//snprintf(str_bf, sizeof(str_bf), "%d", optic_measurement.front_left_val);
+			  	   		//PRINTF("BE: %s\n", str_bf);
+
+			  	  		//char str_je[16];
+			  	  		//snprintf(str_je, sizeof(str_je), "%d", optic_measurement.front_right_distance_in_cm);
+			  	   		//PRINTF("JE: %s\n", str_je);
 		}
 
     ADC_ClearStatusFlags(ADC0_PERIPHERAL, kADC_ConvSeqAInterruptFlag);

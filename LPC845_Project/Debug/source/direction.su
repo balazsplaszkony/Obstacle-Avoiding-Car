@@ -1,5 +1,6 @@
 ../source/direction.c:4:6:UpdateDirection	8	static
-../source/direction.c:54:6:FindClearRouteIndependent	8	static
-../source/direction.c:81:6:FindClearRoute	8	static
-../source/direction.c:103:6:FindClearRouteNoCollision	8	static
-../source/direction.c:154:6:FindClearRouteCollision	8	static
+../source/direction.c:94:6:FindClearRouteFordward	8	static
+../source/direction.c:127:6:FindClearRouteBackward	8	static
+../source/direction.c:137:6:FindClearRoute	8	static
+../source/direction.c:160:6:FindClearRouteNoCollision	8	static
+../source/direction.c:184:6:FindClearRouteCollision	8	static

@@ -15,7 +15,7 @@
 
 #define ADC_RESULT_MASK 0xFFF
 #define OpticTreshold  3000 //ki kell még méregetni
-#define MOVING_AVERAGE_FILTER_SIZE 5
+#define MOVING_AVERAGE_FILTER_SIZE 10
 
 typedef enum Status_Optic
 {

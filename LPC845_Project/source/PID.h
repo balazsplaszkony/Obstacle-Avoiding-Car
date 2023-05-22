@@ -22,8 +22,7 @@
 #define MAX_PID_OUTPUT (MAXOUTPUT - MINOUTPUT)//400.0
 #define PID_OUTPUT_OFFSET (MINOUTPUT) //400.0
 #define MIN_PID_OUTPUT 0.0
-#define MAX_RPM 300.0 //üresjárásban ennyi
-#define NUM_CONSECUTIVE_MEASUREMENTS 3
+#define NUM_CONSECUTIVE_MEASUREMENTS 15
 
 
 extern volatile bool pid_updated;

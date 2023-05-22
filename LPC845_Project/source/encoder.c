@@ -72,6 +72,8 @@ void EncoderRightCallback(uint32_t flags) {
 
     deltaTimeRight = microseconds_elapsed_right / 1000000.0f;
 
+    if(Encoder_right.RPM > MAX_RPM)
+    	Encoder_right.RPM = MAX_RPM;
     Encoder_right.RPM = lowPassFilter(Encoder_right.RPM, Encoder_right.RPM_prev, deltaTimeRight, FILTER_CUTOFF_FREQ);
 
 //    PRINTF("%d\n", (int)Encoder_right.RPM);
@@ -95,7 +97,10 @@ void EncoderLeftCallback(uint32_t flags) {
 
     deltaTimeLeft = microseconds_elapsed_left / 1000000.0f;
 
+    if(Encoder_left.RPM > MAX_RPM)
+    	Encoder_left.RPM = MAX_RPM;
     Encoder_left.RPM = lowPassFilter(Encoder_left.RPM, Encoder_left.RPM_prev, deltaTimeLeft, FILTER_CUTOFF_FREQ);
+
 
     Encoder_left.updated = true;
     // Print or use filteredRPMLeft as needed

@@ -15,11 +15,14 @@
 #include "peripherals.h"
 #include "fsl_debug_console.h"
 
+
 #define MicroSecondsInMinute 60000000
 #define Resolution 20
 #define RPMCONST (MicroSecondsInMinute * Resolution)
+#define MAX_RPM 200 //üresjárásban ennyi
+#define MIN_RPM 20
 #define Maximum_Tolerated_RPM_Drop 50
-#define FILTER_CUTOFF_FREQ 50.0f // Cutoff frequency in Hz
+#define FILTER_CUTOFF_FREQ 10.0f // Cutoff frequency in Hz
 #define M_PI 3.14159f // Cutoff frequency in Hz
 
 typedef struct Encoder {

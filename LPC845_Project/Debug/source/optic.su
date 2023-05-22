@@ -7,9 +7,9 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/optic.c:22:6:OpticMeasure	8	static
 ../source/optic.c:37:6:MoveToNextState	8	static
 ../source/optic.c:43:6:InitOpticMeasurement	24	static
-../source/optic.c:68:6:StartConversion	8	static
-../source/optic.c:76:6:ADC0_SEQA_IRQHandler	8	static
-../source/optic.c:119:6:SET_IR_LED	8	static
-../source/optic.c:125:6:RESET_IR_LED	8	static
-../source/optic.c:129:6:ADCTIMERHandler	8	static
-../source/optic.c:133:9:AveragingMeasurements	24	static
+../source/optic.c:56:6:StartConversion	8	static
+../source/optic.c:64:6:ADC0_SEQA_IRQHandler	8	static
+../source/optic.c:122:6:SET_IR_LED	8	static
+../source/optic.c:128:6:RESET_IR_LED	8	static
+../source/optic.c:132:6:ADCTIMERHandler	8	static
+../source/optic.c:136:9:AveragingMeasurements	24	static

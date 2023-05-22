@@ -26,7 +26,7 @@ typedef enum Direction{
 
 
 void FindClearRoute();
-void FindClearRouteIndependent();
+void FindClearRouteFordward();
 void UpdateDirection();
 void FindClearRouteNoCollision();
 void FindClearRouteCollision();

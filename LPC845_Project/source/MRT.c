@@ -20,6 +20,7 @@ void MRT0_IRQHANDLER(void) {
 
     }
      if (MRT_GetStatusFlags(MRT0, kMRT_Channel_1)) {
+
     	PIDTIMERHandler();
         MRT_ClearStatusFlags(MRT0, kMRT_Channel_1, kMRT_TimerInterruptFlag);
 
