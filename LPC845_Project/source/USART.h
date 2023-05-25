@@ -9,8 +9,7 @@
 #define USART_H_
 
 #define esc 0x1b
-#define CR  0x0d
-#define LF  0x0a
+
 
 #define rx_buffer_size 64
 #define max_prompt_size 24
@@ -45,7 +44,7 @@ extern  UsartBuffer buffer;
 void INIT_USART(void);
 void UsartBufferInit();
 void PrintUSART1_NB(char * str);
-uint8_t GetUSART0(uint8_t *data);
+uint8_t GetUSART(uint8_t *data);
 uint8_t GetString_TillEndChar(char *str, uint8_t End_Char, uint8_t LenMax, uint8_t reset);
 bool GetUSARTMessage();
 void splitUSARTMessage();

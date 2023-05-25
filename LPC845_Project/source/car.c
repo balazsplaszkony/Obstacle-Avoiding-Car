@@ -23,25 +23,30 @@ void InitComponents()
 volatile bool first = 0;
 void InitCar()
 {
+	car.motor_left = motor_left;
+	car.motor_right = motor_right;
+
 	car.direction = GOFORWARD;
-	car.obstacle_avoidance = false;
+	car.obstacle_avoidance = true;
 	car.tempomat = true;
-	car.speed = 0;
-	car.duty = 50;
+	car.speed = 15;
+	//car.duty = 50;
 	car.is_obstacle_in_the_way = false;
 	car.is_car_blocked = false;
 	car.collision = NoCollision;
 	car.independent =false;
 
 	car_prev.direction = STOPCAR;
-	car_prev.obstacle_avoidance = false;
+	car_prev.obstacle_avoidance = true;
 	car_prev.tempomat = true;
-	car_prev.speed = 0;
-	car_prev.duty = 50;
+	car_prev.speed = 15;
+	//car_prev.duty = 50;
 	car_prev.is_obstacle_in_the_way = false;
 	car_prev.is_car_blocked = false;
 	car_prev.collision = NoCollision;
 	car_prev.independent =false;
+
+	InitComponents();
 
 }
 
@@ -55,26 +60,26 @@ void ProcessPrompt()
 //			return;
 
 		if(strcmp(prompt, "F\0")==0){ //FORWARD
-			if(car_new.independent)
+			if(car_new.independent || car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = GOFORWARD;
 			PrintUSART1_NB("OK");
 		}
 
 		else if(strcmp(prompt, "B\0")==0){ //BACKWARD
-			if(car_new.independent)
+			if(car_new.independent || car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = GOBACKWARD;
 			PrintUSART1_NB("OK");
 		}
 		else if(strcmp(prompt, "R\0")==0){  //RIGHT
-			if(car_new.independent)
+			if(car_new.independent || car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = TURNRIGHT;
 			PrintUSART1_NB("OK");
 		}
 		else if(strcmp(prompt, "L\0")==0){	//LEFT
-			if(car_new.independent)
+			if(car_new.independent || car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = TURNLEFT;
 			PrintUSART1_NB("OK");
@@ -83,41 +88,41 @@ void ProcessPrompt()
 			car_new.direction = STOPCAR;
 			PrintUSART1_NB("OK");
 		}
-		else if(strcmp(prompt, "T\0")==0){	//TOGGLE_TEMPOMAT
-			car_new.tempomat = (!car_new.tempomat);
-			if(car_new.tempomat)
-			{
-				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD))
-				{
-					car_new.speed = CalculateSpeedfromRPM((Encoder_left.RPM + Encoder_right.RPM)/2.0);
-					float rpm_setpoint = ScaleUpRPM((Encoder_right.RPM + Encoder_left.RPM)/2.0);
-					pid_right.setpoint = rpm_setpoint;
-					pid_left.setpoint =  rpm_setpoint;
-				}
-				else
-				{
-					car.speed = (Encoder_right.RPM > Encoder_left.RPM) ? CalculateSpeedfromRPM(Encoder_right.RPM) : CalculateSpeedfromRPM(Encoder_left.RPM);
-					pid_right.setpoint = ScaleUpRPM(Encoder_right.RPM);
-					pid_left.setpoint = ScaleUpRPM(Encoder_left.RPM);
-				}
-				//MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
-			}
-
-//			else if(!car_new.tempomat)
+//		else if(strcmp(prompt, "T\0")==0){	//TOGGLE_TEMPOMAT
+//			car_new.tempomat = (!car_new.tempomat);
+//			if(car_new.tempomat)
 //			{
-//				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)){
-//					 //car_new.duty = (pid_left.output + pid_right.output) / 20;
+//				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD))
+//				{
+//					car_new.speed = CalculateSpeedfromRPM((Encoder_left.RPM + Encoder_right.RPM)/2.0);
+//					float rpm_setpoint = ScaleUpRPM((Encoder_right.RPM + Encoder_left.RPM)/2.0);
+//					pid_right.setpoint = rpm_setpoint;
+//					pid_left.setpoint =  rpm_setpoint;
 //				}
-//				else {
-//					car.duty = (Encoder_right.RPM > Encoder_left.RPM) ? pid_right.output/10 : pid_left.output/10;
+//				else
+//				{
+//					car.speed = (Encoder_right.RPM > Encoder_left.RPM) ? CalculateSpeedfromRPM(Encoder_right.RPM) : CalculateSpeedfromRPM(Encoder_left.RPM);
+//					pid_right.setpoint = ScaleUpRPM(Encoder_right.RPM);
+//					pid_left.setpoint = ScaleUpRPM(Encoder_left.RPM);
 //				}
-	        //MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
-			PrintUSART1_NB("OK");
-		}
-		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
-			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
-			PrintUSART1_NB("OK");
-		}
+//				//MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
+//			}
+//
+////			else if(!car_new.tempomat)
+////			{
+////				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)){
+////					 //car_new.duty = (pid_left.output + pid_right.output) / 20;
+////				}
+////				else {
+////					car.duty = (Encoder_right.RPM > Encoder_left.RPM) ? pid_right.output/10 : pid_left.output/10;
+////				}
+//	        //MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
+//			PrintUSART1_NB("OK");
+//		}
+//		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
+//			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
+//			PrintUSART1_NB("OK");
+//		}
 		else if(strcmp(prompt, "Speed\0" ) == 0 || strcmp(prompt, "s\0")==0){
 					if(car.tempomat)
 					{
@@ -131,11 +136,11 @@ void ProcessPrompt()
 					}
 					PrintUSART1_NB("OK");
 				}
-		else if(strcmp(prompt, "Duty\0")==0 || strcmp(prompt, "d\0")==0){
-					if(!car.tempomat && (buffer.parameter >= MinimalDuty) && (buffer.parameter <= MaximumDuty))
-						car_new.duty = buffer.parameter;
-					PrintUSART1_NB("OK");
-						}
+//		else if(strcmp(prompt, "Duty\0")==0 || strcmp(prompt, "d\0")==0){
+//					if(!car.tempomat && (buffer.parameter >= MinimalDuty) && (buffer.parameter <= MaximumDuty))
+//						car_new.duty = buffer.parameter;
+//					PrintUSART1_NB("OK");
+//						}
 		else if(strcmp(prompt, "I")==0){
 			if(car.independent != true)
 			{	car_new.independent = true;
@@ -200,21 +205,21 @@ void StopCar()
 }
 
 bool isObstacleDetected(){
-	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
-			|| optic_measurement.back_left < OpticTreshold
-			|| optic_measurement.back_right < OpticTreshold
-			|| optic_measurement.front_left < OpticTreshold
-			|| optic_measurement.front_right < OpticTreshold
+	return((ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			|| optic_measurement.back_left > OpticTreshold
+			|| optic_measurement.back_right > OpticTreshold
+			|| optic_measurement.front_left > OpticTreshold
+			|| optic_measurement.front_right > OpticTreshold
 			);
 }
 
 bool isRoadBlockedinEveryDirection()
 {
-	return((ultrasonic_measurement.distance_in_cm > UltrasonicTreshold && ultrasonic_measurement.is_valid)
-			&& optic_measurement.back_left < OpticTreshold
-			&& optic_measurement.back_right < OpticTreshold
-			&& optic_measurement.front_left < OpticTreshold
-			&& optic_measurement.front_right < OpticTreshold
+	return((ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			&& optic_measurement.back_left > OpticTreshold
+			&& optic_measurement.back_right > OpticTreshold
+			&& optic_measurement.front_left > OpticTreshold
+			&& optic_measurement.front_right > OpticTreshold
 			);
 }
 
@@ -231,15 +236,15 @@ void SetSpeed(){
 //		 SetPWM(RoundPIDOutput(pid_left.output + PID_OUTPUT_OFFSET), &motor_left);
 //		 pid_updated = false;
 //		 }
+////	}
+//	 if(!car.tempomat)
+//	{
+//		if(car.duty != car_prev.duty)
+//		{
+//			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, car.duty, SCT0_pwmEvent[0]);
+//			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, car.duty, SCT0_pwmEvent[1]);
+//		}
 //	}
-	 if(!car.tempomat)
-	{
-		if(car.duty != car_prev.duty)
-		{
-			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, car.duty, SCT0_pwmEvent[0]);
-			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, car.duty, SCT0_pwmEvent[1]);
-		}
-	}
 
 }
 float CalculateSpeedfromRPM(float rpm)

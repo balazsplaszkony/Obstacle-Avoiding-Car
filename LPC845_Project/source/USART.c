@@ -82,7 +82,7 @@ void PrintUSART1_NB(char * str)
     USART_TransferSendNonBlocking(USART1, &USART1_handle, &USART1_txTransfer);
 }
 
-uint8_t GetUSART1(uint8_t *data)
+uint8_t GetUSART(uint8_t *data)
 {
     USART_DisableInterrupts(USART1, (uint32_t)kUSART_RxReadyInterruptEnable |
                                       (uint32_t)kUSART_HardwareOverRunInterruptEnable);
@@ -182,7 +182,7 @@ uint8_t GetString_TillEndChar(char *str, uint8_t End_Char, uint8_t LenMax, uint8
 		GstrState = COLLECT_state;
 		break;
 	case COLLECT_state:
-		if(GetUSART1(&data))
+		if(GetUSART(&data))
 		{
 			if(data == esc)
 			{

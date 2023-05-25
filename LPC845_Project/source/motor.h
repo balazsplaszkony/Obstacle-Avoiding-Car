@@ -8,12 +8,13 @@
 #ifndef MOTOR_H_
 #define MOTOR_H_
 
-#include "ultrasonic.h"
-#include "optic.h"
-//#include "bluetooth.h"
+
 #include "pin_mux.h"
 #include "LPC845.h"
 #include "peripherals.h"
+#include "fsl_gpio.h"
+
+
 
 #define MinimumDutyCycle 40
 #define MaximumDutyCycle 80

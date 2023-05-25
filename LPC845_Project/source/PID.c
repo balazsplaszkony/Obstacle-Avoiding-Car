@@ -5,22 +5,22 @@
 	volatile bool pid_updated = false;
 void PIDInit(){
 
-	pid_right.Kd = 0.16/2;//0.465;
-	pid_right.Ki = 0.16/2;//1.145;
-	pid_right.Kp = 0.06/2;
+	pid_right.Kd = 1.4;//0.465;
+	pid_right.Ki = 0.06;//1.145;
+	pid_right.Kp = 1.4;
 	pid_right.integral = 0.0;
 	pid_right.last_error = 0.0;
 	pid_right.output = 0.0;
-	pid_right.setpoint = 160; //60.0;
+	pid_right.setpoint = 50; //60.0;
 	pid_right.motor = motor_right;
 
-	pid_left.Kd = 0.16/2;
-	pid_left.Ki = 0.16/2;
-	pid_left.Kp = 0.06/2;
+	pid_left.Kd = 1.4;
+	pid_left.Ki = 0.06;
+	pid_left.Kp = 1.4;
 	pid_left.integral = 0.0;
 	pid_left.last_error = 0.0;
 	pid_left.output = 0.0;
-	pid_left.setpoint = 160; //60.0;
+	pid_left.setpoint = 50; //60.0;
 	pid_left.motor = motor_left;
 }
 
@@ -33,28 +33,12 @@ void PIDContollerUpdate(PidController* pid, float measurement){
     pid->integral += pid->Ki * error;
 
     // Limit the integral term to prevent windup
-    if (pid->integral > MAX_PID_OUTPUT) {
-            pid->integral = MAX_PID_OUTPUT;
-        }
-    else if (pid->integral < MIN_PID_OUTPUT) {
-            pid->integral = MIN_PID_OUTPUT;
-        }
+    LimitIntegralTerm(pid);
+
+    // Reset the integral term if the wheel is stopped intentionally
+    ResetIntegralTerm();
 
     float derivative = pid->Kd * (error - pid->last_error);
-
-    if(pid->motor.pwm_channel == motor_right.pwm_channel)
-    	if(car.direction == TURNLEFT)
-    	{
-        	pid->integral = 0;
-        	derivative = 0;
-    	}
-
-    else if(pid->motor.pwm_channel == motor_left.pwm_channel)
-    	if(car.direction == TURNRIGHT)
-    	{
-        	pid->integral = 0;
-        	derivative = 0;
-    	}
 
     pid->output = proportional + pid->integral + derivative;
 
@@ -70,6 +54,30 @@ void PIDContollerUpdate(PidController* pid, float measurement){
 bool isPIDUpdated()
 {
 	return pid_updated;
+}
+void LimitIntegralTerm(PidController* pid)
+{
+	if (pid->integral > MAX_PID_OUTPUT) {
+	            pid->integral = MAX_PID_OUTPUT;
+	        }
+	    else if (pid->integral < MIN_PID_OUTPUT) {
+	            pid->integral = MIN_PID_OUTPUT;
+	        }
+
+    // Reset the integral term if the wheel is stopped intentionally
+}
+void ResetIntegralTerm()
+{
+    if(car.direction == STOPCAR || car.direction == TURNLEFT)
+    	pid_right.integral = 0;
+
+    if(car.direction == STOPCAR || car.direction == TURNRIGHT)
+    	pid_left.integral = 0;
+}
+void ResetController()
+{
+	pid_right.integral = 0;
+	pid_left.integral = 0;
 }
 
 int RoundPIDOutput(float output)
@@ -91,13 +99,13 @@ void PIDTIMERHandler(){
 		return;
 	if(counter == 0)
 	{
-		pid_left.setpoint = 40;
-		pid_right.setpoint = 40;
+		pid_left.setpoint = 60;
+		pid_right.setpoint = 60;
 	}
 	if(counter == 1000)
 	{
-		pid_left.setpoint = 40;
-		pid_right.setpoint = 40;
+		pid_left.setpoint = 100;
+		pid_right.setpoint = 100;
 	}
 	static uint8_t consecutiveMeasurementsLeft = 0;
 	    static uint8_t consecutiveMeasurementsRight = 0;
@@ -107,7 +115,7 @@ void PIDTIMERHandler(){
     	float rpm_left = Encoder_left.RPM;
     	float rpm_right = Encoder_right.RPM;
     	__enable_irq();
-    	if (rpm_left == prevRpmLeft) {
+    	if (Encoder_right.updated == false) {
     	        consecutiveMeasurementsLeft++;
     	        if (consecutiveMeasurementsLeft >= NUM_CONSECUTIVE_MEASUREMENTS) {
     	            Encoder_left.RPM = 0.0f; // Reset RPM value
@@ -116,10 +124,12 @@ void PIDTIMERHandler(){
     	        }
     	    } else {
     	        consecutiveMeasurementsLeft = 0; // Reset consecutive measurements counter
+    	        Encoder_left.updated = false;
+
     	    }
     	    prevRpmLeft = rpm_left;
 
-    	    if (rpm_right == prevRpmRight) {
+    	    if (Encoder_right.updated == false) {
     	        consecutiveMeasurementsRight++;
     	        	if (consecutiveMeasurementsRight >= NUM_CONSECUTIVE_MEASUREMENTS) {
     	            Encoder_right.RPM = 0.0f; // Reset RPM value
@@ -128,6 +138,7 @@ void PIDTIMERHandler(){
     	        }
     	    } else {
     	        consecutiveMeasurementsRight = 0; // Reset consecutive measurements counter
+    	        Encoder_right.updated = false;
     	    }
     	    prevRpmRight = rpm_right;
 

@@ -537,7 +537,7 @@ instance:
         - mrtChannelPrefixID: 'Channel_0'
         - channelNumber: 'kMRT_Channel_0'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '100 ms'
+        - timerValueStr: '559 ms'
         - startTimer: 'true'
         - enableInterruptRequest: 'true'
       - 1:

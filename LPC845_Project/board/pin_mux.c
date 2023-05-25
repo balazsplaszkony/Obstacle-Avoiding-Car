@@ -85,7 +85,6 @@ BOARD_InitPins:
   - {pin_num: '43', peripheral: CTIMER0, signal: 'CAPTURE, 2', pin_signal: PIO0_22/ADC_4}
   - {pin_num: '44', peripheral: ADC0, signal: 'CH, 5', pin_signal: PIO0_21/ADC_5, mode: pullUp}
   - {pin_num: '36', peripheral: GPIO, signal: 'PIO0, 0', pin_signal: PIO0_0/ACMP_I1, direction: OUTPUT}
-  - {pin_num: '7', peripheral: GPIO, signal: 'PIO0, 28', pin_signal: PIO0_28/WKTCLKIN, direction: OUTPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -147,13 +146,6 @@ void BOARD_InitPins(void)
     };
     /* Initialize GPIO functionality on pin PIO0_18 (pin )  */
     GPIO_PinInit(GPIO, 0U, 18U, &gpio0_pin0_18);
-
-    gpio_pin_config_t gpio0_pin0_28 = {
-        .pinDirection = kGPIO_DigitalOutput,
-        .outputLogic = 0U,
-    };
-    /* Initialize GPIO functionality on pin PIO0_28 (pin )  */
-    GPIO_PinInit(GPIO, 0U, 28U, &gpio0_pin0_28);
 
     IOCON->PIO[27] = ((IOCON->PIO[27] &
                        /* Mask bits to zero which are setting */

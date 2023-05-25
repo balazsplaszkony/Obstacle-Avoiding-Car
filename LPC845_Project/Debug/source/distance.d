@@ -17,14 +17,17 @@ source/distance.o source/distance.d: ../source/distance.c \
  ../source/sys.h ../source/SysTimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h \
- ../source/optic.h \
+ ../source/car.h ../source/direction.h ../source/motor.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/peripherals.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_clock.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_ctimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h \
- C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
+ ../source/encoder.h ../source/PID.h ../source/USART.h ../source/optic.h \
+ ../source/collision.h
 ../source/distance.h:
 ../source/ultrasonic.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h:
@@ -45,7 +48,10 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/SysTimer.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h:
-../source/optic.h:
+../source/car.h:
+../source/direction.h:
+../source/motor.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/peripherals.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_usart.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_clock.h:
@@ -53,3 +59,8 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:
+../source/encoder.h:
+../source/PID.h:
+../source/USART.h:
+../source/optic.h:
+../source/collision.h:

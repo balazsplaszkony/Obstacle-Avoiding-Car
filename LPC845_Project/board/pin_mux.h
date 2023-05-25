@@ -179,17 +179,6 @@ void BOARD_InitBootPins(void);
 #define BOARD_INITPINS_IR_LED_EN_PIN_MASK (1U << 0U)      /*!<@brief PORT pin mask */
                                                           /* @} */
 
-/*! @name PIO0_28 (number 7), CN1[14]/PIO0_28/WKTCLKIN
-  @{ */
-
-/* Symbols to be used with GPIO driver */
-#define BOARD_INITPINS_Servo_GPIO GPIO                 /*!<@brief GPIO peripheral base pointer */
-#define BOARD_INITPINS_Servo_GPIO_PIN_MASK (1U << 28U) /*!<@brief GPIO pin mask */
-#define BOARD_INITPINS_Servo_PORT 0U                   /*!<@brief PORT device index: 0 */
-#define BOARD_INITPINS_Servo_PIN 28U                   /*!<@brief PORT pin number */
-#define BOARD_INITPINS_Servo_PIN_MASK (1U << 28U)      /*!<@brief PORT pin mask */
-                                                       /* @} */
-
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
  *

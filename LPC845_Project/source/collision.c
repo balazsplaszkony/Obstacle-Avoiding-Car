@@ -46,11 +46,10 @@ CollisionType DetectCollision(){
 	return car.collision;
 }
 bool hasCarParametersChanged(){
-	return (!((car.direction == car_prev.direction && !first) && ((car.tempomat && car.speed == car_prev.speed) ||
-			(!car.tempomat && car.duty == car_prev.duty))));
+	return (!((car.direction == car_prev.direction && !first) && ((car.tempomat && car.speed == car_prev.speed) )));
 }
 
 bool isRPMDrop(Encoder encoder)
 {
-	return ((abs(encoder.RPM -encoder.RPM_prev)/encoder.RPM_prev) > 0.5);
+	//return ((abs(encoder.RPM -encoder.RPM_prev)/encoder.RPM_prev) > 0.5);
 }

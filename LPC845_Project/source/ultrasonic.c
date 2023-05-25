@@ -3,10 +3,12 @@ volatile uint32_t capture_value_0 = 0;
 volatile uint32_t capture_value_1 = 0;
 volatile uint32_t microseconds_elapsed = 0;
 volatile UltraSonicMeasurement ultrasonic_measurement;
+bool first_mes = true;
 
 void InitUltrasonicMeasurement(volatile UltraSonicMeasurement* ultrasonic_measurement)
 {
 	ultrasonic_measurement->distance_in_cm = 400;
+	ultrasonic_measurement->distance_in_cm_prev = 400;
 	ultrasonic_measurement->is_valid = false;
 	ultrasonic_measurement->status = START;
 }
@@ -48,16 +50,32 @@ void Ultrasonic_Callback(uint32_t flags) {
 		}
 
     if (ultrasonic_measurement.status == WAITSECONDIT) {
+    	ultrasonic_measurement.distance_in_cm_prev = ultrasonic_measurement.distance_in_cm;
          capture_value_1 = CTIMER0->CR[0];
         if (capture_value_1 > capture_value_0) {
             microseconds_elapsed = capture_value_1 - capture_value_0;
         } else {
             microseconds_elapsed = capture_value_1 + (UINT32_MAX - capture_value_0) + 1;
         }
-        ultrasonic_measurement.distance_in_cm = microseconds_elapsed * (SpeedOfSound / 2);
+        uint16_t distance = microseconds_elapsed * (SpeedOfSound / 2);
+
+		ultrasonic_measurement.distance_in_cm = distance;
         ultrasonic_measurement.is_valid = true;
+
         ultrasonic_measurement.status = START;
+        //PRINTF("%d\n", ultrasonic_measurement.distance_in_cm);
     }
+}
+
+uint8_t GetUltrasonicTreshold(){
+	if(car.speed < CalculateSpeedfromRPM(60))
+		return 30;
+	else if(car.speed < CalculateSpeedfromRPM(100))
+		return 35;
+	else if(car.speed < CalculateSpeedfromRPM(130))
+		return 40;
+	else
+		return 45;
 }
 // for debugging
 //  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)

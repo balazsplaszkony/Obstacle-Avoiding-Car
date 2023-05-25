@@ -13,6 +13,6 @@
 void SenseDistance()
 {
 	UltrasonicMeasure();
-	OpticMeasure();
+	//OpticMeasure();
 }
 

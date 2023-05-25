@@ -22,11 +22,13 @@
 #define MAX_RPM 200 //üresjárásban ennyi
 #define MIN_RPM 20
 #define Maximum_Tolerated_RPM_Drop 50
-#define FILTER_CUTOFF_FREQ 10.0f // Cutoff frequency in Hz
+#define FILTER_CUTOFF_FREQ 100.0f // Cutoff frequency in Hz
 #define M_PI 3.14159f // Cutoff frequency in Hz
+#define NumOfMeasurements 3
 
 typedef struct Encoder {
     volatile float RPM;
+    volatile float measurements[NumOfMeasurements];
     volatile float RPM_prev;
     volatile bool updated;
 } Encoder;
@@ -38,7 +40,6 @@ void InitEncoder(volatile Encoder* encoder);
 void EncoderRightCallback(uint32_t flags);
 void EncoderLeftCallback(uint32_t flags);
 float lowPassFilter(float input, float prevOutput, float deltaTime, float cutoffFreq);
-void EncoderTimerHandler(uint32_t flags);
 void HandleNoEncoderSignal(volatile Encoder* encoder);
 
 

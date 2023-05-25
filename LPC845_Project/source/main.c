@@ -32,7 +32,6 @@
  * @file    main.c
  * @brief   Application entry point.
  */
-#include <motor.h>
 #include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
@@ -46,12 +45,13 @@
 #include "stdbool.h"
 #include "distance.h"
 #include "ultrasonic.h"
-//#include "bluetooth.h"
 #include "encoder.h"
 #include "PID.h"
 #include "direction.h"
 #include "car.h"
 #include "USART.h"
+#include <motor.h>
+
 
 /* TODO: insert other definitions and declarations here. */
 
@@ -63,29 +63,18 @@ bool first_update = true;
 int main(void) {
 
     /* Init board hardware. */
-
 	BOARD_InitBootPins();
     BOARD_InitBootClocks();
 
-
-    // initializes the starting state of the car
+    // sets the starting state of the car and its components
     InitCar();
-    // initializes the components of the car
-    InitComponents();
-
     POWER_DisablePD(kPDRUNCFG_PD_ADC0);
     //BOARD_InitBootPeripherals();
     BOARD_InitPeripherals();
 	INIT_USART();
-//	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 20, SCT0_pwmEvent[0]);
-//	SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 99, SCT0_pwmEvent[1]);
-    SetPWM(0, &motor_right);
-    SetPWM(0, &motor_left);
-//		SetPWM(500, &motor_right);
-//		SetPWM(500, &motor_left);
-		GoForward();
-	//SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 80, SCT0_pwmEvent[0]);
-
+	GoForward();
+//				SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 50, SCT0_pwmEvent[0]);
+//				SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 50, SCT0_pwmEvent[1]);
     /* Start receiving data */
 #ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
     /* Init FSL debug console. */
@@ -96,32 +85,24 @@ int main(void) {
     {
     while (1){} //hibás osztás érték esetén végtelen ciklus
     }
-//	  GPIO_PinWrite(GPIO, 0, motor_right.Input1, 0);
-//	  GPIO_PinWrite(GPIO, 0, motor_right.Input2, 1);
     while(true)
 	{
-    	if(ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
-    	{
-    		StopCar();
-    	}
-    	else
-    		GoForward();
     	 //Gets UART message to the buffer if there is a new message,
     	 //then processes it and clears the buffer
-    	if(GetUSARTMessage()){
-    		ParsePrompt();
-    		ProcessPrompt();
-  			ClearBuffer();
+    	if(car.is_obstacle_in_the_way == false)
+    	{
+    		if(GetUSARTMessage()){
+    		    		ParsePrompt();
+    		    		//PRINTF("parancs: %s\n", buffer.prompt);
+    		    		ProcessPrompt();
+    		  			ClearBuffer();
+    		    	}
+
+    		    	//DetectCollision();
+
+    		    	// Updates the direction based on commands and sensor data
+    		    	UpdateDirection();
     	}
-
-    	// Calls the state machine of the optic and ultrasonic distance measurements
-    	SenseDistance();
-
-//    	DetectCollision();
-
-    	// Updates the direction based on commands and sensor data
-    	UpdateDirection();
-
     	// Looks for a clear path, if the car cannot go towards the selected direction
     	if(car.is_obstacle_in_the_way || (car.collision != NoCollision))
     		FindClearRoute();
@@ -129,13 +110,9 @@ int main(void) {
     	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
     	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
     	//SetSpeed();
+
+    	// Calls the state machine of the optic and ultrasonic distance measurements
+    	SenseDistance();
     }
     return 0;
 }
-
-
-
-//// ha nem tud semerre menni a kocsi, és utána arrébb teszik, hogy tudjon azt még le kell kezelni,
-//// de egyelőrre egy végtelen ciklust teszek ide
-//while(car.is_car_blocked);
-

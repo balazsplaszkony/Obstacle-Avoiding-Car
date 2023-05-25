@@ -8,16 +8,16 @@
 #ifndef CAR_H_
 #define CAR_H_
 
+#include "direction.h"
 
 #include "motor.h"
 #include "encoder.h"
-#include "direction.h"
 #include "PID.h"
 #include "USART.h"
 #include "ultrasonic.h"
+
 #include "optic.h"
 #include <stdbool.h>
-#include "servo.h"
 #include "collision.h"
 
 
@@ -36,6 +36,8 @@ extern volatile bool first;
 
 typedef struct Car{
 	//ide belerakhatnám az összes érzékelőt?
+	Motor motor_left;
+	Motor motor_right;
 
 	Direction direction;
 	bool is_obstacle_in_the_way;
@@ -44,7 +46,7 @@ typedef struct Car{
 	bool is_car_blocked;
 	CollisionType collision;
 	uint8_t speed; // cm/s
-	uint8_t duty;
+	//uint8_t duty;
 	bool independent;
 
 }Car;

@@ -58,8 +58,19 @@ float butterworthSecondOrderLowPassFilter(float input, float* prevInputs, float*
 
     return output;
 }
+
+int floatCompare(const void* a, const void* b) {
+    float fa = *(const float*)a;
+    float fb = *(const float*)b;
+    return (fa > fb) - (fa < fb);
+}
+
+
 void EncoderRightCallback(uint32_t flags) {
-    static float deltaTimeRight = 0.0f;
+    //static float deltaTimeRight = 0.0f;
+    static float measurement = 0;
+    static bool transient = false;
+    //static float overshoot_measurement = 0;
 
     Encoder_right.RPM_prev = Encoder_right.RPM;
     captured_time_right_prev = captured_time_right;
@@ -67,24 +78,43 @@ void EncoderRightCallback(uint32_t flags) {
 
     if (captured_time_right_prev) {
         microseconds_elapsed_right = captured_time_right - captured_time_right_prev;
-        Encoder_right.RPM = (1.0 / (microseconds_elapsed_right / (60.0 * 1000000.0))) * (1.0 / Resolution);
+        measurement = (1.0 / (microseconds_elapsed_right / (60.0 * 1000000.0))) * (1.0 / Resolution);
     }
 
-    deltaTimeRight = microseconds_elapsed_right / 1000000.0f;
+    //deltaTimeRight = microseconds_elapsed_right / 1000000.0f;
 
-    if(Encoder_right.RPM > MAX_RPM)
-    	Encoder_right.RPM = MAX_RPM;
-    Encoder_right.RPM = lowPassFilter(Encoder_right.RPM, Encoder_right.RPM_prev, deltaTimeRight, FILTER_CUTOFF_FREQ);
+    if(measurement > MAX_RPM)
+    	measurement = MAX_RPM;
 
-//    PRINTF("%d\n", (int)Encoder_right.RPM);
+
+    if(!transient)
+    {
+        if(fabs(measurement - Encoder_right.RPM) < 0.2* Encoder_right.RPM)
+        	Encoder_right.RPM = measurement;
+        else
+        {
+        	//overshoot_measurement = measurement;
+        	transient = true;
+        }
+    }
+
+    if(transient)
+    {
+    	Encoder_right.RPM = measurement;
+    	transient = false;
+    }
+
+    //Encoder_right.RPM = lowPassFilter(Encoder_right.RPM, Encoder_right.RPM_prev, deltaTimeRight, FILTER_CUTOFF_FREQ);
+
     Encoder_right.updated = true;
-    // Print or use filteredRPMRight as needed
-    // ...
-    // Rest of the callback function
 }
 
+
 void EncoderLeftCallback(uint32_t flags) {
-    static float deltaTimeLeft = 0.0f;
+    //static float deltaTimeLeft = 0.0f;
+    static float measurement = 0;
+        static bool transient = false;
+      //  static float overshoot_measurement = 0;
 
     Encoder_left.RPM_prev = Encoder_left.RPM;
     captured_time_left_prev = captured_time_left;
@@ -92,42 +122,37 @@ void EncoderLeftCallback(uint32_t flags) {
 
     if (captured_time_left_prev) {
         microseconds_elapsed_left = captured_time_left - captured_time_left_prev;
-        Encoder_left.RPM = (1.0 / (microseconds_elapsed_left / (60.0 * 1000000.0))) * (1.0 / Resolution);
+        measurement = (1.0 / (microseconds_elapsed_left / (60.0 * 1000000.0))) * (1.0 / Resolution);
     }
 
-    deltaTimeLeft = microseconds_elapsed_left / 1000000.0f;
+    //deltaTimeLeft = microseconds_elapsed_left / 1000000.0f;
 
     if(Encoder_left.RPM > MAX_RPM)
     	Encoder_left.RPM = MAX_RPM;
-    Encoder_left.RPM = lowPassFilter(Encoder_left.RPM, Encoder_left.RPM_prev, deltaTimeLeft, FILTER_CUTOFF_FREQ);
+    //Encoder_left.RPM = lowPassFilter(Encoder_left.RPM, Encoder_left.RPM_prev, deltaTimeLeft, FILTER_CUTOFF_FREQ);
+    if(measurement > MAX_RPM)
+        	measurement = MAX_RPM;
+
+
+        if(!transient)
+        {
+            if(fabs(measurement - Encoder_left.RPM) < 0.2* Encoder_left.RPM)
+            	Encoder_left.RPM = measurement;
+            else
+            {
+            	//overshoot_measurement = measurement;
+            	transient = true;
+            }
+        }
+
+        if(transient)
+        {
+        	Encoder_left.RPM = measurement;
+        	transient = false;
+        }
 
 
     Encoder_left.updated = true;
-    // Print or use filteredRPMLeft as needed
-    // ...
-    // Rest of the callback function
-}
-void EncoderTimerHandler(uint32_t flags)
-{
-	static int i = 0;
-	PRINTF("R: %s\n", Encoder_right.updated ? "true" : "false");
-	PRINTF("L: %s\n", Encoder_left.updated ? "true" : "false");
-
-	if(!Encoder_right.updated)
-		HandleNoEncoderSignal(&Encoder_right);
-
-	if(!Encoder_left.updated)
-		HandleNoEncoderSignal(&Encoder_left);
-
-	Encoder_right.updated = false;
-	Encoder_left.updated = false;
-	i++;
-	CTIMER0->MR[0] = i * 500000 ;
-//	CTIMER_StopTimer(CTIMER0, kCTIMER_Timer0);
-//	CTIMER0->TCR |= CTIMER_TCR_CRST_MASK;  // Set CRST bit to reset the timer
-//	CTIMER0->TCR &= ~CTIMER_TCR_CRST_MASK; // Clear CRST bit to resume normal operation
-//	CTIMER_StartTimer(CTIMER0, kCTIMER_Timer0);
-
 }
 
 void HandleNoEncoderSignal(volatile Encoder* encoder)

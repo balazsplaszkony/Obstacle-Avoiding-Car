@@ -101,7 +101,7 @@ void ADC0_SEQA_IRQHandler(void)
 
 			counter++;
 			counter = counter % MOVING_AVERAGE_FILTER_SIZE;
-			  	   		PRINTF("BH: %d\n", optic_measurement.back_left);
+			  	   		//PRINTF("BH: %d\n", optic_measurement.back_left);
 
 			  	  		//char str_rl[16];
 			  	  		//snprintf(str_rl, sizeof(str_rl), "%d", optic_measurement.back_right_distance_in_cm);

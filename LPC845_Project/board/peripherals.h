@@ -85,7 +85,7 @@ extern "C" {
 /* Definition of channel 0 mode */
 #define MRT0_CHANNEL_0_MODE kMRT_RepeatMode
 /* Definition of channel 0 timer in ticks */
-#define MRT0_CHANNEL_0_TICKS 3000000U
+#define MRT0_CHANNEL_0_TICKS 16770000U
 /* Definition of channel 1 ID */
 #define MRT0_CHANNEL_1 kMRT_Channel_1
 /* Definition of channel 1 mode */

@@ -179,11 +179,6 @@
                         <pin_feature name="direction" value="OUTPUT"/>
                      </pin_features>
                   </pin>
-                  <pin peripheral="GPIO" signal="PIO0, 28" pin_num="7" pin_signal="PIO0_28/WKTCLKIN">
-                     <pin_features>
-                        <pin_feature name="direction" value="OUTPUT"/>
-                     </pin_features>
-                  </pin>
                </pins>
             </function>
             <function name="BOARD_InitLEDsPins">
@@ -1138,7 +1133,7 @@
                               <setting name="mrtChannelPrefixID" value="Channel_0"/>
                               <setting name="channelNumber" value="kMRT_Channel_0"/>
                               <setting name="timerMode" value="kMRT_RepeatMode"/>
-                              <setting name="timerValueStr" value="100 ms"/>
+                              <setting name="timerValueStr" value="559 ms"/>
                               <setting name="startTimer" value="true"/>
                               <setting name="enableInterruptRequest" value="true"/>
                            </struct>

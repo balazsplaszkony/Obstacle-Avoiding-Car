@@ -22,7 +22,7 @@
 #define MAX_PID_OUTPUT (MAXOUTPUT - MINOUTPUT)//400.0
 #define PID_OUTPUT_OFFSET (MINOUTPUT) //400.0
 #define MIN_PID_OUTPUT 0.0
-#define NUM_CONSECUTIVE_MEASUREMENTS 15
+#define NUM_CONSECUTIVE_MEASUREMENTS 20
 
 
 extern volatile bool pid_updated;
@@ -45,6 +45,9 @@ extern PidController pid_left;
 
 bool isPIDUpdated();
 void PIDContollerUpdate(PidController* pid, float measurement);
+void LimitIntegralTerm(PidController* pid);
+void ResetIntegralTerm();
+void ResetController();
 void PIDInit();
 int RoundPIDOutput(float output);
 float ScaleUpRPM(float rpm);

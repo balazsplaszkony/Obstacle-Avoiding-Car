@@ -1,6 +1,9 @@
 ../source/PID.c:6:6:PIDInit	8	static
 ../source/PID.c:27:6:PIDContollerUpdate	40	static
-../source/PID.c:70:6:isPIDUpdated	8	static
-../source/PID.c:75:5:RoundPIDOutput	32	static
-../source/PID.c:85:7:ScaleUpRPM	16	static
-../source/PID.c:88:6:PIDTIMERHandler	40	static
+../source/PID.c:54:6:isPIDUpdated	8	static
+../source/PID.c:58:6:LimitIntegralTerm	16	static
+../source/PID.c:69:6:ResetIntegralTerm	8	static
+../source/PID.c:77:6:ResetController	8	static
+../source/PID.c:83:5:RoundPIDOutput	32	static
+../source/PID.c:93:7:ScaleUpRPM	16	static
+../source/PID.c:96:6:PIDTIMERHandler	40	static

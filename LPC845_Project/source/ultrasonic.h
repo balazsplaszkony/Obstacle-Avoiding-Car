@@ -15,6 +15,7 @@
 #include "SysTimer.h"
 #include "fsl_debug_console.h"
 #include <stdio.h>
+#include "car.h"
 
 //speed of sound in cm/usec
 #define SpeedOfSound 0.0343
@@ -32,6 +33,7 @@ typedef enum Status_UltraSonic
 typedef struct UltraSonicMeasurement
 {
 	uint16_t distance_in_cm;
+	uint16_t distance_in_cm_prev;
 	bool is_valid;
 	UltraSonicStatus status;
 }UltraSonicMeasurement;
@@ -44,5 +46,6 @@ void TriggerUltrasonicSensor();
 void EndTriggerUltrasonicSensor();
 void Ultrasonic_Callback(uint32_t flags);
 void InvalidateMeasurement();
+uint8_t GetUltrasonicTreshold();
 
 #endif /* ULTRASONIC_H_ */
