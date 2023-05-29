@@ -57,11 +57,23 @@ void UpdateDirection(){
 
 }
 bool canGoForward(){
+
+	if(car.is_obstacle_in_the_way == false)
 	return (ultrasonic_measurement.distance_in_cm > GetUltrasonicTreshold()
 			&& optic_measurement.front_left < OpticTreshold && optic_measurement.front_right < OpticTreshold);
+	else
+		return (ultrasonic_measurement.distance_in_cm > GetUltrasonicTreshold()
+					&& optic_measurement.front_left < (OpticTreshold - OpticTresholdHysteresis)
+					&& optic_measurement.front_right < (OpticTreshold - OpticTresholdHysteresis));
 }
 bool canGoBackward(){
-	return ( optic_measurement.back_left < OpticTreshold && optic_measurement.back_right < OpticTreshold);
+	if(car.is_obstacle_in_the_way == false)
+		return ( optic_measurement.back_left < OpticTreshold && optic_measurement.back_right < OpticTreshold);
+
+	else
+	return ( optic_measurement.back_left < (OpticTreshold - OpticTresholdHysteresis)
+			&& optic_measurement.back_right < (OpticTreshold - OpticTresholdHysteresis));
+
 }
 
 void FindClearRouteFordward()
@@ -71,6 +83,7 @@ void FindClearRouteFordward()
 	{
 		if(car.direction == GOFORWARD)
 		{
+
 			if(optic_measurement.front_right> optic_measurement.front_left)
 			{
 				//car.direction = TURNRIGHTSTATIONARY;
@@ -88,6 +101,8 @@ void FindClearRouteFordward()
 		if(car.direction == TURNRIGHT)
 			TurnLeftStationary();
 
+		pid_right.setpoint = CalculateRPMfromSpeed(15);
+		pid_left.setpoint = CalculateRPMfromSpeed(15);
 		state = true;
 		return;
 	}
@@ -97,6 +112,8 @@ void FindClearRouteFordward()
 			//ultrasonic_measurement.is_valid)
 			{
 				car.direction = GOFORWARD;
+				pid_right.setpoint = CalculateRPMfromSpeed(car.speed);
+				pid_left.setpoint = CalculateRPMfromSpeed(car.speed);
 				ResetController(); //?
 				GoForward();
 				car.is_obstacle_in_the_way = false;
@@ -109,6 +126,7 @@ void FindClearRouteBackward()
 {
 	if(canGoForward())
 		{
+			ResetController();
 			car.direction = GOFORWARD;
 			GoForward();
 			car.is_obstacle_in_the_way = false;
@@ -162,9 +180,5 @@ void FindClearRouteCollision()
 	default: break;
 
 	}
-
-
-
-
 }
 

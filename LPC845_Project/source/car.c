@@ -55,10 +55,6 @@ void ProcessPrompt()
 	Car car_new = car;
         char* prompt = buffer.prompt;
 
-//        if(car_new.independent && (strcmp(prompt, "I\0")!=0 || strcmp(prompt, "T\0")!=0
-//        		|| strcmp(prompt, "d\0")!=0) || strcmp(prompt, "T\0")!=0)
-//			return;
-
 		if(strcmp(prompt, "F\0")==0){ //FORWARD
 			if(car_new.independent || car_new.is_obstacle_in_the_way)
 				return;
@@ -67,19 +63,19 @@ void ProcessPrompt()
 		}
 
 		else if(strcmp(prompt, "B\0")==0){ //BACKWARD
-			if(car_new.independent || car_new.is_obstacle_in_the_way)
+			if(car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = GOBACKWARD;
 			PrintUSART1_NB("OK");
 		}
 		else if(strcmp(prompt, "R\0")==0){  //RIGHT
-			if(car_new.independent || car_new.is_obstacle_in_the_way)
+			if( car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = TURNRIGHT;
 			PrintUSART1_NB("OK");
 		}
 		else if(strcmp(prompt, "L\0")==0){	//LEFT
-			if(car_new.independent || car_new.is_obstacle_in_the_way)
+			if(car_new.is_obstacle_in_the_way)
 				return;
 			car_new.direction = TURNLEFT;
 			PrintUSART1_NB("OK");
@@ -88,41 +84,7 @@ void ProcessPrompt()
 			car_new.direction = STOPCAR;
 			PrintUSART1_NB("OK");
 		}
-//		else if(strcmp(prompt, "T\0")==0){	//TOGGLE_TEMPOMAT
-//			car_new.tempomat = (!car_new.tempomat);
-//			if(car_new.tempomat)
-//			{
-//				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD))
-//				{
-//					car_new.speed = CalculateSpeedfromRPM((Encoder_left.RPM + Encoder_right.RPM)/2.0);
-//					float rpm_setpoint = ScaleUpRPM((Encoder_right.RPM + Encoder_left.RPM)/2.0);
-//					pid_right.setpoint = rpm_setpoint;
-//					pid_left.setpoint =  rpm_setpoint;
-//				}
-//				else
-//				{
-//					car.speed = (Encoder_right.RPM > Encoder_left.RPM) ? CalculateSpeedfromRPM(Encoder_right.RPM) : CalculateSpeedfromRPM(Encoder_left.RPM);
-//					pid_right.setpoint = ScaleUpRPM(Encoder_right.RPM);
-//					pid_left.setpoint = ScaleUpRPM(Encoder_left.RPM);
-//				}
-//				//MRT_StartTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1, MRT0_CHANNEL_1_TICKS);
-//			}
-//
-////			else if(!car_new.tempomat)
-////			{
-////				if((car_new.direction == GOFORWARD || car_new.direction == GOBACKWARD)){
-////					 //car_new.duty = (pid_left.output + pid_right.output) / 20;
-////				}
-////				else {
-////					car.duty = (Encoder_right.RPM > Encoder_left.RPM) ? pid_right.output/10 : pid_left.output/10;
-////				}
-//	        //MRT_StopTimer(MRT0_PERIPHERAL, MRT0_CHANNEL_1);
-//			PrintUSART1_NB("OK");
-//		}
-//		else if(strcmp(prompt, "O\0")==0){	//TOGGLE_OBSTACLE_AVOIDANCE
-//			car_new.obstacle_avoidance = (!car_new.obstacle_avoidance);
-//			PrintUSART1_NB("OK");
-//		}
+
 		else if(strcmp(prompt, "Speed\0" ) == 0 || strcmp(prompt, "s\0")==0){
 					if(car.tempomat)
 					{
@@ -136,31 +98,6 @@ void ProcessPrompt()
 					}
 					PrintUSART1_NB("OK");
 				}
-//		else if(strcmp(prompt, "Duty\0")==0 || strcmp(prompt, "d\0")==0){
-//					if(!car.tempomat && (buffer.parameter >= MinimalDuty) && (buffer.parameter <= MaximumDuty))
-//						car_new.duty = buffer.parameter;
-//					PrintUSART1_NB("OK");
-//						}
-		else if(strcmp(prompt, "I")==0){
-			if(car.independent != true)
-			{	car_new.independent = true;
-				car_new.obstacle_avoidance = true;
-				car_new.direction = GOFORWARD;
-
-				PrintUSART1_NB("OK");
-			}
-			else
-			{
-				car_new.independent = false;
-				car_new.direction = STOPCAR;
-				StopCar();
-			}
-			PrintUSART1_NB("OK");
-
-		}
-		else{
-			PrintUSART1_NB("invalid prompt");
-		}
 
 	car_prev = car;
 	car = car_new;

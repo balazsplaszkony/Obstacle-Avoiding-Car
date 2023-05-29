@@ -89,20 +89,19 @@ int main(void) {
 	{
     	 //Gets UART message to the buffer if there is a new message,
     	 //then processes it and clears the buffer
-    	if(car.is_obstacle_in_the_way == false)
-    	{
-    		if(GetUSARTMessage()){
-    		    		ParsePrompt();
-    		    		//PRINTF("parancs: %s\n", buffer.prompt);
-    		    		ProcessPrompt();
-    		  			ClearBuffer();
-    		    	}
 
-    		    	//DetectCollision();
-
-    		    	// Updates the direction based on commands and sensor data
-    		    	UpdateDirection();
+    	if(GetUSARTMessage()){
+    		ParsePrompt();
+    		//PRINTF("parancs: %s\n", buffer.prompt);
+    		ProcessPrompt();
+    		ClearBuffer();
     	}
+
+    	//DetectCollision();
+
+    	// Updates the direction based on commands and sensor data
+    	UpdateDirection();
+
     	// Looks for a clear path, if the car cannot go towards the selected direction
     	if(car.is_obstacle_in_the_way || (car.collision != NoCollision))
     		FindClearRoute();

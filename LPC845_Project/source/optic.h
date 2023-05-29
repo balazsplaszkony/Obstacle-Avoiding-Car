@@ -14,8 +14,10 @@
 #include "fsl_debug_console.h"
 
 #define ADC_RESULT_MASK 0xFFF
-#define OpticTreshold  3000 //ki kell még méregetni
-#define MOVING_AVERAGE_FILTER_SIZE 10
+#define OpticTreshold  2000 //ki kell még méregetni
+#define OpticTresholdHysteresis   1500 //ki kell még méregetni
+
+#define MOVING_AVERAGE_FILTER_SIZE 5
 
 typedef enum Status_Optic
 {

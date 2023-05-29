@@ -6,4 +6,4 @@
 ../source/PID.c:77:6:ResetController	8	static
 ../source/PID.c:83:5:RoundPIDOutput	32	static
 ../source/PID.c:93:7:ScaleUpRPM	16	static
-../source/PID.c:96:6:PIDTIMERHandler	40	static
+../source/PID.c:96:6:PIDTIMERHandler	16	static

@@ -95,22 +95,20 @@ float ScaleUpRPM(float rpm){
 }
 void PIDTIMERHandler(){
 	static int counter = 0;
-	if(!car.tempomat)
-		return;
 	if(counter == 0)
 	{
 		pid_left.setpoint = 60;
 		pid_right.setpoint = 60;
 	}
-	if(counter == 1000)
-	{
-		pid_left.setpoint = 100;
-		pid_right.setpoint = 100;
-	}
+//	if(counter == 1000)
+//	{
+//		pid_left.setpoint = 100;
+//		pid_right.setpoint = 100;
+//	}
 	static uint8_t consecutiveMeasurementsLeft = 0;
 	    static uint8_t consecutiveMeasurementsRight = 0;
-	    static float prevRpmLeft = 0.0f;
-	    static float prevRpmRight = 0.0f;
+//	    static float prevRpmLeft = 0.0f;
+//	    static float prevRpmRight = 0.0f;
     	__disable_irq();
     	float rpm_left = Encoder_left.RPM;
     	float rpm_right = Encoder_right.RPM;
@@ -127,7 +125,7 @@ void PIDTIMERHandler(){
     	        Encoder_left.updated = false;
 
     	    }
-    	    prevRpmLeft = rpm_left;
+    	    //prevRpmLeft = rpm_left;
 
     	    if (Encoder_right.updated == false) {
     	        consecutiveMeasurementsRight++;
@@ -140,15 +138,15 @@ void PIDTIMERHandler(){
     	        consecutiveMeasurementsRight = 0; // Reset consecutive measurements counter
     	        Encoder_right.updated = false;
     	    }
-    	    prevRpmRight = rpm_right;
+    	    //prevRpmRight = rpm_right;
 
         PIDContollerUpdate(&pid_right, rpm_right);
         PIDContollerUpdate(&pid_left, rpm_left);
         //pid_updated = true;
-		 SetPWM(RoundPIDOutput(pid_right.output + PID_OUTPUT_OFFSET), &motor_right);
-		 SetPWM(RoundPIDOutput(pid_left.output + PID_OUTPUT_OFFSET), &motor_left);
-        PRINTF("%d,%d,%d,%d,%d, \n", (int)rpm_left, (int)rpm_right,
-    		(int)pid_left.output, (int)pid_right.output, (int)pid_right.setpoint);
+		 SetPWM(RoundPIDOutput(pid_right.output), &motor_right);
+		 SetPWM(RoundPIDOutput(pid_left.output), &motor_left);
+//        PRINTF("%d,%d,%d,%d,%d, \n", (int)rpm_left, (int)rpm_right,
+//    		(int)pid_left.output, (int)pid_right.output, (int)pid_right.setpoint);
 
         counter++;
         counter = counter % 2000;

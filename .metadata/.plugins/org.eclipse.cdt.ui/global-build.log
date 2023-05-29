@@ -1,8 +1,25 @@
-14:01:02 **** Incremental Build of configuration Debug for project LPC845_Project ****
+02:42:07 **** Incremental Build of configuration Debug for project LPC845_Project ****
 make -r -j4 all 
-make[1]: Nothing to be done for 'main-build'.
+Building file: ../source/collision.c
+Invoking: MCU C Compiler
+arm-none-eabi-gcc -D__REDLIB__ -DCPU_LPC845M301JBD48 -DCPU_LPC845M301JBD48_cm0plus -DSDK_OS_BAREMETAL -DSDK_DEBUGCONSOLE=1 -DCR_INTEGER_PRINTF -DPRINTF_FLOAT_ENABLE=0 -D__MCUXPRESSO -D__USE_CMSIS -DDEBUG -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\component\uart" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\CMSIS" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\component\uart" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board" -I"C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source" -O0 -fno-common -g3 -Wall -c -ffunction-sections -fdata-sections -ffreestanding -fno-builtin -fmerge-constants -fmacro-prefix-map="../source/"= -mcpu=cortex-m0plus -mthumb -D__REDLIB__ -fstack-usage -specs=redlib.specs -MMD -MP -MF"source/collision.d" -MT"source/collision.o" -MT"source/collision.d" -o "source/collision.o" "../source/collision.c"
+../source/collision.c: In function 'isRPMDrop':
+../source/collision.c:55:1: warning: control reaches end of non-void function [-Wreturn-type]
+   55 | }
+      | ^
+Finished building: ../source/collision.c
+ 
+Building target: LPC845_Project.axf
+Invoking: MCU Linker
+arm-none-eabi-gcc -nostdlib -Xlinker -Map="LPC845_Project.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T LPC845_Project_Debug.ld -o "LPC845_Project.axf" ./utilities/fsl_assert.o ./utilities/fsl_debug_console.o ./utilities/fsl_str.o  ./startup/startup_lpc845.o  ./source/MRT.o ./source/PID.o ./source/SysTimer.o ./source/USART.o ./source/car.o ./source/collision.o ./source/direction.o ./source/distance.o ./source/encoder.o ./source/main.o ./source/motor.o ./source/mtb.o ./source/optic.o ./source/semihost_hardfault.o ./source/sys.o ./source/ultrasonic.o  ./drivers/fsl_adc.o ./drivers/fsl_capt.o ./drivers/fsl_clock.o ./drivers/fsl_common.o ./drivers/fsl_common_arm.o ./drivers/fsl_ctimer.o ./drivers/fsl_gpio.o ./drivers/fsl_mrt.o ./drivers/fsl_power.o ./drivers/fsl_reset.o ./drivers/fsl_sctimer.o ./drivers/fsl_swm.o ./drivers/fsl_usart.o  ./device/system_LPC845.o  ./component/uart/fsl_adapter_miniusart.o  ./board/board.o ./board/clock_config.o ./board/peripherals.o ./board/pin_mux.o   
+Memory region         Used Size  Region Size  %age Used
+   PROGRAM_FLASH:       39784 B        64 KB     60.71%
+            SRAM:        3088 B      16352 B     18.88%
+        IAP_SRAM:          0 GB         32 B      0.00%
+Finished building target: LPC845_Project.axf
+ 
 Performing post-build steps
 arm-none-eabi-size "LPC845_Project.axf"; # arm-none-eabi-objcopy -v -O binary "LPC845_Project.axf" "LPC845_Project.bin" ; # checksum -p LPC845 -d "LPC845_Project.bin";
    text	   data	    bss	    dec	    hex	filename
-  39952	     56	   3080	  43088	   a850	LPC845_Project.axf
+  39728	     56	   3032	  42816	   a740	LPC845_Project.axf
  

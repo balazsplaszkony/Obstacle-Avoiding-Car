@@ -77,8 +77,8 @@ void ADC0_SEQA_IRQHandler(void)
 			back_right_second  = ADC0->DAT[3] & ADC_RESULT_MASK;
 			back_left_second   = ADC0->DAT[5] & ADC_RESULT_MASK;
 
-			optic_measurement.measurement[0][counter] =  (front_right_second - front_right_second >0 ) ?
-					(front_right_second - front_right_second) : 0;
+			optic_measurement.measurement[0][counter] =  (front_right_second - front_right_first >0 ) ?
+					(front_right_second - front_right_first) : 0;
 
 
 			optic_measurement.measurement[1][counter] = (front_left_second - front_left_first >0 ) ?
@@ -89,8 +89,8 @@ void ADC0_SEQA_IRQHandler(void)
 					(back_right_second - back_right_first) : 0;
 
 
-//			optic_measurement.measurement[3][counter] = (back_left_second - back_left_first >0 ) ?
-//					(back_left_second - back_left_first) : 0;
+			optic_measurement.measurement[3][counter] = (back_left_second - back_left_first >0 ) ?
+					(back_left_second - back_left_first) : 0;
 
 			optic_measurement.measurement[3][counter] = back_left_second;
 
@@ -101,7 +101,7 @@ void ADC0_SEQA_IRQHandler(void)
 
 			counter++;
 			counter = counter % MOVING_AVERAGE_FILTER_SIZE;
-			  	   		//PRINTF("BH: %d\n", optic_measurement.back_left);
+			  	   		PRINTF("BH: %d\n", optic_measurement.front_right);
 
 			  	  		//char str_rl[16];
 			  	  		//snprintf(str_rl, sizeof(str_rl), "%d", optic_measurement.back_right_distance_in_cm);

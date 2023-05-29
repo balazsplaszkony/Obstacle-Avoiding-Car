@@ -51,5 +51,5 @@ bool hasCarParametersChanged(){
 
 bool isRPMDrop(Encoder encoder)
 {
-	//return ((abs(encoder.RPM -encoder.RPM_prev)/encoder.RPM_prev) > 0.5);
+	//return ((fabs(encoder.RPM -encoder.RPM_prev)/encoder.RPM_prev) > 0.5);
 }

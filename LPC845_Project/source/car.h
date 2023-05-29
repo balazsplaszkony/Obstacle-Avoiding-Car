@@ -46,7 +46,6 @@ typedef struct Car{
 	bool is_car_blocked;
 	CollisionType collision;
 	uint8_t speed; // cm/s
-	//uint8_t duty;
 	bool independent;
 
 }Car;
