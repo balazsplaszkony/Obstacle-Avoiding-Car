@@ -11,17 +11,8 @@
 #include "optic.h"
 
 
-typedef struct DistanceMeasurement{
-	UltraSonicMeasurement ultrasonic_measurement;
-	OpticMeasurement optic_measurement;
-}DistanceMeasurement;
 
-extern volatile DistanceMeasurement distance_measurement;
-
-
-void SenseDistance();
-
-
+void MeasureDistance();
 
 
 #endif /* DISTANCE_H_ */

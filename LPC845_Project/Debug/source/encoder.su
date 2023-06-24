@@ -1,7 +1,4 @@
-../source/encoder.c:22:6:InitEncoder	16	static
-../source/encoder.c:30:7:lowPassFilter	40	static
-../source/encoder.c:40:7:butterworthSecondOrderLowPassFilter	72	static
-../source/encoder.c:62:5:floatCompare	32	static
-../source/encoder.c:69:6:EncoderRightCallback	24	static
-../source/encoder.c:113:6:EncoderLeftCallback	24	static
-../source/encoder.c:158:6:HandleNoEncoderSignal	16	static
+../source/encoder.c:21:6:InitEncoder	16	static
+../source/encoder.c:27:6:EncoderRightCallback	24	static
+../source/encoder.c:72:6:EncoderLeftCallback	24	static
+../source/encoder.c:115:6:HandleNoEncoderSignal	16	static

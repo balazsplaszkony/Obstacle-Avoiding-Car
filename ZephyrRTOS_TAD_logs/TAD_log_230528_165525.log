@@ -1,6 +1,0 @@
-"Task Aware Debugger for GDB" version 11.7.0 (202212092054)
-(c) 2016-2022 NXP Semiconductors, Inc.
-==================================
-16:55:11.05 INFO: [ZephyrRTOS] .config file could not be read [C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\Debug\.config (A rendszer nem találja a megadott fájlt)]
-16:55:11.06 INFO: [TadModel] DSF session ID 1 has started.
-16:55:25.171 INFO: [TadModel] DSF session ID 1 has ended.

@@ -7,12 +7,9 @@
 #include "distance.h"
 
 
-//it az inicializálás még TODO
-//volatile DistanceMeasurement distance_measurement;
-
-void SenseDistance()
+void MeasureDistance()
 {
-	//UltrasonicMeasure();
+	UltrasonicMeasure();
 	OpticMeasure();
 }
 

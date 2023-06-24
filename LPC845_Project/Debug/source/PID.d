@@ -26,7 +26,7 @@ source/PID.o source/PID.d: ../source/PID.c ../source/PID.h \
  ../source/encoder.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h \
  ../source/USART.h ../source/ultrasonic.h ../source/sys.h \
- ../source/SysTimer.h ../source/optic.h ../source/collision.h
+ ../source/SysTimer.h ../source/optic.h
 ../source/PID.h:
 ../source/car.h:
 ../source/direction.h:
@@ -61,4 +61,3 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/sys.h:
 ../source/SysTimer.h:
 ../source/optic.h:
-../source/collision.h:

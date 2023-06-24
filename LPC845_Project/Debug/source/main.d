@@ -30,7 +30,7 @@ source/main.o source/main.d: ../source/main.c \
  ../source/distance.h ../source/ultrasonic.h ../source/sys.h \
  ../source/SysTimer.h ../source/car.h ../source/direction.h \
  ../source/motor.h ../source/encoder.h ../source/PID.h ../source/USART.h \
- ../source/optic.h ../source/collision.h \
+ ../source/optic.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source/motor.h
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/board.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/clock_config.h:
@@ -71,5 +71,4 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/PID.h:
 ../source/USART.h:
 ../source/optic.h:
-../source/collision.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\source/motor.h:

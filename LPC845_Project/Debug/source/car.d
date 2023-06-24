@@ -23,10 +23,10 @@ source/car.o source/car.d: ../source/car.c ../source/car.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h \
- ../source/encoder.h \
+ ../source/encoder.h ../source/PID.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h \
- ../source/PID.h ../source/USART.h ../source/ultrasonic.h ../source/sys.h \
- ../source/SysTimer.h ../source/optic.h ../source/collision.h
+ ../source/USART.h ../source/ultrasonic.h ../source/sys.h \
+ ../source/SysTimer.h ../source/optic.h
 ../source/car.h:
 ../source/direction.h:
 ../source/motor.h:
@@ -54,11 +54,10 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:
 ../source/encoder.h:
-C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h:
 ../source/PID.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h:
 ../source/USART.h:
 ../source/ultrasonic.h:
 ../source/sys.h:
 ../source/SysTimer.h:
 ../source/optic.h:
-../source/collision.h:

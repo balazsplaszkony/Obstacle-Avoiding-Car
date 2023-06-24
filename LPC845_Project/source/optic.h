@@ -13,11 +13,10 @@
 
 #include "fsl_debug_console.h"
 
-#define ADC_RESULT_MASK 0xFFF
-#define OpticTreshold  2000 //ki kell még méregetni
-#define OpticTresholdHysteresis   1500 //ki kell még méregetni
+#define OpticTreshold  700
+#define OpticTresholdHysteresis   500
 
-#define MOVING_AVERAGE_FILTER_SIZE 5
+#define MOVING_AVERAGE_FILTER_SIZE 3
 
 typedef enum Status_Optic
 {
@@ -33,11 +32,8 @@ typedef struct OpticMeasurement
 	volatile bool optic_flag;
 	int16_t front_right;
 	int16_t front_left;
-	int16_t back_right;
-	int16_t back_left;
-	int16_t measurement[4][MOVING_AVERAGE_FILTER_SIZE];
-
-	//bool is_valid;
+	int16_t back;
+	int16_t measurement[3][MOVING_AVERAGE_FILTER_SIZE];
 	OpticStatus status;
 }OpticMeasurement;
 
@@ -45,13 +41,11 @@ extern volatile OpticMeasurement optic_measurement;
 
 extern volatile int16_t front_right_first;
 extern volatile int16_t front_left_first;
-extern volatile int16_t back_right_first;
-extern volatile int16_t back_left_first;
+extern volatile int16_t back_first;
 
 extern volatile int16_t front_right_second;
 extern volatile int16_t front_left_second;
-extern volatile int16_t back_right_second;
-extern volatile int16_t back_left_second;
+extern volatile int16_t back_second;
 
 
 void InitOpticMeasurement(volatile OpticMeasurement* optic_measurement);

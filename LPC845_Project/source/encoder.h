@@ -13,6 +13,8 @@
 
 
 #include "peripherals.h"
+#include "PID.h"
+
 #include "fsl_debug_console.h"
 
 
@@ -39,7 +41,6 @@ extern volatile Encoder Encoder_left;
 void InitEncoder(volatile Encoder* encoder);
 void EncoderRightCallback(uint32_t flags);
 void EncoderLeftCallback(uint32_t flags);
-float lowPassFilter(float input, float prevOutput, float deltaTime, float cutoffFreq);
 void HandleNoEncoderSignal(volatile Encoder* encoder);
 
 

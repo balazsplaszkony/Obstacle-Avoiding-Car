@@ -27,10 +27,6 @@ void InitMotors(){
 void SetPWM(uint16_t duty_scaled_up, Motor* motor){
 	if(duty_scaled_up > 750)
 		duty_scaled_up = 750;
-//	switch(motor.pwm_channel){
-//		case 0: UpdatePwmDutycycleScaledUp(SCT0, 0, duty_scaled_up, SCT0_pwmEvent[0]); break;
-//		case 1: UpdatePwmDutycycleScaledUp(SCT0, 1, duty_scaled_up, SCT0_pwmEvent[1]); break;
-//	}
 	UpdatePwmDutycycleScaledUp(SCT0, motor->pwm_channel, duty_scaled_up, SCT0_pwmEvent[motor->pwm_channel]);
 }
 

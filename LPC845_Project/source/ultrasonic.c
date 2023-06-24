@@ -26,7 +26,7 @@ void UltrasonicMeasure()
 void TriggerUltrasonicSensor(){
 	GPIO_PinWrite(BOARD_INITPINS_UltraSonicTrig_GPIO, BOARD_INITPINS_UltraSonicTrig_PORT, BOARD_INITPINS_UltraSonicTrig_PIN, 1);
 	ultrasonic_measurement.status = TRIG;
-	StartTimeout1(2);
+	StartTimeout1(200);
 }
 
 void EndTriggerUltrasonicSensor()
@@ -49,7 +49,8 @@ void Ultrasonic_Callback(uint32_t flags) {
         return;
 		}
 
-    if (ultrasonic_measurement.status == WAITSECONDIT) {
+    if (ultrasonic_measurement.status == WAITSECONDIT)
+    {
     	ultrasonic_measurement.distance_in_cm_prev = ultrasonic_measurement.distance_in_cm;
          capture_value_1 = CTIMER0->CR[0];
         if (capture_value_1 > capture_value_0) {
@@ -59,28 +60,20 @@ void Ultrasonic_Callback(uint32_t flags) {
         }
         uint16_t distance = microseconds_elapsed * (SpeedOfSound / 2);
 
-		ultrasonic_measurement.distance_in_cm = distance;
+    	ultrasonic_measurement.distance_in_cm = distance;
         ultrasonic_measurement.is_valid = true;
-
         ultrasonic_measurement.status = START;
-        //PRINTF("%d\n", ultrasonic_measurement.distance_in_cm);
+
     }
 }
 
 uint8_t GetUltrasonicTreshold(){
 	if(car.speed < CalculateSpeedfromRPM(60))
-		return 30;
+		return 20;
 	else if(car.speed < CalculateSpeedfromRPM(100))
-		return 35;
+		return 30;
 	else if(car.speed < CalculateSpeedfromRPM(130))
-		return 40;
+		return 35;
 	else
 		return 45;
 }
-// for debugging
-//  	  	if(ultrasonic_measurement.status == START && ultrasonic_measurement.is_valid)
-//  	  	{
-//  	  		char str_uh[16];
-//  	  		snprintf(str_uh, sizeof(str_uh), "%d", (int)ultrasonic_measurement.distance_in_cm);
-//  	  		PRINTF("%s cm\n", str_uh);
-//  	  	}

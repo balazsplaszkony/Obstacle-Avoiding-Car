@@ -20,7 +20,14 @@ source/encoder.o source/encoder.d: ../source/encoder.c \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
- C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h
+ ../source/PID.h ../source/car.h ../source/direction.h ../source/motor.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h \
+ ../source/USART.h ../source/ultrasonic.h ../source/sys.h \
+ ../source/SysTimer.h \
+ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h \
+ ../source/optic.h
 ../source/encoder.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/peripherals.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h:
@@ -42,4 +49,16 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:
+../source/PID.h:
+../source/car.h:
+../source/direction.h:
+../source/motor.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h:
+C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:
+../source/USART.h:
+../source/ultrasonic.h:
+../source/sys.h:
+../source/SysTimer.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\utilities/fsl_debug_console.h:
+../source/optic.h:

@@ -25,7 +25,7 @@ source/MRT.o source/MRT.d: ../source/MRT.c ../source/optic.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\device/LPC845.h \
  ../source/encoder.h ../source/USART.h ../source/ultrasonic.h \
- ../source/sys.h ../source/SysTimer.h ../source/collision.h
+ ../source/sys.h ../source/SysTimer.h
 ../source/optic.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/peripherals.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_common.h:
@@ -60,4 +60,3 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/ultrasonic.h:
 ../source/sys.h:
 ../source/SysTimer.h:
-../source/collision.h:

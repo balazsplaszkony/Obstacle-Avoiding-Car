@@ -18,7 +18,6 @@
 
 #include "optic.h"
 #include <stdbool.h>
-#include "collision.h"
 
 
 
@@ -28,7 +27,7 @@
 #define pi 3.14159
 #define WheelDiameter 6.8 //cm
 #define WheelRadius (WheelDiameter / 2)
-#define WheelCircumference (pi * 2 * WheelRadius)
+#define WheelCircumference (pi * 6.8)
 
 
 extern volatile UsartBuffer bluetooth_prompts;
@@ -44,7 +43,6 @@ typedef struct Car{
 	bool tempomat;
 	bool obstacle_avoidance;
 	bool is_car_blocked;
-	CollisionType collision;
 	uint8_t speed; // cm/s
 	bool independent;
 
@@ -67,7 +65,6 @@ void TurnLeft();
 void TurnRightStationary();
 void TurnLeftStationary();
 void StopCar();
-void SetSpeed();
 float CalculateSpeedfromRPM(float rpm);
 float CalculateRPMfromSpeed(float speed);
 

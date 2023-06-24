@@ -26,30 +26,27 @@ void InitCar()
 	car.motor_left = motor_left;
 	car.motor_right = motor_right;
 
-	car.direction = GOFORWARD;
+	car.direction = STOPCAR;
 	car.obstacle_avoidance = true;
 	car.tempomat = true;
 	car.speed = 15;
-	//car.duty = 50;
 	car.is_obstacle_in_the_way = false;
 	car.is_car_blocked = false;
-	car.collision = NoCollision;
 	car.independent =false;
 
 	car_prev.direction = STOPCAR;
 	car_prev.obstacle_avoidance = true;
 	car_prev.tempomat = true;
 	car_prev.speed = 15;
-	//car_prev.duty = 50;
 	car_prev.is_obstacle_in_the_way = false;
 	car_prev.is_car_blocked = false;
-	car_prev.collision = NoCollision;
 	car_prev.independent =false;
 
 	InitComponents();
 
 }
 
+// Change the car's parameters based on the prompt
 void ProcessPrompt()
 {
 	Car car_new = car;
@@ -90,7 +87,7 @@ void ProcessPrompt()
 					{
 						car_new.speed = buffer.parameter;
 						float rpm_setpoint = CalculateRPMfromSpeed(car_new.speed);
-						rpm_setpoint = (rpm_setpoint > 200) ? rpm_setpoint : MAX_RPM;
+						rpm_setpoint = (rpm_setpoint > MAX_RPM) ? rpm_setpoint : MAX_RPM;
 						rpm_setpoint = (rpm_setpoint < MIN_PID_OUTPUT) ? rpm_setpoint : MIN_RPM;
 
 						pid_right.setpoint = rpm_setpoint;
@@ -143,8 +140,7 @@ void StopCar()
 
 bool isObstacleDetected(){
 	return((ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
-			|| optic_measurement.back_left > OpticTreshold
-			|| optic_measurement.back_right > OpticTreshold
+			|| optic_measurement.back > OpticTreshold
 			|| optic_measurement.front_left > OpticTreshold
 			|| optic_measurement.front_right > OpticTreshold
 			);
@@ -153,8 +149,7 @@ bool isObstacleDetected(){
 bool isRoadBlockedinEveryDirection()
 {
 	return((ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
-			&& optic_measurement.back_left > OpticTreshold
-			&& optic_measurement.back_right > OpticTreshold
+			&& optic_measurement.back > OpticTreshold
 			&& optic_measurement.front_left > OpticTreshold
 			&& optic_measurement.front_right > OpticTreshold
 			);
@@ -162,28 +157,6 @@ bool isRoadBlockedinEveryDirection()
 
 
 
-void SetSpeed(){
-	if(car.is_car_blocked)
-		return;
-//	if(car.tempomat)
-//	{
-//		 if(isPIDUpdated())
-//		 {
-//		 SetPWM(RoundPIDOutput(pid_right.output + PID_OUTPUT_OFFSET), &motor_right);
-//		 SetPWM(RoundPIDOutput(pid_left.output + PID_OUTPUT_OFFSET), &motor_left);
-//		 pid_updated = false;
-//		 }
-////	}
-//	 if(!car.tempomat)
-//	{
-//		if(car.duty != car_prev.duty)
-//		{
-//			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, car.duty, SCT0_pwmEvent[0]);
-//			SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, car.duty, SCT0_pwmEvent[1]);
-//		}
-//	}
-
-}
 float CalculateSpeedfromRPM(float rpm)
 {
 	return (WheelCircumference * rpm) / 60;

@@ -43,8 +43,6 @@ extern "C" {
 /* Definition of PWM period channel. */
 #define CTIMER0_PWM_PERIOD_CH kCTIMER_Match_0
 /* Definition of channel 0 ID */
-#define CTIMER0_MATCH_0_CHANNEL kCTIMER_Match_0
-/* Definition of channel 0 ID */
 #define CTIMER0_CAPTURE_0_CHANNEL kCTIMER_Capture_0
 /* Definition of channel 1 ID */
 #define CTIMER0_CAPTURE_1_CHANNEL kCTIMER_Capture_1
@@ -121,7 +119,6 @@ extern usart_transfer_t USART1_rxTransfer;
 extern uint8_t USART1_txBuffer[USART1_TX_BUFFER_SIZE];
 extern usart_transfer_t USART1_txTransfer;
 extern const ctimer_config_t CTIMER0_config;
-extern const ctimer_match_config_t CTIMER0_Match_0_config;
 extern const usart_config_t USART0_config;
 extern const adc_config_t ADC0configStruct;
 extern const adc_conv_seq_config_t ADC0ConvSeqAConfigStruct;

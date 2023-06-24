@@ -3,8 +3,8 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_gpio.h:153:20:GPIO_PinWrite	24	static
 ../source/motor.c:13:6:InitMotors	8	static
 ../source/motor.c:27:6:SetPWM	24	static
-../source/motor.c:37:6:SetRPM	16	static
-../source/motor.c:42:6:RotateForward	16	static
-../source/motor.c:48:6:RotateBackward	16	static
-../source/motor.c:54:6:StopMotor	16	static
-../source/motor.c:63:6:UpdatePwmDutycycleScaledUp	72	static
+../source/motor.c:33:6:SetRPM	16	static
+../source/motor.c:38:6:RotateForward	16	static
+../source/motor.c:44:6:RotateBackward	16	static
+../source/motor.c:50:6:StopMotor	16	static
+../source/motor.c:59:6:UpdatePwmDutycycleScaledUp	72	static

@@ -1,0 +1,29 @@
+/*
+ * collision.h
+ *
+ *  Created on: 2023. máj. 14.
+ *      Author: plasz
+ */
+
+#ifndef COLLISION_H_
+#define COLLISION_H_
+
+
+typedef enum CollisionType{
+	NoCollision = 0,
+	FrontalCollision,
+	RearCollision,
+	RightCollision,
+	LeftCollision,
+
+}CollisionType;
+#include "car.h"
+
+
+CollisionType DetectCollision();
+
+bool hasCarParametersChanged();
+
+//bool isRPMDrop(Encoder encoder);
+
+#endif /* COLLISION_H_ */

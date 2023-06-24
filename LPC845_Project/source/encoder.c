@@ -15,7 +15,6 @@ volatile double  microseconds_elapsed_right = 0;
 volatile double microseconds_elapsed_left = 0;
 
 
-
 volatile Encoder Encoder_right;
 volatile Encoder Encoder_left;
 
@@ -25,52 +24,9 @@ void InitEncoder(volatile Encoder* encoder) {
     encoder->updated = false;
 }
 
-
-
-float lowPassFilter(float input, float prevOutput, float deltaTime, float cutoffFreq)
-{
-    float RC = 1.0f / (2.0f * 3.14159 * cutoffFreq);
-    float alpha = deltaTime / (RC + deltaTime);
-
-    return alpha * input + (1.0f - alpha) * prevOutput;
-}
-
-
-
-float butterworthSecondOrderLowPassFilter(float input, float* prevInputs, float* prevOutputs, float deltaTime)
-{
-    const float samplingFreq = 1.0f / deltaTime;
-    const float omega = 2.0f * M_PI * FILTER_CUTOFF_FREQ;
-    const float t = 1.0f / samplingFreq;
-    const float c = 1.0f / (omega * omega * t * t + 2.0f * omega * t + 1.0f);
-    const float a1 = 2.0f * (omega * omega * t * t - 1.0f) * c;
-    const float a2 = (omega * omega * t * t - 2.0f * omega * t + 1.0f) * c;
-    const float b0 = (omega * omega * t * t) * c;
-    const float b1 = 2.0f * (omega * omega * t * t) * c;
-    const float b2 = b0;
-    const float output = b0 * input + b1 * prevInputs[0] + b2 * prevInputs[1] - a1 * prevOutputs[0] - a2 * prevOutputs[1];
-    // Update history
-    // Update history
-    prevInputs[1] = prevInputs[0];
-    prevInputs[0] = input;
-    prevOutputs[1] = prevOutputs[0];
-    prevOutputs[0] = output;
-
-    return output;
-}
-
-int floatCompare(const void* a, const void* b) {
-    float fa = *(const float*)a;
-    float fb = *(const float*)b;
-    return (fa > fb) - (fa < fb);
-}
-
-
 void EncoderRightCallback(uint32_t flags) {
-    //static float deltaTimeRight = 0.0f;
     static float measurement = 0;
     static bool transient = false;
-    //static float overshoot_measurement = 0;
 
     Encoder_right.RPM_prev = Encoder_right.RPM;
     captured_time_right_prev = captured_time_right;
@@ -81,40 +37,41 @@ void EncoderRightCallback(uint32_t flags) {
         measurement = (1.0 / (microseconds_elapsed_right / (60.0 * 1000000.0))) * (1.0 / Resolution);
     }
 
-    //deltaTimeRight = microseconds_elapsed_right / 1000000.0f;
+    if(measurement > 200)
+    {
+    	measurement = 200;
 
-    if(measurement > MAX_RPM)
-    	measurement = MAX_RPM;
-
+    }
 
     if(!transient)
-    {
-        if(fabs(measurement - Encoder_right.RPM) < 0.2* Encoder_right.RPM)
-        	Encoder_right.RPM = measurement;
-        else
-        {
-        	//overshoot_measurement = measurement;
-        	transient = true;
-        }
-    }
+            {
+                if((measurement - Encoder_right.RPM ) < 0.2* Encoder_right.RPM)
+                	Encoder_right.RPM = measurement;
+                else
+                {
+                	transient = true;
+                    Encoder_right.updated = true;
+                	return;
+                }
+            }
 
     if(transient)
     {
-    	Encoder_right.RPM = measurement;
-    	transient = false;
-    }
+       	if(measurement < 190)
+    	{
+    		Encoder_right.RPM = measurement;
+    		transient = false;
+    	}
 
-    //Encoder_right.RPM = lowPassFilter(Encoder_right.RPM, Encoder_right.RPM_prev, deltaTimeRight, FILTER_CUTOFF_FREQ);
+    }
 
     Encoder_right.updated = true;
 }
 
 
 void EncoderLeftCallback(uint32_t flags) {
-    //static float deltaTimeLeft = 0.0f;
     static float measurement = 0;
         static bool transient = false;
-      //  static float overshoot_measurement = 0;
 
     Encoder_left.RPM_prev = Encoder_left.RPM;
     captured_time_left_prev = captured_time_left;
@@ -125,30 +82,30 @@ void EncoderLeftCallback(uint32_t flags) {
         measurement = (1.0 / (microseconds_elapsed_left / (60.0 * 1000000.0))) * (1.0 / Resolution);
     }
 
-    //deltaTimeLeft = microseconds_elapsed_left / 1000000.0f;
+    if(measurement > 200)
+    {
+    	measurement = 200;
 
-    if(Encoder_left.RPM > MAX_RPM)
-    	Encoder_left.RPM = MAX_RPM;
-    //Encoder_left.RPM = lowPassFilter(Encoder_left.RPM, Encoder_left.RPM_prev, deltaTimeLeft, FILTER_CUTOFF_FREQ);
-    if(measurement > MAX_RPM)
-        	measurement = MAX_RPM;
-
-
-        if(!transient)
-        {
-            if(fabs(measurement - Encoder_left.RPM) < 0.2* Encoder_left.RPM)
-            	Encoder_left.RPM = measurement;
-            else
-            {
-            	//overshoot_measurement = measurement;
-            	transient = true;
-            }
-        }
+    }
+    if(!transient)
+        	        {
+        	            if((measurement - Encoder_left.RPM) < 0.2* Encoder_left.RPM)
+        	            	Encoder_left.RPM = measurement;
+        	            else
+        	            {
+        	            	transient = true;
+        	            	Encoder_left.updated = true;
+        	            	return;
+        	            }
+        	        }
 
         if(transient)
         {
-        	Encoder_left.RPM = measurement;
-        	transient = false;
+           	if(measurement < 190)
+            {
+            	Encoder_left.RPM = measurement;
+            	transient = false;
+            }
         }
 
 

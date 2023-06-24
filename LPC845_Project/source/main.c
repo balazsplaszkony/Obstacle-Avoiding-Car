@@ -54,36 +54,37 @@
 
 
 /* TODO: insert other definitions and declarations here. */
+bool first_update = true;
 
 /*
  * @brief   Application entry point.
  */
 
-bool first_update = true;
 int main(void) {
 
     /* Init board hardware. */
+
 	BOARD_InitBootPins();
     BOARD_InitBootClocks();
 
-    // sets the starting state of the car and its components
+    // Set the starting state of the car and its components
     InitCar();
     POWER_DisablePD(kPDRUNCFG_PD_ADC0);
     //BOARD_InitBootPeripherals();
     BOARD_InitPeripherals();
 	INIT_USART();
-	GoForward();
-//				SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_0, 50, SCT0_pwmEvent[0]);
-//				SCTIMER_UpdatePwmDutycycle(SCT0_PERIPHERAL, kSCTIMER_Out_1, 50, SCT0_pwmEvent[1]);
+
+
     /* Start receiving data */
 #ifndef BOARD_INIT_DEBUG_CONSOLE_PERIPHERAL
     /* Init FSL debug console. */
     BOARD_InitDebugConsole();
-    //PRINTF("Hello world");
+
 #endif
+
     if (SysTick_Config(SystemCoreClock / 1000U))
     {
-    while (1){} //hibás osztás érték esetén végtelen ciklus
+    while (1){}
     }
     while(true)
 	{
@@ -92,26 +93,19 @@ int main(void) {
 
     	if(GetUSARTMessage()){
     		ParsePrompt();
-    		//PRINTF("parancs: %s\n", buffer.prompt);
     		ProcessPrompt();
     		ClearBuffer();
     	}
-
-    	//DetectCollision();
 
     	// Updates the direction based on commands and sensor data
     	UpdateDirection();
 
     	// Looks for a clear path, if the car cannot go towards the selected direction
-    	if(car.is_obstacle_in_the_way || (car.collision != NoCollision))
+    	if(car.is_obstacle_in_the_way)
     		FindClearRoute();
 
-    	// Sets the duty cycle of the motors' pwm signal, either as a constant value,
-    	// or if tempomat is enabled, then the duty cycle is determined by the PID controller
-    	//SetSpeed();
-
     	// Calls the state machine of the optic and ultrasonic distance measurements
-    	SenseDistance();
-    }
+    	MeasureDistance();
+	}
     return 0;
 }

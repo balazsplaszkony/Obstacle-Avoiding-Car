@@ -3,20 +3,17 @@
 /*determines where can the car go based on the sensor data and the bluetooth prompts*/
 void UpdateDirection(){
 
-	//if((car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance) && car.independent == car_prev.independent)&&!first)
 		if((car.direction == car_prev.direction && (!isObstacleDetected() || !car.obstacle_avoidance) && car.independent == car_prev.independent)&&!first)
 			return;
-		if(car.collision != NoCollision && ! first)
-			return;
-		//PRINTF("dirb: %d", car.direction);
+
 
 		switch(car.direction)
 		{
 		case GOFORWARD: if(canGoForward())
 							GoForward();
 						else{
-							StopCar();
-							ResetController(); //?
+							//StopCar();
+							//ResetController(); //?
 							car.is_obstacle_in_the_way = true;
 						}
 			 	 	 	break;
@@ -68,11 +65,10 @@ bool canGoForward(){
 }
 bool canGoBackward(){
 	if(car.is_obstacle_in_the_way == false)
-		return ( optic_measurement.back_left < OpticTreshold && optic_measurement.back_right < OpticTreshold);
+		return (optic_measurement.back < OpticTreshold);
 
 	else
-	return ( optic_measurement.back_left < (OpticTreshold - OpticTresholdHysteresis)
-			&& optic_measurement.back_right < (OpticTreshold - OpticTresholdHysteresis));
+	return  (optic_measurement.back < (OpticTreshold - OpticTresholdHysteresis));
 
 }
 
@@ -133,12 +129,6 @@ void FindClearRouteBackward()
 		}
 }
 void FindClearRoute(){
-//	if(car.independent)
-//	{
-//		FindClearRouteFordward();
-//		return;
-//	}
-
 	if(isRoadBlockedinEveryDirection())
 	{
 		car.is_car_blocked = true;
@@ -146,7 +136,6 @@ void FindClearRoute(){
 		StopCar();
 		return;
 	}
-	if(car.collision == NoCollision)
 		FindClearRouteNoCollision();
 
 	return;
@@ -160,25 +149,5 @@ void FindClearRouteNoCollision()
 
 	else if(car.direction == GOBACKWARD)
 		FindClearRouteBackward();
-}
-
-void FindClearRouteCollision()
-{
-	switch(car.collision)
-	{
-	case FrontalCollision: break;
-
-
-	case RearCollision: break;
-
-
-	case RightCollision: break;
-
-
-	case LeftCollision: break;
-
-	default: break;
-
-	}
 }
 

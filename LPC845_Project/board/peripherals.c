@@ -146,16 +146,7 @@ instance:
       - clockSourceFreq: 'ClocksTool_DefaultInit'
       - timerPrescaler: '30'
     - EnableTimerInInit: 'true'
-    - matchChannels:
-      - 0:
-        - matchChannelPrefixId: 'Match_0'
-        - matchChannel: 'kCTIMER_Match_0'
-        - matchValueStr: '500000'
-        - enableCounterReset: 'false'
-        - enableCounterStop: 'false'
-        - outControl: 'kCTIMER_Output_NoAction'
-        - outPinInitValue: 'low'
-        - enableInterrupt: 'false'
+    - matchChannels: []
     - captureChannels:
       - 0:
         - captureChannelPrefixId: 'Capture_0'
@@ -193,14 +184,6 @@ const ctimer_config_t CTIMER0_config = {
   .input = kCTIMER_Capture_0,
   .prescale = 29
 };
-const ctimer_match_config_t CTIMER0_Match_0_config = {
-  .matchValue = 499999,
-  .enableCounterReset = false,
-  .enableCounterStop = false,
-  .outControl = kCTIMER_Output_NoAction,
-  .outPinInitState = false,
-  .enableInterrupt = false
-};
 /* Multiple callback functions definition */
 ctimer_callback_t CTIMER0_callback[] = {NULL, NULL, NULL, NULL, Ultrasonic_Callback, EncoderRightCallback, EncoderLeftCallback, NULL};
 
@@ -209,8 +192,6 @@ static void CTIMER0_init(void) {
   CTIMER_Init(CTIMER0_PERIPHERAL, &CTIMER0_config);
   /* Interrupt vector CTIMER0_IRQn priority settings in the NVIC. */
   NVIC_SetPriority(CTIMER0_TIMER_IRQN, CTIMER0_TIMER_IRQ_PRIORITY);
-  /* Match channel 0 of CTIMER0 peripheral initialization */
-  CTIMER_SetupMatch(CTIMER0_PERIPHERAL, CTIMER0_MATCH_0_CHANNEL, &CTIMER0_Match_0_config);
   /* capture channel 0 of CTIMER0 peripheral initialization */
   CTIMER_SetupCapture(CTIMER0_PERIPHERAL, CTIMER0_CAPTURE_0_CHANNEL, kCTIMER_Capture_BothEdge, true);
   /* capture channel 1 of CTIMER0 peripheral initialization */
@@ -544,7 +525,7 @@ instance:
         - mrtChannelPrefixID: 'Channel_1'
         - channelNumber: 'kMRT_Channel_1'
         - timerMode: 'kMRT_RepeatMode'
-        - timerValueStr: '10 ms'
+        - timerValueStr: '10ms'
         - startTimer: 'true'
         - enableInterruptRequest: 'true'
       - 2:

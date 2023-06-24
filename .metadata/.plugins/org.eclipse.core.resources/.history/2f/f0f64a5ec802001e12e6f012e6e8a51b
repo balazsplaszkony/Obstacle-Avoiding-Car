@@ -1,0 +1,169 @@
+/*
+ * car.c
+ *
+ *  Created on: 2023. márc. 28.
+ *      Author: plasz
+ */
+
+
+#include "car.h"
+Car car;
+Car car_prev;
+
+void InitComponents()
+{
+	InitUltrasonicMeasurement(&ultrasonic_measurement);
+	InitOpticMeasurement(&optic_measurement);
+	InitMotors();
+	UsartBufferInit();
+	PIDInit();
+	InitEncoder(&Encoder_right);
+	InitEncoder(&Encoder_left);
+}
+volatile bool first = 0;
+void InitCar()
+{
+	car.motor_left = motor_left;
+	car.motor_right = motor_right;
+
+	car.direction = GOFORWARD;
+	car.obstacle_avoidance = true;
+	car.tempomat = true;
+	car.speed = 15;
+	car.is_obstacle_in_the_way = false;
+	car.is_car_blocked = false;
+	car.collision = NoCollision;
+	car.independent =false;
+
+	car_prev.direction = STOPCAR;
+	car_prev.obstacle_avoidance = true;
+	car_prev.tempomat = true;
+	car_prev.speed = 15;
+	car_prev.is_obstacle_in_the_way = false;
+	car_prev.is_car_blocked = false;
+	car_prev.collision = NoCollision;
+	car_prev.independent =false;
+
+	InitComponents();
+
+}
+
+// Change the car's parameters based on the prompt
+void ProcessPrompt()
+{
+	Car car_new = car;
+        char* prompt = buffer.prompt;
+
+		if(strcmp(prompt, "F\0")==0){ //FORWARD
+			if(car_new.independent || car_new.is_obstacle_in_the_way)
+				return;
+			car_new.direction = GOFORWARD;
+			PrintUSART1_NB("OK");
+		}
+
+		else if(strcmp(prompt, "B\0")==0){ //BACKWARD
+			if(car_new.is_obstacle_in_the_way)
+				return;
+			car_new.direction = GOBACKWARD;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "R\0")==0){  //RIGHT
+			if( car_new.is_obstacle_in_the_way)
+				return;
+			car_new.direction = TURNRIGHT;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "L\0")==0){	//LEFT
+			if(car_new.is_obstacle_in_the_way)
+				return;
+			car_new.direction = TURNLEFT;
+			PrintUSART1_NB("OK");
+		}
+		else if(strcmp(prompt, "S\0")==0){	//STOP
+			car_new.direction = STOPCAR;
+			PrintUSART1_NB("OK");
+		}
+
+		else if(strcmp(prompt, "Speed\0" ) == 0 || strcmp(prompt, "s\0")==0){
+					if(car.tempomat)
+					{
+						car_new.speed = buffer.parameter;
+						float rpm_setpoint = CalculateRPMfromSpeed(car_new.speed);
+						rpm_setpoint = (rpm_setpoint > MAX_RPM) ? rpm_setpoint : MAX_RPM;
+						rpm_setpoint = (rpm_setpoint < MIN_PID_OUTPUT) ? rpm_setpoint : MIN_RPM;
+
+						pid_right.setpoint = rpm_setpoint;
+						pid_left.setpoint =  rpm_setpoint;
+					}
+					PrintUSART1_NB("OK");
+				}
+
+	car_prev = car;
+	car = car_new;
+
+	if(first)
+		car_prev = car;
+
+
+}
+void GoForward()
+{
+	RotateForward(&motor_right); RotateForward(&motor_left);
+}
+void GoBackward()
+{
+	RotateBackward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnRight()
+{
+	RotateForward(&motor_right); StopMotor(&motor_left);
+}
+
+void TurnLeft()
+{
+	RotateForward(&motor_left); StopMotor(&motor_right);
+}
+
+void TurnRightStationary()
+{
+	RotateForward(&motor_right); RotateBackward(&motor_left);
+}
+
+void TurnLeftStationary()
+{
+	RotateForward(&motor_left); RotateBackward(&motor_right);
+}
+
+void StopCar()
+{
+	StopMotor(&motor_right); StopMotor(&motor_left);
+}
+
+bool isObstacleDetected(){
+	return((ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			|| optic_measurement.back > OpticTreshold
+			|| optic_measurement.front_left > OpticTreshold
+			|| optic_measurement.front_right > OpticTreshold
+			);
+}
+
+bool isRoadBlockedinEveryDirection()
+{
+	return((ultrasonic_measurement.distance_in_cm < UltrasonicTreshold && ultrasonic_measurement.is_valid)
+			&& optic_measurement.back > OpticTreshold
+			&& optic_measurement.front_left > OpticTreshold
+			&& optic_measurement.front_right > OpticTreshold
+			);
+}
+
+
+
+float CalculateSpeedfromRPM(float rpm)
+{
+	return (WheelCircumference * rpm) / 60;
+}
+float CalculateRPMfromSpeed(float speed)
+{
+	return (speed / WheelCircumference) * 60;
+}

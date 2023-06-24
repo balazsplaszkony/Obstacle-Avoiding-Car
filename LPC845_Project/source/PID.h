@@ -12,8 +12,8 @@
 #include <stdint.h>
 #include "car.h"
 
-/* Allowable PWM duty cycle is between 40% and 80%
- * For higher resolution it's scaled up to between 400 and 800
+/* Allowable PWM duty cycle is between 40% and 70%
+ * For higher resolution it's scaled up to between 400 and 700
 */
 
 #define MAXOUTPUT 700.0
@@ -34,10 +34,8 @@ typedef struct {
     float integral;
     float last_error;
     float output;
+    float last_output;
     Motor motor;
-//    float min_output;
-//    float max_output;
-//    float output_offset;
 } PidController;
 
 extern PidController pid_right;

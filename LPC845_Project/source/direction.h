@@ -17,7 +17,6 @@ typedef enum Direction{
 	TURNRIGHTSTATIONARY,
 	TURNLEFTSTATIONARY,
 	STOPCAR,
-	INDEPENDENT,
 }Direction;
 #include "car.h"
 
@@ -29,7 +28,6 @@ bool canGoForward();
 bool canGoBackward();
 void UpdateDirection();
 void FindClearRouteNoCollision();
-void FindClearRouteCollision();
 
 
 

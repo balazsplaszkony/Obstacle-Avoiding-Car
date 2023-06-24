@@ -26,8 +26,7 @@ source/distance.o source/distance.d: ../source/distance.c \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_adc.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_sctimer.h \
  C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h \
- ../source/encoder.h ../source/PID.h ../source/USART.h ../source/optic.h \
- ../source/collision.h
+ ../source/encoder.h ../source/PID.h ../source/USART.h ../source/optic.h
 ../source/distance.h:
 ../source/ultrasonic.h:
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\board/pin_mux.h:
@@ -63,4 +62,3 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 ../source/PID.h:
 ../source/USART.h:
 ../source/optic.h:
-../source/collision.h:

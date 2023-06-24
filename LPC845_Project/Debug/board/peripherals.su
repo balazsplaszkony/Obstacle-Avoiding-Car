@@ -10,10 +10,10 @@ C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Projec
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:158:20:MRT_EnableInterrupts	24	static
 C:\Users\plasz\Documents\MCUXpressoIDE_11.7.0_9198\workspace\onlab\LPC845_Project\drivers/fsl_mrt.h:290:20:MRT_StartTimer	24	static
 ../board/peripherals.c:122:13:USART1_init	8	static
-../board/peripherals.c:207:13:CTIMER0_init	8	static
-../board/peripherals.c:270:13:USART0_init	8	static
-../board/peripherals.c:402:13:ADC0_init	8	static
-../board/peripherals.c:508:13:SCT0_init	16	static
-../board/peripherals.c:578:13:MRT0_init	8	static
-../board/peripherals.c:606:6:BOARD_InitPeripherals	8	static
-../board/peripherals.c:620:6:BOARD_InitBootPeripherals	8	static
+../board/peripherals.c:190:13:CTIMER0_init	8	static
+../board/peripherals.c:251:13:USART0_init	8	static
+../board/peripherals.c:383:13:ADC0_init	8	static
+../board/peripherals.c:489:13:SCT0_init	16	static
+../board/peripherals.c:559:13:MRT0_init	8	static
+../board/peripherals.c:587:6:BOARD_InitPeripherals	8	static
+../board/peripherals.c:601:6:BOARD_InitBootPeripherals	8	static

@@ -63,7 +63,6 @@ void INIT_USART(void)
 }
 void UsartBufferInit()
 {
-	//buffer.received_bytes = 0;
 	for(int i = 0; i < rx_buffer_size; i++)
 		buffer.prompt[i] = 0;
 	buffer.parameter = 0.0;
@@ -114,47 +113,24 @@ bool GetUSARTMessage()
 		{
 			reset = 1;
 			retval = 1;
-			//buffer.received_bytes = strlen(buffer.prompt) - 1;
 		}
 	}
 	return retval;
 	}
 
-void ParsePrompt(){
-
-//	int i;
-//	    // Find the first non-terminating zero character
-//	    for (i = 0; buffer.prompt[i] != '\0'; i++) {
-//	        if (buffer.prompt[i] == '\0' && i != 0) {
-//	            break;
-//	        }
-//	    }
-//
-//	    // Shift the string to the beginning if a non-terminating zero character is found
-//	    if (i > 0) {
-//	        int j;
-//	        for (j = 0; buffer.prompt[i + j] != '\0'; j++) {
-//	            buffer.prompt[j] = buffer.prompt[i + j];
-//	        }
-//	        buffer.prompt[j+1] = '\0';
-//	    }
-
+void ParsePrompt()
+{
 	char* colonPtr = strchr(buffer.prompt, ':');  // Find the first occurrence of ":"
 
 	    if (colonPtr != NULL) {
 	        *colonPtr = '\0';  // Truncate the string at ":"
-	        //buffer.received_bytes = colonPtr - buffer.prompt;
 	        char* numberString = colonPtr + 1;
 	        buffer.parameter = atof(numberString);
-	    } else {
-	    	//buffer.received_bytes = strlen(buffer.prompt);
 	    }
-
 }
 
 void ClearBuffer()
 {
-	//buffer.received_bytes = 0;
 	buffer.parameter = 0;
 	for(int i = 0; i < rx_buffer_size; i++)
 		buffer.prompt[i] = '\0';

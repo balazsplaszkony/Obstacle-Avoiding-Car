@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../drivers/fsl_acomp.c \
 ../drivers/fsl_adc.c \
 ../drivers/fsl_capt.c \
 ../drivers/fsl_clock.c \
@@ -19,6 +20,7 @@ C_SRCS += \
 ../drivers/fsl_usart.c 
 
 C_DEPS += \
+./drivers/fsl_acomp.d \
 ./drivers/fsl_adc.d \
 ./drivers/fsl_capt.d \
 ./drivers/fsl_clock.d \
@@ -34,6 +36,7 @@ C_DEPS += \
 ./drivers/fsl_usart.d 
 
 OBJS += \
+./drivers/fsl_acomp.o \
 ./drivers/fsl_adc.o \
 ./drivers/fsl_capt.o \
 ./drivers/fsl_clock.o \
@@ -61,7 +64,7 @@ drivers/%.o: ../drivers/%.c drivers/subdir.mk
 clean: clean-drivers
 
 clean-drivers:
-	-$(RM) ./drivers/fsl_adc.d ./drivers/fsl_adc.o ./drivers/fsl_capt.d ./drivers/fsl_capt.o ./drivers/fsl_clock.d ./drivers/fsl_clock.o ./drivers/fsl_common.d ./drivers/fsl_common.o ./drivers/fsl_common_arm.d ./drivers/fsl_common_arm.o ./drivers/fsl_ctimer.d ./drivers/fsl_ctimer.o ./drivers/fsl_gpio.d ./drivers/fsl_gpio.o ./drivers/fsl_mrt.d ./drivers/fsl_mrt.o ./drivers/fsl_power.d ./drivers/fsl_power.o ./drivers/fsl_reset.d ./drivers/fsl_reset.o ./drivers/fsl_sctimer.d ./drivers/fsl_sctimer.o ./drivers/fsl_swm.d ./drivers/fsl_swm.o ./drivers/fsl_usart.d ./drivers/fsl_usart.o
+	-$(RM) ./drivers/fsl_acomp.d ./drivers/fsl_acomp.o ./drivers/fsl_adc.d ./drivers/fsl_adc.o ./drivers/fsl_capt.d ./drivers/fsl_capt.o ./drivers/fsl_clock.d ./drivers/fsl_clock.o ./drivers/fsl_common.d ./drivers/fsl_common.o ./drivers/fsl_common_arm.d ./drivers/fsl_common_arm.o ./drivers/fsl_ctimer.d ./drivers/fsl_ctimer.o ./drivers/fsl_gpio.d ./drivers/fsl_gpio.o ./drivers/fsl_mrt.d ./drivers/fsl_mrt.o ./drivers/fsl_power.d ./drivers/fsl_power.o ./drivers/fsl_reset.d ./drivers/fsl_reset.o ./drivers/fsl_sctimer.d ./drivers/fsl_sctimer.o ./drivers/fsl_swm.d ./drivers/fsl_swm.o ./drivers/fsl_usart.d ./drivers/fsl_usart.o
 
 .PHONY: clean-drivers
 
